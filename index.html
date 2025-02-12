@@ -18,7 +18,7 @@
       name="description"
       content="This is a Restaurant html template made by Lenox"
     />
-    <link rel="icon" href="assets/images/favicon.webp" type="image/x-icon" />
+    <link rel="icon" href="assets/images/gold_logo_page-0001-removebg-preview.png" type="image/x-icon" />
 
     <!-- 
     - favicon
@@ -166,19 +166,30 @@
 
     <header class="header" data-header>
       <div class="container">
-        <a
-          href="#"
-          class="logo"
-          style="text-decoration: none; display: flex; align-items: center"
-        >
-          <i
-            class="fas fa-gem"
-            style="color: #f5deb3; font-size: 3rem; margin-right: 10px"
-          ></i>
-          <span style="font-size: 2rem; color: #f5deb3"
-            >TukutaneKenyaSafaris</span
-          >
-        </a>
+        <a href="#" style="text-decoration: none; display: flex; align-items: center">
+  <img 
+    src="assets/images/gold_logo_page-0001-removebg-preview.png" 
+    alt="logo" 
+    style="width: 100px; height: auto; margin-right: 10px;"
+  >
+  <span style="font-size: 2rem; color: #f5deb3; margin-left: 10px; animation: fadeIn 1.5s ease-in-out;">
+    TukutaneKenyaSafaris
+  </span>
+</a>
+
+<style>
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
 
         <nav class="navbar" data-navbar>
           <button class="close-btn" aria-label="close menu" data-nav-toggler>
