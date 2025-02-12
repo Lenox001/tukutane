@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+    <!-- 
+    - primary meta tags
+  -->
+    <title>TukutaneKenyaSafaris</title>
+    <meta name="title" content="Grilli - Amazing & Delicious Food" />
+    <meta
+      name="description"
+      content="This is a Restaurant html template made by Lenox"
+    />
+    <link rel="icon" href="assets/images/favicon.webp" type="image/x-icon" />
+
+    <!-- 
+    - favicon
+    
+  -->
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+    - preload images
+  -->
+    <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg" />
+    <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg" />
+    <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg" />
+  </head>
+
+  <body id="top">
+    <!-- 
+    - #PRELOADER
+  -->
+
+    <div
+      class="preload"
+      data-preaload
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #2c3e50;
+      "
+    >
+      <div
+        class="circle"
+        style="
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #e74c3c;
+          animation: bounce 1.5s infinite;
+        "
+      ></div>
+      <p
+        class="text"
+        style="
+          font-family: 'Arial', sans-serif;
+          font-size: 24px;
+          font-weight: bold;
+          color: #ecf0f1;
+          margin-top: 20px;
+          animation: fadeIn 2s ease-in-out;
+        "
+      >
+        Home of Divine
+      </p>
+    </div>
+
+    <!-- Add this style block to the same HTML file -->
+    <style>
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- 
+    - #TOP BAR
+  -->
+
+    <div class="topbar">
+      <div class="container">
+        <address class="topbar-item">
+          <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Nairobi City,KE </span>
+        </address>
+
+        <div class="separator"></div>
+
+        <div class="topbar-item item-2">
+          <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Daily : 6.00 am to 11.00 pm</span>
+        </div>
+
+        <a href="tel:+254759603214" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Give Us A Call</span>
+        </a>
+
+        <div class="separator"></div>
+
+        <a href="mailto:wawireangela6@gmail.com" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Email Us</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+      <div class="container">
+        <a
+          href="#"
+          class="logo"
+          style="text-decoration: none; display: flex; align-items: center"
+        >
+          <i
+            class="fas fa-gem"
+            style="color: #f5deb3; font-size: 3rem; margin-right: 10px"
+          ></i>
+          <span style="font-size: 2rem; color: #f5deb3"
+            >TukutaneKenyaSafaris</span
+          >
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <button class="close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="#" class="navbar-link hover-underline active">
+                <div class="separator"></div>
+
+                <span class="span">Home</span>
+              </a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#" class="navbar-link hover-underline">
+                <div class="separator"></div>
+
+                <span class="span">Destinations</span>
+              </a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#" class="navbar-link hover-underline">
+                <div class="separator"></div>
+
+                <span class="span">About Us</span>
+              </a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#" class="navbar-link hover-underline">
+                <div class="separator"></div>
+
+                <span class="span">Safaris&Packages</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <p class="headline-1 navbar-title">Visit Us</p>
+
+            <address class="body-4">University Way,Nairobi</address>
+
+            <p class="body-4 navbar-text">Open: 6.00 to 11pm</p>
+
+            <a href="mailto:booking@grilli.com" class="body-4 sidebar-link"
+              >wawireangela6@gmail.com</a
+            >
+
+            <div class="separator"></div>
+
+            <a
+              href="tel:+254759603214"
+              class="body-1 contact-number hover-underline"
+            >
+              Call
+            </a>
+          </div>
+        </nav>
+
+        <a
+          href="https://wa.me/254759603214?text=Hello%2C%20I%20would%20like%20to%20make%20a%20custom%20order."
+          class="btn btn-secondary"
+        >
+          <span class="text text-1">Custom Order?</span>
+
+          <span class="text text-2" aria-hidden="true"> Custom Order?</span>
+        </a>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+      -->
+
+        <section class="hero text-center" aria-label="home" id="home">
+          <ul class="hero-slider" data-hero-slider>
+            <li class="slider-item active" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-1.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Discover the World
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Explore the Beauty of <br />
+  Unforgettable Adventures
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Embark on breathtaking journeys and create lasting memories with Us!.
+</p>
+
+<a href="#destinations" class="btn btn-primary slider-reveal">
+  <span class="text text-1">Explore Destinations</span>
+</a>
+
+
+                
+                
+              </a>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-2.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+             <p class="label-2 section-subtitle slider-reveal">
+  Unforgettable Journeys
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Unique & Personalized Adventures
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Experience tailor-made tours that showcase breathtaking destinations and rich cultures.
+</p>
+
+<a href="#destinations" class="btn btn-primary slider-reveal">
+  <span class="text text-1">Explore Tours</span>
+</a>
+
+
+               
+              </a>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-3.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Curated Travel Experiences
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Where Every Journey <br />
+  Tells a Story
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Indulge in the beauty of handpicked destinations and unforgettable adventures tailored just for you.
+</p>
+
+<a href="#destinations" class="btn btn-primary slider-reveal">
+  <span class="text text-1">Start Your Journey</span>
+</a>
+
+
+               
+              </a>
+            </li>
+          </ul>
+
+          <button
+            class="slider-btn prev"
+            aria-label="slide to previous"
+            data-prev-btn
+          >
+            <ion-icon name="chevron-back"></ion-icon>
+          </button>
+
+          <button
+            class="slider-btn next"
+            aria-label="slide to next"
+            data-next-btn
+          >
+            <ion-icon name="chevron-forward"></ion-icon>
+          </button>
+
+          <a
+            href="#"
+            class="hero-btn has-after"
+            style="display: flex; align-items: center"
+          >
+            <i
+              class="fas fa-paw"
+              style="font-size: 2rem; margin-right: 8px"
+            ></i>
+            <span class="label-2 text-center span">Make Your Order</span>
+          </a>
+        </section>
+
+        <!-- 
+        - #SERVICE
+      -->
+
+        <section
+          class="section service bg-black-10 text-center"
+          aria-label="service"
+        >
+          <div class="container">
+  <p class="section-subtitle label-2">Unforgettable Adventures</p>
+
+  <h2 class="headline-1 section-title">
+    Explore Breathtaking Destinations with Tukutane Kenya Safaris
+  </h2>
+
+  <p class="section-text">
+    Tukutane Kenya Safaris offers expertly curated travel experiences that 
+    immerse you in the beauty of nature, wildlife, and culture. Embark on 
+    unforgettable journeys that leave lasting memories.
+  </p>
+            <ul class="grid-list">
+              <li>
+                <div class="service-card">
+                  <a href="#" class="has-before hover:shine">
+                    <figure
+                      class="card-banner img-holder"
+                      style="--width: 285; --height: 336"
+                    >
+                      <img
+                        src="./assets/images/service-1.jpg"
+                        width="285"
+                        height="336"
+                        loading="lazy"
+                        alt="Breakfast"
+                        class="img-cover"
+                      />
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">Amboseli</a>
+                    </h3>
+
+                    <a href="#menu" class="btn-text hover-underline label-2"
+                      >Safari Packages</a
+                    >
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="#" class="has-before hover:shine">
+                    <figure
+                      class="card-banner img-holder"
+                      style="--width: 285; --height: 336"
+                    >
+                      <img
+                        src="./assets/images/service-2.jpg"
+                        width="285"
+                        height="336"
+                        loading="lazy"
+                        alt="Appetizers"
+                        class="img-cover"
+                      />
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">The Great Mara</a>
+                    </h3>
+
+                    <a href="#menu" class="btn-text hover-underline label-2"
+                      >Book A Visit</a
+                    >
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="#" class="has-before hover:shine">
+                    <figure
+                      class="card-banner img-holder"
+                      style="--width: 285; --height: 336"
+                    >
+                      <img
+                        src="./assets/images/service-3.jpg"
+                        width="285"
+                        height="336"
+                        loading="lazy"
+                        alt="Drinks"
+                        class="img-cover"
+                      />
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">Lake Nakuru</a>
+                    </h3>
+
+                    <a href="#menu" class="btn-text hover-underline label-2"
+                      >And So Much More</a
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <img
+              src="./assets/images/shape-1.png"
+              width="246"
+              height="412"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-1 move-anim"
+            />
+            <img
+              src="./assets/images/shape-2.png"
+              width="343"
+              height="345"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-2 move-anim"
+            />
+          </div>
+        </section>
+
+        <!-- 
+        - #ABOUT
+      -->
+
+        <section
+          class="section about text-center"
+          aria-labelledby="about-label"
+          id="about"
+        >
+          <div class="container">
+            <div class="about-content">
+              <p class="label-2 section-subtitle" id="about-label">Our Story</p>
+
+              <h2 class="headline-1 section-title">
+                Every Safari Tells a Story
+              </h2>
+
+              <p class="section-text">
+                
+
+Tukutane Kenya Safaris is your ultimate partner for an unforgettable safari experience. With a commitment to professionalism and customer satisfaction, we go above and beyond to exceed your expectations.
+
+Embark on a journey with us and explore Kenya’s breathtaking landscapes, diverse wildlife, and stunning sceneries. Let us turn your travel dreams into reality!
+              </p>
+
+              <div class="contact-label">Book Through Call</div>
+
+              <a
+                href="tel:+804001234567"
+                class="body-1 contact-number hover-underline"
+                >+254759603214</a
+              >
+
+              <a href="#" class="btn btn-primary">
+                <span class="text text-1">Read More</span>
+
+                <span class="text text-2" aria-hidden="true">Read More</span>
+              </a>
+            </div>
+
+            <figure class="about-banner">
+              <img
+                src="./assets/images/about-banner.jpg"
+                width="570"
+                height="570"
+                loading="lazy"
+                alt="about banner"
+                class="w-100"
+                data-parallax-item
+                data-parallax-speed="1"
+              />
+
+              <div
+                class="abs-img abs-img-1 has-before"
+                data-parallax-item
+                data-parallax-speed="1.75"
+              >
+                <img
+                  src="./assets/images/about-abs-image.jpg"
+                  width="285"
+                  height="285"
+                  loading="lazy"
+                  alt=""
+                  class="w-100"
+                />
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <!-- 
+        - #SPECIAL DISH
+      -->
+
+        <section class="special-dish text-center" aria-labelledby="dish-label">
+          <div class="special-dish-banner">
+            <img
+              src="./assets/images/special offer.png"
+              width="940"
+              height="900"
+              loading="lazy"
+              alt="special dish"
+              class="img-cover"
+            />
+          </div>
+
+          <div class="special-dish-content bg-black-10">
+            <div class="container">
+              <img
+                src="./assets/images/badge-1.png"
+                width="28"
+                height="41"
+                loading="lazy"
+                alt="badge"
+                class="abs-img"
+              />
+
+              <p class="section-subtitle label-2">Special Offer</p>
+
+              <h2 class="headline-1 section-title">Beach Visits!!</h2>
+
+              <p class="section-text" style="font-size: 1.5rem; font-weight: bold; color: #ff5733; text-transform: uppercase; text-align: center;">
+  🌴 Beach Visits 50% Off – Experience Paradise at Half the Price! 🌊
+</p>
+
+              <div class="wrapper">
+                <del class="del body-3">$150.00</del>
+
+                <span class="span body-1">$75.00</span>
+              </div>
+
+              <a href="#menu" class="btn btn-primary">
+                <span class="text text-1">View All </span>
+
+                <span class="text text-2" aria-hidden="true">View All</span>
+              </a>
+            </div>
+          </div>
+
+          <img
+            src="./assets/images/shape-4.png"
+            width="179"
+            height="359"
+            loading="lazy"
+            alt=""
+            class="shape shape-1"
+          />
+
+          <img
+            src="./assets/images/shape-9.png"
+            width="351"
+            height="462"
+            loading="lazy"
+            alt=""
+            class="shape shape-2"
+          />
+        </section>
+
+        <!-- 
+        - #MENU
+      -->
+
+        <section class="section menu" aria-label="menu-label" id="menu">
+          <div class="container">
+            <p class="section-subtitle text-center label-2">
+              Packages
+            </p>
+
+            <h2 class="headline-1 section-title text-center">Our Collection</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="width: 80px; height: 80px"
+                  >
+                    <img
+                      src="./assets/images/menu-1.png"
+                      width="80"
+                      height="80"
+                      loading="lazy"
+                      alt="Woolen Tote Bag"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div>
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a href="#" class="card-title">8-Days, 7-Nights: Bike Trekking Adventure {Nairobi- Kisumu}</a>
+                      </h3>
+
+                      <span class="badge label-1">New</span>
+
+                      <span class="span title-2">$75.00</span>
+                    </div>
+
+                    <p class="card-text label-1">
+                      This safari is perfect for adventure enthusiasts, cyclists, and nature lovers looking for a thrilling and immersive experience in Kenya
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="menu-card hover:card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="width: 80px; height: 80px"
+                  >
+                    <img
+                      src="./assets/images/menu-2.png"
+                      width="80"
+                      height="80"
+                      loading="lazy"
+                      alt="Silk Scarf"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div>
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a href="#" class="card-title">10 Days of Wild Beauty & Cultural Discovery</a>
+                      </h3>
+
+                      <span class="span title-2">$40.00</span>
+                    </div>
+
+                    <p class="card-text label-1">
+                     Enjoy 10days of breathtaking beauty of Kenya's wildlife, desert landscapes, cultural diversity, and natural wonders while enjoying comfortable accommodations and expert guidance in the northern part of Kenya: Nanyuki, Samburu, Marsabit all the way to Nyahururu Thompson Falls.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="menu-card hover:card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="width: 80px; height: 80px"
+                  >
+                    <img
+                      src="./assets/images/menu-3.png"
+                      width="80"
+                      height="80"
+                      loading="lazy"
+                      alt="beaded tops"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div>
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a href="#" class="card-title">Breathtaking 7-Day Adventure</a>
+                      </h3>
+
+                      <span class="span title-2">$25.00</span>
+                    </div>
+
+                    <p class="card-text label-1">
+                     From the rolling savannahs of Maasai Mara to the scenic shores of Lake Naivasha, and the majestic views of Mount Kilimanjaro in Amboseli, this safari offers unforgettable experiences with close encounters of Africa's Big Five and vibrant cultures.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="menu-card hover:card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="width: 80px; height: 80px"
+                  >
+                    <img
+                      src="./assets/images/menu-4.png"
+                      width="80"
+                      height="80"
+                      loading="lazy"
+                      alt="Woven Handbag"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div>
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a href="#" class="card-title">4-Day, 3-Night Maasai Mara Wilderness Safari</a>
+                      </h3>
+
+                      <span class="badge label-1">New</span>
+
+                      <span class="span title-2">$55.00</span>
+                    </div>
+
+                    <p class="card-text label-1">
+                     Witness breathtaking landscapes, interact with the vibrant Maasai community, and immerse yourself in the beauty of the African bush
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              
+            </ul>
+
+            <p class="menu-text text-center">
+              Available daily from <span class="span">6:00 am</span> to
+              <span class="span">11:00 pm</span>
+            </p>
+
+            <a
+              href="https://wa.me/254759603214?text=Hello%2C%20I%20would%20like%20to%20make%20a%20custom%20order."
+              class="btn btn-primary"
+            >
+              <span class="text text-1">View More</span>
+
+              <span class="text text-2" aria-hidden="true"
+                >View All Products</span
+              >
+            </a>
+
+            <img
+              src="./assets/images/shape-5.png"
+              width="921"
+              height="1036"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-2 move-anim"
+            />
+            <img
+              src="./assets/images/shape-6.png"
+              width="343"
+              height="345"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-3 move-anim"
+            />
+          </div>
+        </section>
+
+        <!-- 
+        - #TESTIMONIALS
+      -->
+
+        <section
+          class="section testi text-center has-bg-image"
+          style="background-color: rgb(8, 8, 9)"
+          aria-label="testimonials"
+        >
+          <div class="container">
+            <div class="quote">”</div>
+
+           <p class="headline-2 testi-text">
+  My trip with Tukutane Kenya Safaris was unforgettable! The breathtaking views, expert guides, and seamless experience made it a journey of a lifetime.
+</p>
+
+
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+
+            <div class="profile">
+              <img
+                src="./assets/images/testi-avatar.jpg"
+                width="100"
+                height="100"
+                loading="lazy"
+                alt="Alex Johnson"
+                class="img"
+              />
+
+              <p class="label-2 profile-name">Maria Duplantis</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- 
+        - #FEATURES
+      -->
+
+        
+
+        <!-- 
+        - #EVENT
+      -->
+        
+      </article>
+    </main>
+
+   
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
