@@ -16,7 +16,7 @@
     <meta name="title" content="Best Safaris Kenya" />
     <meta
       name="description"
-      content="This is a Restaurant html template made by Lenox"
+      content="This is a  html template made by Lenox"
     />
     <link rel="icon" href="assets/images/gold_logo_page-0001-removebg-preview.png" type="image/x-icon" />
 
@@ -172,10 +172,77 @@
     alt="logo" 
     style="width: 100px; height: auto; margin-right: 10px;"
   >
-  <span style="font-size: 2rem; color: #f5deb3; margin-left: 10px; animation: fadeIn 1.5s ease-in-out;">
-    TukutaneKenyaSafaris
-  </span>
-</a>
+  <style>
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #f5deb3, 0 0 10px #ffebcd;
+    }
+    50% {
+      text-shadow: 0 0 15px #f5deb3, 0 0 30px #ffebcd;
+    }
+    100% {
+      text-shadow: 0 0 5px #f5deb3, 0 0 10px #ffebcd;
+    }
+  }
+
+  .animated-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    display: inline-block;
+    animation: fadeIn 1.5s ease-in-out, glow 2s infinite alternate;
+  }
+
+  .animated-letter:nth-child(1) { color: #ff5733; } /* Red */
+  .animated-letter:nth-child(2) { color: #ffa500; } /* Orange */
+  .animated-letter:nth-child(3) { color: #ffeb3b; } /* Yellow */
+  .animated-letter:nth-child(4) { color: #4caf50; } /* Green */
+  .animated-letter:nth-child(5) { color: #2196f3; } /* Blue */
+  .animated-letter:nth-child(6) { color: #9c27b0; } /* Purple */
+  .animated-letter:nth-child(7) { color: #ff1493; } /* Pink */
+  .animated-letter:nth-child(8) { color: #8b4513; } /* Brown */
+  .animated-letter:nth-child(9) { color: #00ced1; } /* Turquoise */
+  .animated-letter:nth-child(10) { color: #ff4500; } /* Dark Orange */
+  .animated-letter:nth-child(11) { color: #4682b4; } /* Steel Blue */
+  .animated-letter:nth-child(12) { color: #9400d3; } /* Dark Violet */
+  .animated-letter:nth-child(13) { color: #2e8b57; } /* Sea Green */
+  .animated-letter:nth-child(14) { color: #ffd700; } /* Gold */
+  .animated-letter:nth-child(15) { color: #dc143c; } /* Crimson */
+</style>
+
+<span>
+  <span class="animated-letter">T</span>
+  <span class="animated-letter">u</span>
+  <span class="animated-letter">k</span>
+  <span class="animated-letter">u</span>
+  <span class="animated-letter">t</span>
+  <span class="animated-letter">a</span>
+  <span class="animated-letter">n</span>
+  <span class="animated-letter">e</span>
+  <span class="animated-letter">K</span>
+  <span class="animated-letter">e</span>
+  <span class="animated-letter">n</span>
+  <span class="animated-letter">y</span>
+  <span class="animated-letter">a</span>
+  <span class="animated-letter">S</span>
+  <span class="animated-letter">a</span>
+  <span class="animated-letter">f</span>
+  <span class="animated-letter">a</span>
+  <span class="animated-letter">r</span>
+  <span class="animated-letter">i</span>
+  <span class="animated-letter">s</span>
+</span>
+
 
 <style>
   @keyframes fadeIn {
@@ -206,7 +273,7 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#destinations" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Destinations</span>
@@ -214,7 +281,7 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">About Us</span>
@@ -222,7 +289,7 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#safaris" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Safaris&Packages</span>
@@ -233,18 +300,18 @@
           <div class="text-center">
             <p class="headline-1 navbar-title">Visit Us</p>
 
-            <address class="body-4">University Way,Nairobi</address>
+            <address class="body-4">Nairobi</address>
 
             <p class="body-4 navbar-text">Open: 6.00 to 11pm</p>
 
-            <a href="mailto:booking@grilli.com" class="body-4 sidebar-link"
+            <a href="mailto:booki@rilli.com" class="body-4 sidebar-link"
               >w55@gmail.com</a
             >
 
             <div class="separator"></div>
 
             <a
-              href="tel:+254759603214"
+              href="tel:+25475214"
               class="body-1 contact-number hover-underline"
             >
               Call
@@ -258,7 +325,7 @@
         >
           <span class="text text-1">Make A Booking!?</span>
 
-          <span class="text text-2" aria-hidden="true"> Custom Order?</span>
+          <span class="text text-2" aria-hidden="true"> Bookings?</span>
         </a>
 
         <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
@@ -404,7 +471,7 @@
               class="fas fa-paw"
               style="font-size: 2rem; margin-right: 8px"
             ></i>
-            <span class="label-2 text-center span">Make Your Order</span>
+            <span class="label-2 text-center span">Make Your Bookings</span>
           </a>
         </section>
 
@@ -645,12 +712,12 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 </p>
 
               <div class="wrapper">
-                <del class="del body-3">$150.00</del>
+                <del class="del body-3">$</del>
 
-                <span class="span body-1">$75.00</span>
+                <span class="span body-1">$</span>
               </div>
 
-              <a href="#menu" class="btn btn-primary">
+              <a href="#safaris" class="btn btn-primary">
                 <span class="text text-1">View All </span>
 
                 <span class="text text-2" aria-hidden="true">View All</span>
@@ -667,21 +734,15 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
             class="shape shape-1"
           />
 
-          <img
-            src="./assets/images/shape-9.png"
-            width="351"
-            height="462"
-            loading="lazy"
-            alt=""
-            class="shape shape-2"
-          />
+         
         </section>
 
         <!-- 
         - #MENU
       -->
 
-        <section class="section menu" aria-label="menu-label" id="menu">
+        <section class="section menu" aria-label="menu-label" id="safaris">
+
           <div class="container">
             <p class="section-subtitle text-center label-2">
               Packages
@@ -714,7 +775,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
                       <span class="badge label-1">New</span>
 
-                      <span class="span title-2">$75.00</span>
+                      <span class="span title-2">$</span>
                     </div>
 
                     <p class="card-text label-1">
@@ -746,7 +807,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
                         <a href="#" class="card-title">10 Days of Wild Beauty & Cultural Discovery</a>
                       </h3>
 
-                      <span class="span title-2">$40.00</span>
+                      <span class="span title-2">$</span>
                     </div>
 
                     <p class="card-text label-1">
@@ -778,7 +839,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
                         <a href="#" class="card-title">Breathtaking 7-Day Adventure</a>
                       </h3>
 
-                      <span class="span title-2">$25.00</span>
+                      <span class="span title-2">$</span>
                     </div>
 
                     <p class="card-text label-1">
@@ -812,7 +873,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
                       <span class="badge label-1">New</span>
 
-                      <span class="span title-2">$55.00</span>
+                      <span class="span title-2">$</span>
                     </div>
 
                     <p class="card-text label-1">
@@ -831,10 +892,10 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
             </p>
 
             <a
-              href="#"
+              href="#destinations"
               class="btn btn-primary"
             >
-              <span class="text text-1">View More</span>
+              <span class="text text-1">View Destinations</span>
 
               <span class="text text-2" aria-hidden="true"
                 >View All Products</span
@@ -901,6 +962,322 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         <!-- 
         - #FEATURES
       -->
+<section class="reservation" id="contact">
+          <div class="container">
+            <div class="form reservation-form bg-black-10">
+              <form action="" class="form-left">
+  <h2 class="headline-1 text-center">Book Your Safari Adventure</h2>
+
+  <p class="form-text text-center">
+    Need assistance? Call us at
+    <a href="tel:+25471234567" class="link">+25471234567</a>
+    or fill out the form below to book your trip.
+  </p>
+
+  <div class="input-wrapper">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      autocomplete="off"
+      class="input-field"
+    />
+
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+      autocomplete="off"
+      class="input-field"
+    />
+  </div>
+
+  <div class="input-wrapper">
+    <div class="icon-wrapper">
+      <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+
+      <select name="destination" class="input-field">
+        <option value="maasai-mara">Maasai Mara</option>
+        <option value="amboseli">Amboseli National Park</option>
+        <option value="tsavo">Tsavo National Park</option>
+        <option value="lake-nakuru">Lake Nakuru National Park</option>
+        <option value="samburu">Samburu National Reserve</option>
+      </select>
+
+      <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+    </div>
+
+    <div class="icon-wrapper">
+      <ion-icon name="briefcase-outline" aria-hidden="true"></ion-icon>
+
+      <select name="tour-package" class="input-field">
+        <option value="budget">Budget Safari</option>
+        <option value="luxury">Luxury Safari</option>
+        <option value="family">Family Safari</option>
+        <option value="honeymoon">Honeymoon Safari</option>
+        <option value="adventure">Adventure Safari</option>
+      </select>
+
+      <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+    </div>
+
+    <div class="icon-wrapper">
+      <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
+
+      <input type="date" name="trip-date" class="input-field" />
+
+      <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+    </div>
+
+    <div class="icon-wrapper">
+      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+      <select name="preferred-time" class="input-field">
+        <option value="6:00am">6:00 AM - Sunrise Safari</option>
+        <option value="10:00am">10:00 AM - Morning Safari</option>
+        <option value="3:00pm">3:00 PM - Afternoon Safari</option>
+        <option value="7:00pm">7:00 PM - Night Safari</option>
+      </select>
+
+      <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+    </div>
+  </div>
+
+  <textarea
+    name="message"
+    placeholder="Additional Requests (e.g., special meals, private guide)"
+    autocomplete="off"
+    class="input-field"
+  ></textarea>
+
+  <button
+    type="button"
+    class="btn btn-secondary"
+    onclick="window.location.href='https://wa.me/254759603214?text=Hello%2C%20I%20would%20like%20to%20book%20a%20safari.'"
+  >
+    <span class="text text-1">Book Safari</span>
+    <span class="text text-2" aria-hidden="true">Book Safari</span>
+  </button>
+</form>
+
+
+              <div
+                class="form-right text-center"
+                style="
+                  background-image: url('./assets/images/form-pattern.png');
+                "
+              >
+                <h2 class="headline-1 text-center">Contact Us</h2>
+
+                <p class="contact-label">Order Inquiry</p>
+
+                <a
+                  href="tel:+88123123456"
+                  class="body-1 contact-number hover-underline"
+                >
+                  +254759986
+                </a>
+
+                <div class="separator"></div>
+
+                <p class="contact-label">Location</p>
+
+                <address class="body-4">Nairobi,KE</address>
+
+                <p class="contact-label">Working Hours</p>
+
+                <p class="body-4">
+                  Monday to Saturday <br />
+                  6:00 AM - 11:00 PM
+                </p>
+
+                <p class="contact-label">Sundays</p>
+
+                <p class="body-4">Closed</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 
+        - #FEATURES
+      -->
+
+       <section class="section features text-center" aria-label="features">
+    <div class="container">
+        <p class="section-subtitle label-2">Why Choose Us</p>
+
+        <h2 class="headline-1 section-title">Experience the Best Safari Adventures</h2>
+
+        <ul class="grid-list">
+            <li class="feature-item">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-binoculars" style="font-size: 80px; color: #444"></i>
+                    </div>
+
+                    <h3 class="title-2 card-title">Unmatched Wildlife Encounters</h3>
+
+                    <p class="label-1 card-text">
+                        Get up close with the Big Five in their natural habitat across Kenya’s top reserves.
+                    </p>
+                </div>
+            </li>
+
+            <li class="feature-item">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tree" style="font-size: 80px; color: #444"></i>
+                    </div>
+
+                    <h3 class="title-2 card-title">Scenic Landscapes</h3>
+
+                    <p class="label-1 card-text">
+                        Explore breathtaking savannas, lush forests, and scenic mountains that define African beauty.
+                    </p>
+                </div>
+            </li>
+
+            <li class="feature-item">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-campground" style="font-size: 80px; color: #444"></i>
+                    </div>
+
+                    <h3 class="title-2 card-title">Luxury & Budget Safari Camps</h3>
+
+                    <p class="label-1 card-text">
+                        Stay in comfortable lodges or adventurous tented camps, tailored to your needs.
+                    </p>
+                </div>
+            </li>
+
+            <li class="feature-item">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-plane" style="font-size: 80px; color: #444"></i>
+                    </div>
+
+                    <h3 class="title-2 card-title">Tailored Safari Packages</h3>
+
+                    <p class="label-1 card-text">
+                        From solo travelers to family getaways, we customize safaris to match your dream adventure.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<section id="destinations" class="section destinations bg-black-10" aria-label="destinations">
+    <div class="container">
+        <p class="section-subtitle label-2 text-center">Explore East Africa</p>
+
+        <h2 class="section-title headline-1 text-center">
+            Top Safari Destinations
+        </h2>
+
+        <ul class="grid-list">
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/maasai-mara.jpg" width="350" height="450" loading="lazy"
+                            alt="Maasai Mara National Reserve" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Wildlife Safari</p>
+                        <h3 class="card-title title-2 text-center">Maasai Mara, Kenya</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/serengeti.jpg" width="350" height="450" loading="lazy"
+                            alt="Serengeti National Park" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Luxury Safari</p>
+                        <h3 class="card-title title-2 text-center">Serengeti, Tanzania</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/amboseli.jpg" width="350" height="450" loading="lazy"
+                            alt="Amboseli National Park" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Scenic Safari</p>
+                        <h3 class="card-title title-2 text-center">Amboseli, Kenya</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/tsavo.jpg" width="350" height="450" loading="lazy"
+                            alt="Tsavo National Park" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Wilderness Safari</p>
+                        <h3 class="card-title title-2 text-center">Tsavo, Kenya</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/samburu.jpg" width="350" height="450" loading="lazy"
+                            alt="Samburu National Reserve" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Cultural Safari</p>
+                        <h3 class="card-title title-2 text-center">Samburu, Kenya</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/mount-kenya.jpg" width="350" height="450" loading="lazy"
+                            alt="Mount Kenya National Park" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Mountain Trek</p>
+                        <h3 class="card-title title-2 text-center">Mount Kenya, Kenya</h3>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="event-card has-before hover:shine">
+                    <div class="card-banner img-holder" style="--width: 350; --height: 450">
+                        <img src="./assets/images/Mount-Kilimajaro-National-Park-760x450.png" width="350" height="450" loading="lazy"
+                            alt="Mount Kilimanjaro" class="img-cover" />
+                    </div>
+
+                    <div class="card-content">
+                        <p class="card-subtitle label-2 text-center">Trekking Adventure</p>
+                        <h3 class="card-title title-2 text-center">Mount Kilimanjaro, Tanzania</h3>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
 
         
 
@@ -910,8 +1287,141 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         
       </article>
     </main>
+    
+   
+    <footer
+      class="footer section has-bg-image text-center"
+      style="background-image: url('./assets/images/footer-bg.jpg')"
+    >
+      <div class="container">
+        <div class="footer-top grid-list">
+          <div class="footer-brand has-before has-after">
+            <a
+              href="#"
+              class="logo"
+              style="text-decoration: none; display: flex; align-items: center"
+            >
+              <i
+                class="fas fa-gem"
+                style="color: #f5deb3; font-size: 3rem; margin-right: 10px"
+              ></i>
+              <span style="font-size: 2rem; color: #f5deb3"
+                >TukutaneKenyaSafaris</span
+              >
+            </a>
+
+            <address class="body-4">Nairobi</address>
+            <a href="mailto:booki@grilli.com" class="body-4 contact-link"
+              >wawla6@gmail.com</a
+            >
+            <a href="tel:+88123123456" class="body-4 contact-link"
+              >Booking Request: +2542314</a
+            >
+            <p class="body-4">Open: 6:00 am - 11:00 pm</p>
+
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+
+            <p class="title-1">Get News & Offers</p>
+            <p class="label-1">
+              Subscribe & Get Offers <span class="span">25% Off.</span>
+            </p>
+
+            <form action="" class="input-wrapper">
+              <div class="icon-wrapper">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                <input
+                  type="email"
+                  name="email_address"
+                  placeholder="Your email"
+                  autocomplete="off"
+                  class="input-field"
+                />
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="window.location.href='mailto:wla6@gmail.com?subject=I%20would%20like%20to%20subscribe'"
+              >
+                <span class="text text-1">Subscribe</span>
+                <span class="text text-2" aria-hidden="true">Subscribe</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Social Media Links with improved design -->
+          <div class="footer-social-media">
+            <p
+              class="title-2"
+              style="color: #f5deb3; font-size: 1.5rem; margin-bottom: 20px"
+            >
+              Follow Us
+            </p>
+            <div
+              class="social-icons"
+              style="display: flex; justify-content: center; gap: 20px"
+            >
+              <a
+                href="https://facebook.com"
+                class="social-icon"
+                style="color: #f5deb3; font-size: 2rem"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a
+                href="https://instagram.com"
+                class="social-icon"
+                style="color: #f5deb3; font-size: 2rem"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://twitter.com"
+                class="social-icon"
+                style="color: #f5deb3; font-size: 2rem"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://wa.me/25
+                style="color: #f5deb3; font-size: 2rem"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">
+            &copy; 2025 TukutaneKenyaSafaris. All Rights Reserved | Crafted by
+            <a href="https://lenoxportfolio.netlify.app" target="_blank" class="link"
+              >Lenox001</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
 
    
+    <!-- 
+    - custom js link
+  -->
+    <a
+      href="#top"
+      class="back-top-btn active"
+      aria-label="back to top"
+      data-back-top-btn
+    >
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+
     <!-- 
     - custom js link
   -->
