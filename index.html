@@ -141,7 +141,7 @@
           <span class="span">Daily : 6.00 am to 11.00 pm</span>
         </div>
 
-        <a href="tel:+254123" class="topbar-item link">
+        <a href="tel:+254722601453" class="topbar-item link">
           <div class="icon">
             <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
           </div>
@@ -151,7 +151,7 @@
 
         <div class="separator"></div>
 
-        <a href="mailto:wantwo3@gmail.com" class="topbar-item link">
+        <a href="mailto:safaristukutanekenya@gmail.com" class="topbar-item link">
           <div class="icon">
             <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
           </div>
@@ -361,14 +361,14 @@
 
             <p class="body-4 navbar-text">Open: 6.00 to 11pm</p>
 
-            <a href="mailto:booki@rilli.com" class="body-4 sidebar-link"
-              >w55@gmail.com</a
+            <a href="mailto:safaristukutanekenya@gmail.com" class="body-4 sidebar-link"
+              >safaristukutanekenya@gmail.com</a
             >
 
             <div class="separator"></div>
 
             <a
-              href="tel:+25475214"
+              href="tel:+2540703363753"
               class="body-1 contact-number hover-underline"
             >
               Call
@@ -523,6 +523,53 @@
 <p class="body-2 hero-text slider-reveal">
   Indulge in the beauty of handpicked destinations and unforgettable adventures tailored just for you.
 </p>
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Start Your Journey</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+
+               
+              </a>
+            </li>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-4.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Exclusive Travel Getaways
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Travel Beyond Destinations, Live the Story"
+</h1>
+
+<p class="body-2 hero-text slider-reveal" style="color: black;">
+  Immerse yourself in handpicked destinations and unique adventures curated to your desires.
+</p>
+
 
 <a href="javascript:void(0);" 
    class="btn btn-primary slider-reveal" 
@@ -784,9 +831,9 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
               <div class="contact-label">Book Through Call</div>
 
               <a
-                href="tel:+804001234567"
+                href="tel:+254703363843"
                 class="body-1 contact-number hover-underline"
-                >+25472234</a
+                >+254703363843</a
               >
 
              <a href="javascript:void(0);" onclick="smoothScroll('safaris');" class="btn btn-primary">
@@ -838,17 +885,23 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
         <section class="special-dish text-center" aria-labelledby="dish-label">
           <div class="special-dish-banner">
-    <img
-  src="./assets/images/special offer.png"
-  width="240px"
-  height="320px"
-  loading="lazy"
-  alt="special dish"
-  class="img-cover"
-  style="margin-left: 10px; margin-right: 10px;"
-/>
+   <a href="#safaris" class="scroll-link">
+  <img 
+    src="./assets/images/special offer.png"
+    width="240px"
+    height="320px"
+    loading="lazy"
+    alt="special dish"
+    class="img-cover"
+    style="margin-left: 20px; margin-right: 10px;"
+  />
+</a>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
   @media (max-width: 600px) {
     .img-cover {
       margin-left: 10px; /* Maintain left margin */
@@ -1223,47 +1276,47 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 <section class="reservation" id="contact">
           <div class="container">
             <div class="form reservation-form bg-black-10">
-             <form action="https://formspree.io/f/xanqdlzg" method="POST" class="form-left" id="safari-form">
+             <form id="safari-form" class="form-left">
   <h2 class="headline-1 text-center">Book Your Safari Adventure</h2>
 
   <p class="form-text text-center">
     Need assistance? Call us at
-    <a href="tel:+25471234567" class="link">+25471234567</a>
+    <a href="tel:+25471234567" class="link">+254703363843</a>
     or fill out the form below to book your trip.
   </p>
 
   <div class="input-wrapper">
-    <input type="text" name="name" placeholder="Your Name" required class="input-field">
-    <input type="tel" name="phone" placeholder="Phone Number" required class="input-field">
+    <input type="text" id="name" placeholder="Your Name" required class="input-field">
+    <input type="tel" id="phone" placeholder="Phone Number" required class="input-field">
   </div>
 
   <div class="input-wrapper">
-    <select name="destination" class="input-field">
-      <option value="maasai-mara">Maasai Mara</option>
-      <option value="amboseli">Amboseli National Park</option>
-      <option value="tsavo">Tsavo National Park</option>
-      <option value="lake-nakuru">Lake Nakuru National Park</option>
-      <option value="samburu">Samburu National Reserve</option>
-      <option value="other">Other Locations</option>
+    <select id="destination" class="input-field">
+      <option value="Maasai Mara">Maasai Mara</option>
+      <option value="Amboseli National Park">Amboseli National Park</option>
+      <option value="Tsavo National Park">Tsavo National Park</option>
+      <option value="Lake Nakuru National Park">Lake Nakuru National Park</option>
+      <option value="Samburu National Reserve">Samburu National Reserve</option>
+      <option value="Other Locations">Other Locations</option>
     </select>
-    
-    <select name="tour-package" class="input-field">
-      <option value="budget">Budget Safari</option>
-      <option value="luxury">Mid Budget</option>
-      <option value="family">Budget</option>
-      
+
+    <select id="tour-package" class="input-field">
+      <option value="Budget Safari">Budget Safari</option>
+      <option value="Mid Budget">Mid Budget</option>
+      <option value="Luxury Safari">Luxury Safari</option>
     </select>
+
+    <input type="date" id="trip-date" class="input-field">
     
-    <input type="date" name="trip-date" class="input-field">
-    <select name="preferred-time" class="input-field">
-      <option value="6:00am">6:00 AM - Sunrise Safari</option>
-      <option value="10:00am">10:00 AM - Morning Safari</option>
-      <option value="3:00pm">3:00 PM - Afternoon Safari</option>
-      <option value="7:00pm">7:00 PM - Night Safari</option>F
+    <select id="preferred-time" class="input-field">
+      <option value="6:00 AM - Sunrise Safari">6:00 AM - Sunrise Safari</option>
+      <option value="10:00 AM - Morning Safari">10:00 AM - Morning Safari</option>
+      <option value="3:00 PM - Afternoon Safari">3:00 PM - Afternoon Safari</option>
+      <option value="7:00 PM - Night Safari">7:00 PM - Night Safari</option>
     </select>
   </div>
 
-  <textarea name="message" placeholder="Custom Tours" class="input-field"></textarea>
+  <textarea id="message" placeholder="Custom Tours" class="input-field"></textarea>
 
   <button type="submit" class="btn btn-secondary">
     <span class="text text-1">Book Safari</span>
@@ -1271,38 +1324,30 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
   </button>
 </form>
 
-<p id="thank-you-message" style="display:none; text-align:center; color:green; font-size:18px; margin-top:10px;">
-  Thank you! Your booking request has been submitted.
-</p>
-
 <script>
   document.getElementById("safari-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    var form = event.target;
-    var formData = new FormData(form);
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var destination = document.getElementById("destination").value;
+    var tourPackage = document.getElementById("tour-package").value;
+    var tripDate = document.getElementById("trip-date").value;
+    var preferredTime = document.getElementById("preferred-time").value;
+    var message = document.getElementById("message").value;
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { "Accept": "application/json" }
-    })
-    .then(response => {
-      if (response.ok) {
-        form.style.display = "none"; // Hide the form
-        document.getElementById("thank-you-message").style.display = "block"; // Show thank you message
-        setTimeout(() => {
-          window.location.href = "index.html"; // Redirect to home after 3 seconds
-        }, 2000);
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      }
-    })
-    .catch(error => {
-      alert("Error submitting the form. Please check your internet connection.");
-    });
+    var whatsappMessage = `Hello! I'd like to book a safari:\n\n` +
+                          `Name: ${name}\nPhone: ${phone}\n` +
+                          `Destination: ${destination}\nTour Package: ${tourPackage}\n` +
+                          `Trip Date: ${tripDate}\nPreferred Time: ${preferredTime}\n` +
+                          `Message: ${message}`;
+
+    var whatsappURL = `https://wa.me/254703363843?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    window.location.href = whatsappURL;
   });
 </script>
+
 
 
 
@@ -1320,7 +1365,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
                   href="tel:+88123123456"
                   class="body-1 contact-number hover-underline"
                 >
-                  +254759986
+                  +2547703363843
                 </a>
 
                 <div class="separator"></div>
@@ -1682,11 +1727,11 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
 
             <address class="body-4">Nairobi</address>
-            <a href="mailto:booki@grilli.com" class="body-4 contact-link"
-              >wawla6@gmail.com</a
+            <a href="mailto:safaristukutanekenya@gmail.com" class="body-4 contact-link"
+              >safaristukutanekenya@gmail.com</a
             >
             <a href="tel:+88123123456" class="body-4 contact-link"
-              >Booking Request: +2542314</a
+              >Booking Request: +254703363843</a
             >
             <p class="body-4">Open: 6:00 am - 11:00 pm</p>
 
@@ -1716,7 +1761,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
               <button
                 type="button"
                 class="btn btn-secondary"
-                onclick="window.location.href='mailto:wla6@gmail.com?subject=I%20would%20like%20to%20subscribe'"
+                onclick="window.location.href='mailto:safaristukutanekenya@gmail.com?subject=I%20would%20like%20to%20subscribe'"
               >
                 <span class="text text-1">Subscribe</span>
                 <span class="text text-2" aria-hidden="true">Subscribe</span>
@@ -1728,7 +1773,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
           <div class="footer-social-media">
             <p
               class="title-2"
-              style="color: #f5deb3; font-size: 1.5rem; margin-bottom: 20px"
+              style="color: #161512; font-size: 1.5rem; margin-bottom: 20px"
             >
               Follow Us
             </p>
@@ -1736,33 +1781,21 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
               class="social-icons"
               style="display: flex; justify-content: center; gap: 20px"
             >
+              
+             
+             <a 
+  href="https://wa.me/254703363843" 
+  style="color: #18ca27; font-size: 2rem;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
               <a
-                href="https://facebook.com"
-                class="social-icon"
-                style="color: #f5deb3; font-size: 2rem"
-              >
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a
-                href="https://instagram.com"
-                class="social-icon"
-                style="color: #f5deb3; font-size: 2rem"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://twitter.com"
-                class="social-icon"
-                style="color: #f5deb3; font-size: 2rem"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://wa.me/25
-                style="color: #f5deb3; font-size: 2rem"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
+  href="https://www.tiktok.com"
+  style="color: #18ca27; font-size: 2rem"
+>
+  <i class="fab fa-tiktok"></i>
+</a>
+
             </div>
           </div>
         </div>
