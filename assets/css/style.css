@@ -999,6 +999,18 @@ body.nav-active { overflow: hidden; }
   background-size: contain;
   animation: rotate360 15s linear infinite;
 }
+.special-dish-banner {
+  max-width: 1040px;
+  max-height: 1020px;
+  overflow: hidden;
+}
+
+.special-dish-banner img {
+  width: 100%; /* Ensures the image fits within the container */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover;
+}
+
 
 
 

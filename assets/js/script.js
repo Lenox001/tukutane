@@ -77,6 +77,17 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
+const navLinks = document.querySelectorAll("[data-navbar] a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("nav-active");
+    document.body.style.overflow = "overlay"; // Restore scrolling
+  });
+});
+
 
 
 
