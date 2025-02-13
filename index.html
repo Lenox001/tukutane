@@ -605,91 +605,133 @@
             <ul class="grid-list">
               <li>
                 <div class="service-card">
-                  <a href="#" class="has-before hover:shine">
-                    <figure
-                      class="card-banner img-holder"
-                      style="--width: 285; --height: 336"
-                    >
-                      <img
-                        src="./assets/images/service-1.jpg"
-                        width="285"
-                        height="336"
-                        loading="lazy"
-                        alt="Breakfast"
-                        class="img-cover"
-                      />
-                    </figure>
-                  </a>
+                 <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/service-1.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
 
                   <div class="card-content">
-                    <h3 class="title-4 card-title">
-                      <a href="#">Amboseli</a>
-                    </h3>
+  <h3 class="title-4 card-title">
+    <a href="index.html" onclick="event.preventDefault(); window.location='index.html';">Amboseli</a>
+  </h3>
 
-                    <a href="#menu" class="btn-text hover-underline label-2"
-                      >Safari Packages</a
-                    >
-                  </div>
+  <a href="javascript:void(0);" onclick="scrollToSection('destinations');" class="btn-text hover-underline label-2">
+    Safari Packages
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
                 </div>
               </li>
 
               <li>
                 <div class="service-card">
-                  <a href="#" class="has-before hover:shine">
-                    <figure
-                      class="card-banner img-holder"
-                      style="--width: 285; --height: 336"
-                    >
-                      <img
-                        src="./assets/images/service-2.jpg"
-                        width="285"
-                        height="336"
-                        loading="lazy"
-                        alt="Appetizers"
-                        class="img-cover"
-                      />
-                    </figure>
-                  </a>
+                  <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/service-2.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
 
-                  <div class="card-content">
-                    <h3 class="title-4 card-title">
-                      <a href="#">The Great Mara</a>
-                    </h3>
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
 
-                    <a href="#menu" class="btn-text hover-underline label-2"
-                      >Book A Visit</a
-                    >
-                  </div>
+
+                 <div class="card-content">
+  <h3 class="title-4 card-title">
+    <a href="javascript:void(0);">The Great Mara</a>
+  </h3>
+
+  <a href="javascript:void(0);" onclick="scrollToSection('contact');" class="btn-text hover-underline label-2">
+    Book A Visit
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
                 </div>
               </li>
 
               <li>
                 <div class="service-card">
-                  <a href="#" class="has-before hover:shine">
-                    <figure
-                      class="card-banner img-holder"
-                      style="--width: 285; --height: 336"
-                    >
-                      <img
-                        src="./assets/images/service-3.jpg"
-                        width="285"
-                        height="336"
-                        loading="lazy"
-                        alt="Drinks"
-                        class="img-cover"
-                      />
-                    </figure>
-                  </a>
+                  <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/service-3.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
 
                   <div class="card-content">
-                    <h3 class="title-4 card-title">
-                      <a href="#">Lake Nakuru</a>
-                    </h3>
+  <h3 class="title-4 card-title">
+    <a href="javascript:void(0);">Lake Nakuru</a>
+  </h3>
 
-                    <a href="#menu" class="btn-text hover-underline label-2"
-                      >And So Much More</a
-                    >
-                  </div>
+  <a href="javascript:void(0);" onclick="scrollToSection('safaris');" class="btn-text hover-underline label-2">
+    And So Much More
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
                 </div>
               </li>
             </ul>
@@ -746,11 +788,17 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
                 >+25472234</a
               >
 
-              <a href="#" class="btn btn-primary">
-                <span class="text text-1">Read More</span>
+             <a href="javascript:void(0);" onclick="smoothScroll('safaris');" class="btn btn-primary">
+  <span class="text text-1">Read More</span>
+  <span class="text text-2" aria-hidden="true">Read More</span>
+</a>
 
-                <span class="text text-2" aria-hidden="true">Read More</span>
-              </a>
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
             </div>
 
             <figure class="about-banner">
@@ -837,12 +885,20 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
                 <span class="span body-1">$</span>
               </div>
 
-              <a href="#safaris" class="btn btn-primary">
-                <span class="text text-1">View All </span>
+<a href="javascript:void(0);" onclick="scrollToSection('safaris');" class="btn btn-primary">
+  <span class="text text-1">View All</span>
+  <span class="text text-2" aria-hidden="true">View All</span>
+</a>
 
-                <span class="text text-2" aria-hidden="true">View All</span>
-              </a>
-            </div>
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
           </div>
 
           <img
@@ -1499,19 +1555,18 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
       <div class="container">
         <div class="footer-top grid-list">
           <div class="footer-brand has-before has-after">
-            <a
-              href="#"
-              class="logo"
-              style="text-decoration: none; display: flex; align-items: center"
-            >
-              <i
-                class="fas fa-gem"
-                style="color: #f5deb3; font-size: 3rem; margin-right: 10px"
-              ></i>
-              <span style="font-size: 2rem; color: #f5deb3"
-                >TukutaneKenyaSafaris</span
-              >
-            </a>
+           <a href="javascript:void(0);" onclick="scrollToTop();" class="logo" 
+   style="text-decoration: none; display: flex; align-items: center">
+  <i class="fas fa-gem" style="color: #f5deb3; font-size: 3rem; margin-right: 10px"></i>
+  <span style="font-size: 2rem; color: #f5deb3">TukutaneKenyaSafaris</span>
+</a>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
 
             <address class="body-4">Nairobi</address>
             <a href="mailto:booki@grilli.com" class="body-4 contact-link"
