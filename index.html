@@ -773,14 +773,27 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
         <section class="special-dish text-center" aria-labelledby="dish-label">
           <div class="special-dish-banner">
-            <img
-              src="./assets/images/special offer.png"
-              width="240px"
-              height="320px"
-              loading="lazy"
-              alt="special dish"
-              class="img-cover"
-            />
+    <img
+  src="./assets/images/special offer.png"
+  width="240px"
+  height="320px"
+  loading="lazy"
+  alt="special dish"
+  class="img-cover"
+  style="margin-left: 10px; margin-right: 10px;"
+/>
+
+<style>
+  @media (max-width: 600px) {
+    .img-cover {
+      margin-left: 10px; /* Maintain left margin */
+      margin-right: 20px; /* Add more right margin for small screens */
+    }
+  }
+</style>
+
+
+
           </div>
 
           <div class="special-dish-content bg-black-10">
