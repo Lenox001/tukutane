@@ -156,6 +156,22 @@
           </div>
 
           <span class="span">Email Us</span>
+           <div class="separator"></div>
+      
+
+<span id="current-time" style="font-weight: bold; color: #ffeb3b; margin-left: 10px;"></span>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString(); // Format: HH:MM:SS AM/PM
+    document.getElementById("current-time").textContent = timeString;
+  }
+
+  setInterval(updateTime, 1000); // Update every second
+  updateTime(); // Initialize on load
+</script>
+
         </a>
       </div>
     </div>
@@ -1584,12 +1600,20 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         </div>
 
         <div class="footer-bottom">
-          <p class="copyright">
-            &copy; 2025 TukutaneKenyaSafaris. All Rights Reserved | Crafted by
-            <a href="https://lenoxportfolio.netlify.app" target="_blank" class="link"
-              >Lenox001</a
-            >
-          </p>
+        <p class="copyright" style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-top: 15px;
+color: #ffeb3b; background-color: #222; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);">
+  &copy; <span id="year"></span> <span style="color: #f39c12;">TukutaneKenyaSafaris</span> All Rights Reserved | Crafted by  
+  <a href="https://lenoxportfolio.netlify.app" target="_blank" class="link" 
+    style="color: #00e676; text-decoration: underline; font-weight: bold; transition: color 0.3s;">
+    Lenox001
+  </a>  
+  <span style="color: #ff5733;">Elitech Solutions</span>
+</p>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
         </div>
       </div>
     </footer>
