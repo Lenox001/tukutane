@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
    <style>
 @import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 </style>
@@ -411,7 +412,7 @@
             <li class="slider-item active" data-hero-slider-item>
               <div class="slider-bg">
                 <img
-                  src="./assets/images/hero-slider-1.jpg"
+                  src="./assets/images/hero-slider-3.jpg"
                   width="1880"
                   height="950"
                   alt=""
@@ -502,7 +503,7 @@
             <li class="slider-item" data-hero-slider-item>
               <div class="slider-bg">
                 <img
-                  src="./assets/images/hero-slider-3.jpg"
+                  src="./assets/images/hero-slider-1.jpg"
                   width="1880"
                   height="950"
                   alt=""
@@ -1248,10 +1249,9 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
     
     <select name="tour-package" class="input-field">
       <option value="budget">Budget Safari</option>
-      <option value="luxury">Luxury Safari</option>
-      <option value="family">Family Safari</option>
-      <option value="honeymoon">Honeymoon Safari</option>
-      <option value="adventure">Adventure Safari</option>
+      <option value="luxury">Mid Budget</option>
+      <option value="family">Budget</option>
+      
     </select>
     
     <input type="date" name="trip-date" class="input-field">
@@ -1437,102 +1437,215 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
         <ul class="grid-list">
             <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/maasai-mara.jpg" width="350" height="450" loading="lazy"
-                            alt="Maasai Mara National Reserve" class="img-cover" />
-                    </div>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/maasai-mara.jpg" width="350" height="450" loading="lazy"
+                alt="Maasai Mara National Reserve" class="img-cover" />
+        </div>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Wildlife Safari</p>
-                        <h3 class="card-title title-2 text-center">Maasai Mara, Kenya</h3>
-                    </div>
-                </div>
-            </li>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Wildlife Safari</p>
+            <h3 class="card-title title-2 text-center">Maasai Mara, Kenya</h3>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/serengeti.jpg" width="350" height="450" loading="lazy"
-                            alt="Serengeti National Park" class="img-cover" />
-                    </div>
+            <!-- Print Button with Smooth Scroll -->
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofmara.html" class="btn btn-primary print-button">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Luxury Safari</p>
-                        <h3 class="card-title title-2 text-center">Serengeti, Tanzania</h3>
-                    </div>
-                </div>
-            </li>
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelector(".print-button").addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "moreofmara.html";
+        document.getElementById("moreofmara").scrollIntoView({ behavior: "smooth" });
+    });
+</script>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/amboseli.jpg" width="350" height="450" loading="lazy"
-                            alt="Amboseli National Park" class="img-cover" />
-                    </div>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Scenic Safari</p>
-                        <h3 class="card-title title-2 text-center">Amboseli, Kenya</h3>
-                    </div>
-                </div>
-            </li>
+           <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/serengeti.jpg" width="350" height="450" loading="lazy"
+                alt="Serengeti National Park" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Luxury Safari</p>
+            <h3 class="card-title title-2 text-center">Serengeti, Tanzania</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofserengeti.html" class="btn btn-primary more-details" data-target="moreofserengeti">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/tsavo.jpg" width="350" height="450" loading="lazy"
-                            alt="Tsavo National Park" class="img-cover" />
-                    </div>
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Wilderness Safari</p>
-                        <h3 class="card-title title-2 text-center">Tsavo, Kenya</h3>
-                    </div>
-                </div>
-            </li>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/samburu.jpg" width="350" height="450" loading="lazy"
-                            alt="Samburu National Reserve" class="img-cover" />
-                    </div>
+          <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/amboseli.jpg" width="350" height="450" loading="lazy"
+                alt="Amboseli National Park" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Scenic Safari</p>
+            <h3 class="card-title title-2 text-center">Amboseli, Kenya</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofamboseli.html" class="btn btn-primary more-details" data-target="moreofamboseli">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Cultural Safari</p>
-                        <h3 class="card-title title-2 text-center">Samburu, Kenya</h3>
-                    </div>
-                </div>
-            </li>
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/mount-kenya.jpg" width="350" height="450" loading="lazy"
-                            alt="Mount Kenya National Park" class="img-cover" />
-                    </div>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Mountain Trek</p>
-                        <h3 class="card-title title-2 text-center">Mount Kenya, Kenya</h3>
-                    </div>
-                </div>
-            </li>
+           <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/tsavo.jpg" width="350" height="450" loading="lazy"
+                alt="Tsavo National Park" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Wilderness Safari</p>
+            <h3 class="card-title title-2 text-center">Tsavo, Kenya</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreoftsavo.html" class="btn btn-primary more-details" data-target="moreoftsavo">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
 
-            <li>
-                <div class="event-card has-before hover:shine">
-                    <div class="card-banner " style="--width: 350; --height: 450">
-                        <img src="./assets/images/Mount-Kilimajaro-National-Park-760x450.png" width="350" height="450" loading="lazy"
-                            alt="Mount Kilimanjaro" class="img-cover" />
-                    </div>
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
 
-                    <div class="card-content">
-                        <p class="card-subtitle label-2 text-center">Trekking Adventure</p>
-                        <h3 class="card-title title-2 text-center">Mount Kilimanjaro, Tanzania</h3>
-                    </div>
-                </div>
-            </li>
+
+           <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/samburu.jpg" width="350" height="450" loading="lazy"
+                alt="Samburu National Reserve" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Cultural Safari</p>
+            <h3 class="card-title title-2 text-center">Samburu, Kenya</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofsamburu.html" class="btn btn-primary more-details" data-target="moreofsamburu">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
+
+
+           <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/mount-kenya.jpg" width="350" height="450" loading="lazy"
+                alt="Mount Kenya National Park" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Mountain Trek</p>
+            <h3 class="card-title title-2 text-center">Mount Kenya, Kenya</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofmountkenya.html" class="btn btn-primary more-details" data-target="moreofmountkenya">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
+
+
+           <li>
+    <div class="event-card has-before hover:shine">
+        <div class="card-banner" style="--width: 350; --height: 450">
+            <img src="./assets/images/Mount-Kilimajaro-National-Park-760x450.png" width="350" height="450" loading="lazy"
+                alt="Mount Kilimanjaro" class="img-cover" />
+        </div>
+        <div class="card-content">
+            <p class="card-subtitle label-2 text-center">Trekking Adventure</p>
+            <h3 class="card-title title-2 text-center">Mount Kilimanjaro, Tanzania</h3>
+            <div class="text-center" style="margin-top: 15px;">
+                <a href="moreofkilimanjaro.html" class="btn btn-primary more-details" data-target="moreofkilimanjaro">
+                    <i class="fas fa-info-circle"></i> More Details
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Smooth Scroll Script -->
+<script>
+    document.querySelectorAll(".more-details").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute("href");
+            document.getElementById(this.dataset.target)?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
+
         </ul>
     </div>
 </section>
@@ -1655,15 +1768,16 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         </div>
 
         <div class="footer-bottom">
-        <p class="copyright" style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-top: 15px;
-color: #ffeb3b; background-color: #222; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);">
-  &copy; <span id="year"></span> <span style="color: #f39c12;">TukutaneKenyaSafaris</span> All Rights Reserved | Crafted by  
+       <p class="copyright" style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-top: 15px;
+color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(243, 156, 18, 0.8);">
+  &copy; <span id="year"></span> <span style="color: #ffffff;">TukutaneKenyaSafaris</span> All Rights Reserved | Crafted by  
   <a href="https://lenoxportfolio.netlify.app" target="_blank" class="link" 
-    style="color: #00e676; text-decoration: underline; font-weight: bold; transition: color 0.3s;">
+    style="color: #ffffff; text-decoration: underline; font-weight: bold; transition: color 0.3s;">
     Lenox001
   </a>  
-  <span style="color: #ff5733;">Elitech Solutions</span>
+  <span style="color: #ffffff;">Elitech Solutions</span>
 </p>
+
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
