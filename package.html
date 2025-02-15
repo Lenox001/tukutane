@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Package Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="icon" href="assets/images/gold_logo_page-0001-removebg-preview.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <h1 id="package-title">Loading...</h1>
+    </header>
+
+    <main>
+        <section id="package-details" class="animate__animated animate__fadeInUp">
+            <div class="image-container">
+                <img id="package-image" src="" alt="Package Image" class="hover-zoom">
+            </div>
+            <h2>Overview</h2>
+            <p id="package-overview">Loading overview...</p>
+            
+            <h2>Full Description</h2>
+            <p id="package-full-description">Loading description...</p>
+
+            <h2>Itinerary</h2>
+            <ul id="itinerary-list">Loading itinerary...</ul>
+        </section>
+    </main>
+
+    <button id="back-button" onclick="window.location.href='/';" class="animate__animated animate__fadeIn hvr-icon-back">
+        ← Back to Home
+    </button>
+
+    <script>
+        async function fetchPackageDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get("slug");
+
+            if (!slug) {
+                document.getElementById("package-title").innerText = "Package not found";
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
+                const pkg = await response.json();
+
+                document.getElementById("package-title").innerText = pkg.title;
+                document.getElementById("package-image").src = pkg.image;
+                document.getElementById("package-image").alt = pkg.title;
+                document.getElementById("package-overview").innerText = pkg.overview;
+                document.getElementById("package-full-description").innerText = pkg.full_description;
+
+                let itineraryList = document.getElementById("itinerary-list");
+                itineraryList.innerHTML = "";
+
+                if (pkg.itinerary && pkg.itinerary.length > 0) {
+                    pkg.itinerary.forEach(day => {
+                        let listItem = document.createElement("li");
+                        listItem.classList.add("animate__animated", "animate__fadeInLeft");
+                        listItem.innerHTML = `
+                            <div class="itinerary-header">
+                                <strong>Day ${day.day_number}: ${day.title}</strong>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="itinerary-content">
+                                ${day.description}
+                            </div>
+                        `;
+                        itineraryList.appendChild(listItem);
+
+                        // Add click event to expand/collapse itinerary
+                        const header = listItem.querySelector(".itinerary-header");
+                        const content = listItem.querySelector(".itinerary-content");
+                        const icon = listItem.querySelector(".expand-icon");
+
+                        header.addEventListener("click", () => {
+                            content.classList.toggle("expanded");
+                            icon.textContent = content.classList.contains("expanded") ? "-" : "+";
+                            icon.classList.toggle("rotate-icon");
+                        });
+                    });
+                } else {
+                    itineraryList.innerHTML = "<li>No itinerary available</li>";
+                }
+
+            } catch (error) {
+                console.error("Error fetching package details:", error);
+                document.getElementById("package-title").innerText = "Error loading package";
+            }
+        }
+
+        fetchPackageDetails();
+    </script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff9800;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #back-button {
+            background-color: #e65100;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+
+        #back-button:hover {
+            background-color: #bf360c;
+            transform: translateY(-2px);
+        }
+
+        main {
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        #package-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        h2 {
+            color: #ff9800;
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .itinerary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .itinerary-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 10px;
+        }
+
+        .itinerary-content.expanded {
+            max-height: 500px; /* Adjust based on content */
+            padding: 10px;
+        }
+
+        .expand-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-icon {
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #package-details {
+            animation: fadeIn 1.5s;
+        }
+
+        /* Advanced Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hover-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hover-float:hover {
+            animation: none;
+        }
+
+        /* Gradient Background */
+        body {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 40px rgba(255, 152, 0, 0.8);
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* 3D Transform */
+        .transform-3d {
+            transform: perspective(1000px) rotateY(10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .transform-3d:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+    </style>
+</body>
+</html>
