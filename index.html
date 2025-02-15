@@ -1160,131 +1160,64 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
 
 <script>
   document.getElementById("safari-form").addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      const responseElement = document.getElementById("form-response");
-      responseElement.innerText = "Submitting..."; // Indicate submission progress
-      responseElement.style.color = "blue";
-
-      const formData = {
-          name: document.getElementById("name").value.trim(),
-          phone_number: document.getElementById("phone").value.trim(),
-          destination: document.getElementById("destination").value,
-          safari_type: document.getElementById("tour-package").value,
-          time: document.getElementById("trip-date").value,
-          message: document.getElementById("message").value.trim() || null
-      };
-
-      try {
-          const response = await fetch("https://tksafaris.pythonanywhere.com/api/bookings/", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(formData)
-          });
-
-          if (response.ok) {
-              responseElement.innerText = "Booking successful! We will contact you soon.";
-              responseElement.style.color = "green";
-              document.getElementById("safari-form").reset();
-          } else {
-              const errorData = await response.json();
-              responseElement.innerText = "Booking failed: " + (errorData.detail || "Please try again.");
-              responseElement.style.color = "red";
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          responseElement.innerText = "Something went wrong. Please try again later.";
-          responseElement.style.color = "red";
-      }
-  });
-</script>
-
-<style>
-  .form-response {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 10px;
-  }
-</style>
-
-
-<script>
-  document.getElementById("safari-form").addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      const responseElement = document.getElementById("form-response");
-      responseElement.innerText = "Submitting..."; // Indicate submission progress
-      responseElement.style.color = "blue";
-
-      const formData = {
-          name: document.getElementById("name").value.trim(),
-          phone_number: document.getElementById("phone").value.trim(),
-          destination: document.getElementById("destination").value,
-          safari_type: document.getElementById("tour-package").value,
-          time: document.getElementById("trip-date").value,
-          message: document.getElementById("message").value.trim() || null
-      };
-
-      try {
-          const response = await fetch("https://tksafaris.pythonanywhere.com/api/bookings/", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(formData)
-          });
-
-          if (response.ok) {
-              responseElement.innerText = "Booking successful! We will contact you soon.";
-              responseElement.style.color = "green";
-              document.getElementById("safari-form").reset();
-          } else {
-              const errorData = await response.json();
-              responseElement.innerText = "Booking failed: " + (errorData.detail || "Please try again.");
-              responseElement.style.color = "red";
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          responseElement.innerText = "Something went wrong. Please try again later.";
-          responseElement.style.color = "red";
-      }
-  });
-</script>
-
-<style>
-  .form-response {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 10px;
-  }
-</style>
-
-
-<script>
-  document.getElementById("safari-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    var name = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
-    var destination = document.getElementById("destination").value;
-    var tourPackage = document.getElementById("tour-package").value;
-    var tripDate = document.getElementById("trip-date").value;
-    var preferredTime = document.getElementById("preferred-time").value;
-    var message = document.getElementById("message").value;
+    const responseElement = document.getElementById("form-response");
+    responseElement.innerText = "Submitting...";
+    responseElement.style.color = "blue";
 
-    var whatsappMessage = `Hello! I'd like to book a safari:\n\n` +
-                          `Name: ${name}\nPhone: ${phone}\n` +
-                          `Destination: ${destination}\nTour Package: ${tourPackage}\n` +
-                          `Trip Date: ${tripDate}\nPreferred Time: ${preferredTime}\n` +
-                          `Message: ${message}`;
+    const formData = {
+      name: document.getElementById("name").value.trim(),
+      phone_number: document.getElementById("phone").value.trim(),
+      destination: document.getElementById("destination").value,
+      safari_type: document.getElementById("tour-package").value,
+      time: document.getElementById("trip-date").value,
+      message: document.getElementById("message").value.trim() || null
+    };
 
-    var whatsappURL = `https://wa.me/254703363843?text=${encodeURIComponent(whatsappMessage)}`;
-    
-    window.location.href = whatsappURL;
+    try {
+      const response = await fetch("https://tksafaris.pythonanywhere.com/api/bookings/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        responseElement.innerText = "Booking successful! We will contact you soon.";
+        responseElement.style.color = "green";
+        document.getElementById("safari-form").reset();
+
+        // Redirect to WhatsApp after a successful booking
+        const whatsappMessage = `Hello! I'd like to book a safari:\n\n` +
+                                `Name: ${formData.name}\nPhone: ${formData.phone_number}\n` +
+                                `Destination: ${formData.destination}\nTour Package: ${formData.safari_type}\n` +
+                                `Trip Date: ${formData.time}\nMessage: ${formData.message}`;
+
+        setTimeout(() => {
+          window.location.href = `https://wa.me/254703363843?text=${encodeURIComponent(whatsappMessage)}`;
+        }, 2000); // Redirect after 2 seconds
+      } else {
+        const errorData = await response.json();
+        responseElement.innerText = "Booking failed: " + (errorData.detail || "Please try again.");
+        responseElement.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      responseElement.innerText = "Something went wrong. Please try again later.";
+      responseElement.style.color = "red";
+    }
   });
 </script>
+
+<style>
+  .form-response {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
 
 
 
