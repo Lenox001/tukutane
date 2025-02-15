@@ -1188,16 +1188,6 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         responseElement.innerText = "Booking successful! We will contact you soon.";
         responseElement.style.color = "green";
         document.getElementById("safari-form").reset();
-
-        // Redirect to WhatsApp after a successful booking
-        const whatsappMessage = `Hello! I'd like to book a safari:\n\n` +
-                                `Name: ${formData.name}\nPhone: ${formData.phone_number}\n` +
-                                `Destination: ${formData.destination}\nTour Package: ${formData.safari_type}\n` +
-                                `Trip Date: ${formData.time}\nMessage: ${formData.message}`;
-
-        setTimeout(() => {
-          window.location.href = `https://wa.me/254703363843?text=${encodeURIComponent(whatsappMessage)}`;
-        }, 2000); // Redirect after 2 seconds
       } else {
         const errorData = await response.json();
         responseElement.innerText = "Booking failed: " + (errorData.detail || "Please try again.");
