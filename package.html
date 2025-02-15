@@ -23,13 +23,24 @@
             <div class="image-container">
                 <img id="package-image" src="" alt="Package Image" class="styled-image">
             </div>
+
+            <!-- Overview Section -->
+            <hr class="orange-line"> <!-- Orange line above the title -->
             <h2 style="font-family: 'Orbitron', sans-serif">Overview</h2>
+            <hr class="orange-line"> <!-- Orange line below the title -->
             <p id="package-overview">Loading overview...</p>
             
+            <!-- Full Description Section -->
+            <hr class="orange-line"> <!-- Orange line above the title -->
             <h2 style="font-family: 'Orbitron', sans-serif">Full Description</h2>
+            <hr class="orange-line"> <!-- Orange line below the title -->
             <p id="package-full-description">Loading description...</p>
 
+            <!-- Itinerary Section -->
+            <hr class="orange-line"> <!-- Orange line above the title -->
             <h2 style="font-family: 'Orbitron', sans-serif">Itinerary</h2>
+            <hr class="orange-line"> <!-- Orange line below the title -->
+            
             <div class="itinerary-container">
                 <ul id="itinerary-list">Loading itinerary...</ul>
             </div>
@@ -67,14 +78,22 @@
                     pkg.itinerary.forEach(day => {
                         let listItem = document.createElement("li");
                         listItem.classList.add("animate__animated", "animate__fadeInLeft");
-                        listItem.innerHTML = `
+                        listItem.innerHTML = 
+                        `
                             <div class="itinerary-header">
+                                <hr class="orange-line">
+                                
                                 <strong>Day ${day.day_number}: ${day.title}</strong>
+
+                                
                                 <span class="expand-icon">+</span>
                             </div>
+                            <hr class="orange-line"> <!-- Orange line separator -->
                             <div class="itinerary-content">
                                 ${day.description}
                             </div>
+                            
+                            
                         `;
                         itineraryList.appendChild(listItem);
 
@@ -194,6 +213,12 @@
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Orange Line Separator */
+        .orange-line {
+            border: 1px solid #ff9800;
+            margin: 20px 0;
         }
 
         /* Floating Elements */
