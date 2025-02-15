@@ -18,21 +18,21 @@
         </div>
 
         <div class="content-card">
-            <h2>Highlights</h2>
+            <h2 style="font-family: 'Orbitron', sans-serif;">Highlights</h2>
             <p id="highlights"></p>
         </div>
 
         <div class="content-card">
-            <h2>About</h2>
+            <h2 style="font-family: 'Orbitron', sans-serif;">About</h2>
             <p id="about"></p>
         </div>
 
         <div class="content-card">
-            <h2>Key Features</h2>
+            <h2 style="font-family: 'Orbitron', sans-serif;">Key Features</h2>
             <p id="features"></p>
         </div>
 
-        <a href="/" class="back-button">← Back to Home</a>
+        <a href="/" class="back-button" style="font-family: 'Orbitron', sans-serif">← Back to Home</a>
     </div>
 
     <script>
@@ -51,6 +51,8 @@
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("title").textContent = data.title;
+                    document.getElementById("title").style.fontFamily = "'Orbitron', sans-serif;";
+
                     document.getElementById("image").src = data.image;
                     document.getElementById("image").alt = data.title;
                     document.getElementById("highlights").textContent = data.highlights;
@@ -138,7 +140,7 @@
     <style>
         /* General Styles */
         body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #1a1a1a, #000);
