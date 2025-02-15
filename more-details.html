@@ -47,7 +47,7 @@
             }
 
             // Fetch data from API
-            fetch(`http://tksafaris.pythonanywhere.com/api/destinations/${slug}/`)
+            fetch(`https://tksafaris.pythonanywhere.com/api/destinations/${slug}/`)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("title").textContent = data.title;

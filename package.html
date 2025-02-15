@@ -46,7 +46,7 @@
             }
 
             try {
-                const response = await fetch(`http://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
+                const response = await fetch(`https://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
                 const pkg = await response.json();
 
                 document.getElementById("package-title").innerText = pkg.title;
