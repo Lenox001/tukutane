@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safari Package Details</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="icon" href="assets/images/gold_logo_page-0001-removebg-preview.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
 </head>
 <body>
+    <!-- Canvas for Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
     <header class="animate__animated animate__fadeInDown">
         <h1 id="package-title">Loading...</h1>
     </header>
@@ -18,7 +21,7 @@
     <main>
         <section id="package-details" class="animate__animated animate__fadeInUp">
             <div class="image-container">
-                <img id="package-image" src="" alt="Package Image" class="hover-zoom">
+                <img id="package-image" src="" alt="Package Image" class="styled-image">
             </div>
             <h2>Overview</h2>
             <p id="package-overview">Loading overview...</p>
@@ -27,7 +30,9 @@
             <p id="package-full-description">Loading description...</p>
 
             <h2>Itinerary</h2>
-            <ul id="itinerary-list">Loading itinerary...</ul>
+            <div class="itinerary-container">
+                <ul id="itinerary-list">Loading itinerary...</ul>
+            </div>
         </section>
     </main>
 
@@ -98,38 +103,34 @@
     </script>
 
     <style>
+        /* Global Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #000;
+            background: #000;
             color: #fff;
             text-align: center;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #ff9800;
+            background: linear-gradient(135deg, #ff9800, #e65100);
             color: #000;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.6);
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+            font-family: 'Audiowide', cursive;
+            font-size: 1.5rem;
+            animation: glow 2s infinite alternate;
         }
 
-        #back-button {
-            background-color: #e65100;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 20px;
-        }
-
-        #back-button:hover {
-            background-color: #bf360c;
-            transform: translateY(-2px);
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.6); }
+            100% { box-shadow: 0 0 20px rgba(255, 152, 0, 0.8); }
         }
 
         main {
@@ -138,140 +139,184 @@
             margin-left: auto;
             margin-right: auto;
             padding: 20px;
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
         }
 
         .image-container {
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 15px;
+            position: relative;
+            margin-bottom: 20px;
         }
 
-        #package-image {
+        .styled-image {
             width: 100%;
-            max-width: 400px;
+            max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 15px;
             transition: transform 0.5s ease, filter 0.5s ease;
-        }
-
-        .hover-zoom:hover {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
-
-        h2 {
-            color: #ff9800;
-            margin-top: 20px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        li {
-            background-color: #333;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-        }
-
-        li:hover {
-            transform: translateX(10px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .itinerary-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .itinerary-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            padding: 0 10px;
-        }
-
-        .itinerary-content.expanded {
-            max-height: 500px; /* Adjust based on content */
-            padding: 10px;
-        }
-
-        .expand-icon {
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .rotate-icon {
-            transform: rotate(90deg);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        #package-details {
-            animation: fadeIn 1.5s;
-        }
-
-        /* Advanced Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .hover-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .hover-float:hover {
-            animation: none;
-        }
-
-        /* Gradient Background */
-        body {
-            background: linear-gradient(135deg, #000, #1a1a1a);
-        }
-
-        /* Glow Effect */
-        .glow {
+            border: 2px solid rgba(255, 152, 0, 0.6);
             box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
         }
 
-        .glow:hover {
+        .styled-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
             box-shadow: 0 0 40px rgba(255, 152, 0, 0.8);
         }
 
-        /* Parallax Effect */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .itinerary-container {
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 152, 0, 0.6);
+            box-shadow: inset 0 0 10px rgba(255, 152, 0, 0.6);
         }
 
-        /* 3D Transform */
-        .transform-3d {
-            transform: perspective(1000px) rotateY(10deg);
-            transition: transform 0.5s ease;
+        .itinerary-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 152, 0, 0.1), transparent);
+            animation: rotate 10s linear infinite;
         }
 
-        .transform-3d:hover {
-            transform: perspective(1000px) rotateY(0deg);
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating Elements */
+        .animate__animated {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.2rem;
+                padding: 8px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            .styled-image {
+                border-radius: 10px;
+            }
+
+            .itinerary-container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1rem;
+                padding: 5px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            .styled-image {
+                border-radius: 8px;
+            }
+
+            .itinerary-container {
+                padding: 8px;
+            }
+        }
+
+        /* Canvas Particle Background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
     </style>
+
+    <script>
+        // Particle System for Canvas Background
+        const canvas = document.getElementById("particle-canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = `rgba(255, 152, 0, ${Math.random()})`;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+                if (particle.size <= 0.2) {
+                    particles.splice(index, 1);
+                }
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+    </script>
 </body>
 </html>
