@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Safari Package Details</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
@@ -26,21 +26,21 @@
 
             <!-- Overview Section -->
             <hr class="orange-line">
-            <h2 style="font-family: 'Orbitron', sans-serif">Overview</h2>
+            <h2>Overview</h2>
             <hr class="orange-line">
             <p id="package-overview">Loading overview...</p>
             
             <!-- Full Description Section -->
             <hr class="orange-line">
-            <h2 style="font-family: 'Orbitron', sans-serif">Full Description</h2>
+            <h2>Full Description</h2>
             <hr class="orange-line">
             <p id="package-full-description">Loading description...</p>
+            
             <!-- Itinerary Section -->
-<hr class="orange-line">
-<h2 style="font-family: 'Orbitron', sans-serif">Itinerary</h2>
-<hr class="orange-line">
-<p id="package-itinerary">Loading itinerary...</p>
-
+            <hr class="orange-line">
+            <h2>Itinerary</h2>
+            <hr class="orange-line">
+            <p id="package-itinerary">Loading itinerary...</p>
         </section>
     </main>
 
@@ -48,61 +48,60 @@
         ← Back to Home
     </button>
 
-   <script>
-    function formatItinerary(itinerary) {
-        if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
-            return "<p>Itinerary not available.</p>";
-        }
-
-        return itinerary.map(day => 
-            `<p><strong>Day ${day.day_number}:</strong> ${day.title ? day.title + " - " : ""}${day.description}</p>`
-        ).join("");
-    }
-
-    async function fetchPackageDetails() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const slug = urlParams.get("slug");
-
-        if (!slug) {
-            document.getElementById("package-title").innerText = "Package not found";
-            return;
-        }
-
-        try {
-            const response = await fetch(`https://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
-            const pkg = await response.json();
-
-            console.log("Fetched Data:", pkg);
-
-            document.getElementById("package-title").innerText = pkg.title;
-            document.getElementById("package-overview").innerText = pkg.overview;
-            document.getElementById("package-full-description").innerText = pkg.full_description;
-            document.getElementById("package-itinerary").innerHTML = formatItinerary(pkg.itinerary);
-
-            // Load all images
-            const imageContainer = document.getElementById("image-container");
-            imageContainer.innerHTML = "";
-
-            if (pkg.images && pkg.images.length > 0) {
-                pkg.images.forEach(img => {
-                    const imgElement = document.createElement("img");
-                    imgElement.src = img.image_url;
-                    imgElement.alt = pkg.title;
-                    imgElement.classList.add("styled-image", "animate__animated", "animate__fadeIn");
-                    imageContainer.appendChild(imgElement);
-                });
-            } else {
-                imageContainer.innerHTML = "<p>No images available</p>";
+    <script>
+        function formatItinerary(itinerary) {
+            if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
+                return "<p>Itinerary not available.</p>";
             }
-        } catch (error) {
-            console.error("Error fetching package details:", error);
-            document.getElementById("package-title").innerText = "Error loading package";
+
+            return itinerary.map(day => 
+                `<p><strong>Day ${day.day_number}:</strong> ${day.title ? day.title + " - " : ""}${day.description}</p>`
+            ).join("");
         }
-    }
 
-    fetchPackageDetails();
-</script>
+        async function fetchPackageDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get("slug");
 
+            if (!slug) {
+                document.getElementById("package-title").innerText = "Package not found";
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
+                const pkg = await response.json();
+
+                console.log("Fetched Data:", pkg);
+
+                document.getElementById("package-title").innerText = pkg.title;
+                document.getElementById("package-overview").innerText = pkg.overview;
+                document.getElementById("package-full-description").innerText = pkg.full_description;
+                document.getElementById("package-itinerary").innerHTML = formatItinerary(pkg.itinerary);
+
+                // Load all images
+                const imageContainer = document.getElementById("image-container");
+                imageContainer.innerHTML = "";
+
+                if (pkg.images && pkg.images.length > 0) {
+                    pkg.images.forEach(img => {
+                        const imgElement = document.createElement("img");
+                        imgElement.src = img.image_url;
+                        imgElement.alt = pkg.title;
+                        imgElement.classList.add("styled-image", "animate__animated", "animate__fadeIn");
+                        imageContainer.appendChild(imgElement);
+                    });
+                } else {
+                    imageContainer.innerHTML = "<p>No images available</p>";
+                }
+            } catch (error) {
+                console.error("Error fetching package details:", error);
+                document.getElementById("package-title").innerText = "Error loading package";
+            }
+        }
+
+        fetchPackageDetails();
+    </script>
 
     <style>
         body {
@@ -118,7 +117,7 @@
         header {
             background: linear-gradient(135deg, #ff9800, #e65100);
             color: #000;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(255, 152, 0, 0.6);
             position: relative;
@@ -128,6 +127,20 @@
             font-size: 1.5rem;
             animation: glow 2s infinite alternate;
         }
+        header h1 {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 90%;
+    margin: auto;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1rem;
+    }
+}
+
 
         @keyframes glow {
             0% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.6); }
@@ -177,14 +190,40 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                font-size: 1rem;
+                padding: 6px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
             .styled-image {
                 width: calc(50% - 10px);
             }
         }
 
         @media (max-width: 480px) {
+            header {
+                font-size: 1rem;
+                padding: 6px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
             .styled-image {
                 width: 100%;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
             }
         }
 
