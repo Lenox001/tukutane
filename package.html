@@ -20,30 +20,27 @@
 
     <main>
         <section id="package-details" class="animate__animated animate__fadeInUp">
-            <div class="image-container">
-                <img id="package-image" src="" alt="Package Image" class="styled-image">
+            <div id="image-container" class="image-container">
+                <!-- All images will be loaded here -->
             </div>
 
             <!-- Overview Section -->
-            <hr class="orange-line"> <!-- Orange line above the title -->
+            <hr class="orange-line">
             <h2 style="font-family: 'Orbitron', sans-serif">Overview</h2>
-            <hr class="orange-line"> <!-- Orange line below the title -->
+            <hr class="orange-line">
             <p id="package-overview">Loading overview...</p>
             
             <!-- Full Description Section -->
-            <hr class="orange-line"> <!-- Orange line above the title -->
+            <hr class="orange-line">
             <h2 style="font-family: 'Orbitron', sans-serif">Full Description</h2>
-            <hr class="orange-line"> <!-- Orange line below the title -->
+            <hr class="orange-line">
             <p id="package-full-description">Loading description...</p>
-
             <!-- Itinerary Section -->
-            <hr class="orange-line"> <!-- Orange line above the title -->
-            <h2 style="font-family: 'Orbitron', sans-serif">Itinerary</h2>
-            <hr class="orange-line"> <!-- Orange line below the title -->
-            
-            <div class="itinerary-container">
-                <ul id="itinerary-list">Loading itinerary...</ul>
-            </div>
+<hr class="orange-line">
+<h2 style="font-family: 'Orbitron', sans-serif">Itinerary</h2>
+<hr class="orange-line">
+<p id="package-itinerary">Loading itinerary...</p>
+
         </section>
     </main>
 
@@ -51,93 +48,63 @@
         ← Back to Home
     </button>
 
-    <script>
-        async function fetchPackageDetails() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const slug = urlParams.get("slug");
-
-            if (!slug) {
-                document.getElementById("package-title").innerText = "Package not found";
-                return;
-            }
-
-            try {
-                const response = await fetch(`https://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
-                const pkg = await response.json();
-
-                console.log("Fetched Data:", pkg); // Check the response
-
-                // Update package details
-                document.getElementById("package-title").innerText = pkg.title;
-                document.getElementById("package-image").src = pkg.image;
-                document.getElementById("package-image").alt = pkg.title;
-                document.getElementById("package-overview").innerText = pkg.overview;
-                document.getElementById("package-full-description").innerText = pkg.full_description;
-
-                // Update itinerary list
-                let itineraryList = document.getElementById("itinerary-list");
-                itineraryList.innerHTML = "";
-
-                if (pkg.itinerary && pkg.itinerary.length > 0) {
-                    pkg.itinerary.forEach(day => {
-                        let listItem = document.createElement("li");
-                        listItem.classList.add("animate__animated", "animate__fadeInLeft");
-
-                        // Extract multiple images
-                        let imageHTML = "";
-                        if (day.images && day.images.length > 0) {
-                            imageHTML = day.images.map(img => 
-                                `<div class="itinerary-image-container">
-                                    <img src="${img.image_url}" alt="Day ${day.day_number} Image" class="itinerary-image animate__animated animate__fadeIn">
-                                </div>`
-                            ).join("");
-                        }
-
-                        console.log(`Day ${day.day_number} Images:`, day.images);
-
-                       listItem.innerHTML = `
-    <div class="itinerary-content">
-        <div class="itinerary-images-container">
-            ${imageHTML} <!-- Images will be placed here -->
-        </div>
-        <div class="itinerary-header">
-            <hr class="orange-line">
-            <strong>Day ${day.day_number}: ${day.title}</strong>
-            <span class="expand-icon">+</span>
-        </div>
-        <hr class="orange-line">
-        <p>${day.description}</p>
-    </div>
-`;
-
-
-                        itineraryList.appendChild(listItem);
-
-                        // Expand/collapse functionality
-                        const header = listItem.querySelector(".itinerary-header");
-                        const content = listItem.querySelector(".itinerary-content");
-                        const icon = listItem.querySelector(".expand-icon");
-
-                        header.addEventListener("click", () => {
-                            content.classList.toggle("expanded");
-                            icon.textContent = content.classList.contains("expanded") ? "-" : "+";
-                            icon.classList.toggle("rotate-icon");
-                        });
-                    });
-                } else {
-                    itineraryList.innerHTML = "<li>No itinerary available</li>";
-                }
-            } catch (error) {
-                console.error("Error fetching package details:", error);
-                document.getElementById("package-title").innerText = "Error loading package";
-            }
+   <script>
+    function formatItinerary(itinerary) {
+        if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
+            return "<p>Itinerary not available.</p>";
         }
 
-        fetchPackageDetails();
-    </script>
+        return itinerary.map(day => 
+            `<p><strong>Day ${day.day_number}:</strong> ${day.title ? day.title + " - " : ""}${day.description}</p>`
+        ).join("");
+    }
+
+    async function fetchPackageDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get("slug");
+
+        if (!slug) {
+            document.getElementById("package-title").innerText = "Package not found";
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://tksafaris.pythonanywhere.com/api/safari-packages/${slug}/`);
+            const pkg = await response.json();
+
+            console.log("Fetched Data:", pkg);
+
+            document.getElementById("package-title").innerText = pkg.title;
+            document.getElementById("package-overview").innerText = pkg.overview;
+            document.getElementById("package-full-description").innerText = pkg.full_description;
+            document.getElementById("package-itinerary").innerHTML = formatItinerary(pkg.itinerary);
+
+            // Load all images
+            const imageContainer = document.getElementById("image-container");
+            imageContainer.innerHTML = "";
+
+            if (pkg.images && pkg.images.length > 0) {
+                pkg.images.forEach(img => {
+                    const imgElement = document.createElement("img");
+                    imgElement.src = img.image_url;
+                    imgElement.alt = pkg.title;
+                    imgElement.classList.add("styled-image", "animate__animated", "animate__fadeIn");
+                    imageContainer.appendChild(imgElement);
+                });
+            } else {
+                imageContainer.innerHTML = "<p>No images available</p>";
+            }
+        } catch (error) {
+            console.error("Error fetching package details:", error);
+            document.getElementById("package-title").innerText = "Error loading package";
+        }
+    }
+
+    fetchPackageDetails();
+</script>
+
 
     <style>
-        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -181,20 +148,21 @@
         }
 
         .image-container {
-            overflow: hidden;
-            border-radius: 15px;
-            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
         .styled-image {
-            width: 100%;
-            max-width: 100%;
+            width: calc(33.33% - 10px);
+            max-width: 200px;
             height: auto;
-            border-radius: 15px;
-            transition: transform 0.5s ease, filter 0.5s ease;
+            border-radius: 10px;
             border: 2px solid rgba(255, 152, 0, 0.6);
             box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
+            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .styled-image:hover {
@@ -203,123 +171,23 @@
             box-shadow: 0 0 40px rgba(255, 152, 0, 0.8);
         }
 
-        .itinerary-container {
-            background: rgba(51, 51, 51, 0.8);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(255, 152, 0, 0.6);
-            box-shadow: inset 0 0 10px rgba(255, 152, 0, 0.6);
-        }
-
-        .itinerary-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 152, 0, 0.1), transparent);
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Orange Line Separator */
         .orange-line {
             border: 1px solid #ff9800;
             margin: 20px 0;
         }
 
-        /* Floating Elements */
-        .animate__animated {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Itinerary Images Container */
-.itinerary-images-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Space between images */
-    justify-content: flex-start;
-    margin-bottom: 20px;
-}
-
-/* Individual Itinerary Image */
-.itinerary-image-container {
-    flex: 1 1 calc(33.33% - 10px); /* Adjust for 3 images per row */
-    max-width: calc(33.33% - 10px); /* Adjust for 3 images per row */
-    box-sizing: border-box;
-}
-
-.itinerary-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 152, 0, 0.6);
-    box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
-    transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.itinerary-image:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-    box-shadow: 0 0 40px rgba(255, 152, 0, 0.8);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .itinerary-image-container {
-        flex: 1 1 calc(50% - 10px); /* 2 images per row on tablets */
-        max-width: calc(50% - 10px);
-    }
-}
-
-@media (max-width: 480px) {
-    .itinerary-image-container {
-        flex: 1 1 100%; /* 1 image per row on mobile */
-        max-width: 100%;
-    }
-}
+        @media (max-width: 768px) {
             .styled-image {
-                border-radius: 10px;
+                width: calc(50% - 10px);
             }
-
-            .itinerary-container {
-                padding: 10px;
-            }
-        
+        }
 
         @media (max-width: 480px) {
-            header {
-                font-size: 1rem;
-                padding: 5px;
-            }
-
-            main {
-                padding: 10px;
-            }
-
             .styled-image {
-                border-radius: 8px;
-            }
-
-            .itinerary-container {
-                padding: 8px;
+                width: 100%;
             }
         }
 
-        /* Canvas Particle Background */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -332,7 +200,6 @@
     </style>
 
     <script>
-        // Particle System for Canvas Background
         const canvas = document.getElementById("particle-canvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -353,7 +220,7 @@
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.size > 0.2) this.size -= 0.1;
+                if (this.size > 0.2) this.size -= 0.02;
             }
 
             draw() {
@@ -364,33 +231,24 @@
             }
         }
 
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 100; i++) {
-                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
-            }
-        }
-
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach((particle, index) => {
                 particle.update();
                 particle.draw();
-                if (particle.size <= 0.2) {
-                    particles.splice(index, 1);
-                }
+                if (particle.size <= 0.2) particles.splice(index, 1);
             });
+
             requestAnimationFrame(animateParticles);
         }
 
-        initParticles();
-        animateParticles();
+        function addParticle(event) {
+            particles.push(new Particle(event.clientX, event.clientY));
+        }
 
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-        });
+        window.addEventListener("mousemove", addParticle);
+        animateParticles();
     </script>
+
 </body>
 </html>
