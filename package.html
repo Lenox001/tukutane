@@ -49,15 +49,20 @@
     </button>
 
     <script>
-        function formatItinerary(itinerary) {
-            if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
-                return "<p>Itinerary not available.</p>";
-            }
+       function formatItinerary(itinerary) {
+    if (!itinerary || !Array.isArray(itinerary) || itinerary.length === 0) {
+        return "<p>Itinerary not available.</p>";
+    }
 
-            return itinerary.map(day => 
-                `<p><strong>Day ${day.day_number}:</strong> ${day.title ? day.title + " - " : ""}${day.description}</p>`
-            ).join("");
-        }
+    return itinerary.map(day => 
+        `<hr class="orange-line">
+        <p><strong>Day ${day.day_number}:</strong></p>
+         <hr class="orange-line">
+         <p><strong>${day.title}</strong></p>
+         <hr class="orange-line">
+         <p>${day.description}</p>`
+    ).join("");
+}
 
         async function fetchPackageDetails() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -309,6 +314,13 @@
     box-shadow: 0 6px 12px rgba(255, 152, 0, 0.8);
     transform: scale(1.05);
 }
+.orange-line {
+    border: none;
+    height: 2px;
+    background: orange;
+    margin: 10px 0;
+}
+
 
     </style>
 
