@@ -323,12 +323,86 @@
   </a>
 </li>
 
-<li class="navbar-item">
-  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('destinations')">
+<li class="navbar-item dropdown">
+  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="toggleDropdown()">
     <div class="separator"></div>
     <span class="span">Destinations</span>
+    <ion-icon name="chevron-down-outline" aria-hidden="true" class="dropdown-icon"></ion-icon>
   </a>
+  <ul class="dropdown-menu" id="destinationsDropdown">
+    <!-- Destinations will be dynamically populated here -->
+  </ul>
 </li>
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById('destinationsDropdown');
+    const dropdownIcon = document.querySelector('.dropdown-icon');
+
+    if (!dropdown || !dropdownIcon) return;
+
+    dropdown.classList.toggle('show');
+    dropdownIcon.classList.toggle('rotate');
+
+    if (dropdown.classList.contains('show') && dropdown.children.length === 0) {
+      fetchDestinations();
+    }
+  }
+
+  function fetchDestinations() {
+    fetch('https://tksafaris.pythonanywhere.com/api/destinations/')
+      .then(response => response.json())
+      .then(data => {
+        const dropdown = document.getElementById('destinationsDropdown');
+        if (!dropdown) return;
+
+       dropdown.innerHTML = data
+  .map(destination =>
+    destination.title
+      ? `<li><a href="javascript:void(0);" class="dropdown-link" onclick="scrollToSection('destinations', event)">${destination.title}</a></li>`
+      : ''
+  )
+  .join('');
+
+        // Ensure dropdown closes when any link is clicked
+        const dropdownLinks = dropdown.querySelectorAll('.dropdown-link');
+        dropdownLinks.forEach(link => {
+          link.addEventListener('click', () => closeDropdown());
+        });
+      })
+      .catch(error => console.error('Error fetching destinations:', error));
+  }
+
+  function scrollToSection(sectionId, event) {
+  if (event) {
+    event.stopPropagation(); // Prevent event from bubbling up
+  }
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+  closeDropdown();
+}
+
+  function closeDropdown() {
+    const dropdown = document.getElementById('destinationsDropdown');
+    const dropdownIcon = document.querySelector('.dropdown-icon');
+
+    if (dropdown) dropdown.classList.remove('show');
+    if (dropdownIcon) dropdownIcon.classList.remove('rotate');
+  }
+
+  document.addEventListener('click', (event) => {
+    const dropdown = document.getElementById('destinationsDropdown');
+    const dropdownTrigger = document.querySelector('.navbar-item.dropdown');
+
+    if (dropdown && dropdownTrigger && !dropdownTrigger.contains(event.target)) {
+      closeDropdown();
+    }
+  });
+</script>
+
+
 
 <li class="navbar-item">
   <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('about')">
@@ -837,7 +911,7 @@ Stylish and Comfortable
                   <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
   <figure class="card-banner img-holder" style="--width: 285; --height: 336">
     <img
-      src="./assets/images/lake-nakuru.jpg"
+      src="./assets/images/l"
       width="285"
       height="336"
       loading="lazy"
@@ -1456,85 +1530,7 @@ fetchPackages();
       -->
         
       </article>
-      <div class="partnerships-section">
-  <div class="scrolling-images">
-    <a href="https://www.kws.go.ke/" target="_blank">
-      <img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service">
-    </a>
-    <a href="https://www.safaribookings.com/" target="_blank">
-      <img src="./assets//images/safaribookings.png" alt="Safari Bookings">
-    </a>
-    <a href="https://magicalkenya.com/" target="_blank">
-      <img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya">
-    </a>
-    <a href="https://www.tripadvisor.com/" target="_blank">
-      <img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor">
-    </a>
-    <a href="https://tra.go.ke/" target="_blank">
-      <img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority">
-    </a>
-    
-    <!-- Add more images as needed -->
-  </div>
-</div>
-
-<style>
-  .partnerships-section {
-    background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
-    padding: 40px 0; /* Increased padding for better spacing */
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Subtle pattern overlay */
-  .partnerships-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.5;
-    pointer-events: none; /* Ensure it doesn't interfere with clicks */
-  }
-
-  .scrolling-images {
-    display: flex;
-    animation: scroll 40s linear infinite; /* Slower scrolling effect */
-  }
-
-  .scrolling-images a {
-    margin: 0 20px;
-    flex-shrink: 0;
-    display: inline-block;
-    transition: transform 0.3s ease; /* Smooth hover effect */
-  }
-
-  .scrolling-images img {
-    height: 80px;
-    width: auto; /* Adjust width automatically to maintain aspect ratio */
-    max-width: 150px; /* Limit maximum width */
-    border-radius: 8px; /* Slightly rounded corners for a modern look */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  }
-
-  /* Hover effect: Pop up and add shadow */
-  .scrolling-images a:hover img {
-    transform: scale(1.1); /* Pop up effect */
-    box-shadow: 0 8px 16px rgba(255, 165, 0, 0.5); /* Orange shadow */
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-</style>
+      
     </main>
     
    
@@ -1649,6 +1645,132 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
         </div>
       </div>
     </footer>
+   <div class="partnerships-section">
+  <div class="scrolling-images" id="scrollingImages">
+    <a href="https://www.kws.go.ke/" target="_blank">
+      <img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service">
+    </a>
+    <a href="https://www.safaribookings.com/" target="_blank">
+      <img src="./assets//images/safaribookings.png" alt="Safari Bookings">
+    </a>
+    <a href="https://magicalkenya.com/" target="_blank">
+      <img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya">
+    </a>
+    <a href="https://www.tripadvisor.com/" target="_blank">
+      <img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor">
+    </a>
+    <a href="https://tra.go.ke/" target="_blank">
+      <img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority">
+    </a>
+    <!-- Add more images as needed -->
+  </div>
+</div>
+<style>
+  .partnerships-section {
+  background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
+  padding: 40px 0; /* Increased padding for better spacing */
+  overflow: hidden;
+  position: relative;
+}
+
+/.partnerships-section {
+  background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
+  padding: 40px 0; /* Increased padding for better spacing */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle pattern overlay */
+.partnerships-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+}
+
+.scrolling-images {
+  display: flex;
+  animation: scroll 20s linear infinite; /* Faster scrolling effect, reduced from 40s to 20s */
+  cursor: grab; /* Indicating it is scrollable */
+  overflow-x: auto;
+}
+
+.scrolling-images a {
+  margin: 0 20px;
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.scrolling-images img {
+  height: 80px;
+  width: auto; /* Adjust width automatically to maintain aspect ratio */
+  max-width: 150px; /* Limit maximum width */
+  border-radius: 8px; /* Slightly rounded corners for a modern look */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect: Pop up and add shadow */
+.scrolling-images a:hover img {
+  transform: scale(1.1); /* Pop up effect */
+  box-shadow: 0 8px 16px rgba(255, 165, 0, 0.5); /* Orange shadow */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+</style>
+<script>
+  // Variable to track the scrolling state (whether it's currently being dragged or not)
+let isMouseDown = false;
+let startX;
+let scrollLeft;
+
+const scrollingImages = document.getElementById('scrollingImages');
+
+// Mouse Down event to start dragging
+scrollingImages.addEventListener('mousedown', (e) => {
+  isMouseDown = true;
+  startX = e.pageX - scrollingImages.offsetLeft;
+  scrollLeft = scrollingImages.scrollLeft;
+  scrollingImages.style.cursor = 'grabbing'; // Change cursor to indicate grabbing
+});
+
+// Mouse Leave event to stop dragging
+scrollingImages.addEventListener('mouseleave', () => {
+  isMouseDown = false;
+  scrollingImages.style.cursor = 'grab';
+});
+
+// Mouse Up event to stop dragging
+scrollingImages.addEventListener('mouseup', () => {
+  isMouseDown = false;
+  scrollingImages.style.cursor = 'grab';
+});
+
+// Mouse Move event to scroll manually
+scrollingImages.addEventListener('mousemove', (e) => {
+  if (!isMouseDown) return;
+  e.preventDefault();
+  const x = e.pageX - scrollingImages.offsetLeft;
+  const scroll = x - startX;
+  scrollingImages.scrollLeft = scrollLeft - scroll;
+});
+
+</script>
 
 
 

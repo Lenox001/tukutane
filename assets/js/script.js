@@ -177,5 +177,39 @@ window.addEventListener("mousemove", function (event) {
     y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
+  function toggleDropdown() {
+  const dropdown = document.getElementById('destinationsDropdown');
+  const dropdownIcon = document.querySelector('.dropdown-icon');
+
+  if (dropdown.style.display === 'block') {
+    dropdown.style.display = 'none';
+    dropdownIcon.classList.remove('rotate');
+  } else {
+    dropdown.style.display = 'block';
+    dropdownIcon.classList.add('rotate');
+    if (!dropdown.innerHTML) {
+      fetchDestinations();
+    }
+  }
+}
+
+function fetchDestinations() {
+  fetch('https://tksafaris.pythonanywhere.com/api/destinations/')
+    .then(response => response.json())
+    .then(data => {
+      const dropdown = document.getElementById('destinationsDropdown');
+      dropdown.innerHTML = data.map(destination => `
+        <li onclick="scrollToSection('${destination.id}')">${destination.name}</li>
+      `).join('');
+    })
+    .catch(error => console.error('Error fetching destinations:', error));
+}
+
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
 });
