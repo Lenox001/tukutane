@@ -159,10 +159,11 @@
 
           <span class="span">Email Us</span>
            <div class="separator"></div>
+       
       
 
 <span id="current-time" style="font-weight: bold; color: #ffeb3b; margin-left: 10px;"></span>
-
+ 
 <script>
   function updateTime() {
     const now = new Date();
@@ -173,6 +174,12 @@
   setInterval(updateTime, 1000); // Update every second
   updateTime(); // Initialize on load
 </script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
         </a>
       </div>
@@ -184,6 +191,7 @@
 
     <header class="header" data-header>
       <div class="container">
+        
      <a href="javascript:void(0);" 
    onclick="scrollToTop()" 
    style="text-decoration: none; display: flex; align-items: center; flex-wrap: wrap;">
@@ -322,85 +330,14 @@
     <span class="span">Home</span>
   </a>
 </li>
-
-<li class="navbar-item dropdown">
-  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="toggleDropdown()">
+            <li class="navbar-item">
+  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('destinations')">
     <div class="separator"></div>
     <span class="span">Destinations</span>
-    <ion-icon name="chevron-down-outline" aria-hidden="true" class="dropdown-icon"></ion-icon>
   </a>
-  <ul class="dropdown-menu" id="destinationsDropdown">
-    <!-- Destinations will be dynamically populated here -->
-  </ul>
 </li>
 
-<script>
-  function toggleDropdown() {
-    const dropdown = document.getElementById('destinationsDropdown');
-    const dropdownIcon = document.querySelector('.dropdown-icon');
 
-    if (!dropdown || !dropdownIcon) return;
-
-    dropdown.classList.toggle('show');
-    dropdownIcon.classList.toggle('rotate');
-
-    if (dropdown.classList.contains('show') && dropdown.children.length === 0) {
-      fetchDestinations();
-    }
-  }
-
-  function fetchDestinations() {
-    fetch('https://tksafaris.pythonanywhere.com/api/destinations/')
-      .then(response => response.json())
-      .then(data => {
-        const dropdown = document.getElementById('destinationsDropdown');
-        if (!dropdown) return;
-
-       dropdown.innerHTML = data
-  .map(destination =>
-    destination.title
-      ? `<li><a href="javascript:void(0);" class="dropdown-link" onclick="scrollToSection('destinations', event)">${destination.title}</a></li>`
-      : ''
-  )
-  .join('');
-
-        // Ensure dropdown closes when any link is clicked
-        const dropdownLinks = dropdown.querySelectorAll('.dropdown-link');
-        dropdownLinks.forEach(link => {
-          link.addEventListener('click', () => closeDropdown());
-        });
-      })
-      .catch(error => console.error('Error fetching destinations:', error));
-  }
-
-  function scrollToSection(sectionId, event) {
-  if (event) {
-    event.stopPropagation(); // Prevent event from bubbling up
-  }
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-  closeDropdown();
-}
-
-  function closeDropdown() {
-    const dropdown = document.getElementById('destinationsDropdown');
-    const dropdownIcon = document.querySelector('.dropdown-icon');
-
-    if (dropdown) dropdown.classList.remove('show');
-    if (dropdownIcon) dropdownIcon.classList.remove('rotate');
-  }
-
-  document.addEventListener('click', (event) => {
-    const dropdown = document.getElementById('destinationsDropdown');
-    const dropdownTrigger = document.querySelector('.navbar-item.dropdown');
-
-    if (dropdown && dropdownTrigger && !dropdownTrigger.contains(event.target)) {
-      closeDropdown();
-    }
-  });
-</script>
 
 
 
@@ -1612,17 +1549,20 @@ fetchPackages();
               style="display: flex; justify-content: center; gap: 20px"
             >
               
-             
-             <a 
-  href="https://wa.me/254703363843" 
-  style="color: #18ca27; font-size: 2rem;">
+  <!-- WhatsApp Icon -->
+<a href="https://wa.me/254703363843" style="color: #18ca27; font-size: 3rem; margin-right: 15px;">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-              <a
- <a href="https://www.tiktok.com/@tukutanekenyasafa" class="social-icon" style="color: #18ca27; font-size: 2rem;">
-      <i class="fab fa-tiktok"></i>
-    </a>
+<!-- Instagram Icon -->
+<a href="https://www.instagram.com/tukutanekenyasafaris" style="color: #C13584; font-size: 3rem; margin-right: 15px;">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<!-- TikTok Icon -->
+<a href="https://www.tiktok.com/@tukutanekenyasafa" class="social-icon" style="color: #18ca27; font-size: 3rem; margin-right: 15px;">
+  <i class="fab fa-tiktok"></i>
+</a>
 
             </div>
           </div>
@@ -1645,8 +1585,8 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
         </div>
       </div>
     </footer>
-   <div class="partnerships-section">
-  <div class="scrolling-images" id="scrollingImages">
+    <div class="partnerships-section">
+  <div class="scrolling-images">
     <a href="https://www.kws.go.ke/" target="_blank">
       <img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service">
     </a>
@@ -1662,115 +1602,140 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     <a href="https://tra.go.ke/" target="_blank">
       <img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority">
     </a>
+    
     <!-- Add more images as needed -->
   </div>
 </div>
+
 <style>
   .partnerships-section {
-  background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
-  padding: 40px 0; /* Increased padding for better spacing */
-  overflow: hidden;
-  position: relative;
-}
-
-.partnerships-section {
-  background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
-  padding: 40px 0; /* Increased padding for better spacing */
-  overflow: hidden;
-  position: relative;
-}
-
-/* Subtle pattern overlay */
-.partnerships-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.5;
-  pointer-events: none; /* Ensure it doesn't interfere with clicks */
-}
-
-.scrolling-images {
-  display: flex;
-  animation: scroll 20s linear infinite; /* Faster scrolling effect, reduced from 40s to 20s */
-  cursor: grab; /* Indicating it is scrollable */
-  overflow-x: auto;
-}
-
-.scrolling-images a {
-  margin: 0 20px;
-  flex-shrink: 0;
-  display: inline-block;
-  transition: transform 0.3s ease; /* Smooth hover effect */
-}
-
-.scrolling-images img {
-  height: 80px;
-  width: auto; /* Adjust width automatically to maintain aspect ratio */
-  max-width: 150px; /* Limit maximum width */
-  border-radius: 8px; /* Slightly rounded corners for a modern look */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-/* Hover effect: Pop up and add shadow */
-.scrolling-images a:hover img {
-  transform: scale(1.1); /* Pop up effect */
-  box-shadow: 0 8px 16px rgba(255, 165, 0, 0.5); /* Orange shadow */
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
+    background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
+    padding: 40px 0; /* Increased padding for better spacing */
+    overflow: hidden;
+    position: relative;
   }
-  100% {
-    transform: translateX(-100%);
+
+  /* Subtle pattern overlay */
+  .partnerships-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none; /* Ensure it doesn't interfere with clicks */
   }
-}
 
+  .scrolling-images {
+    display: flex;
+    animation: scroll 40s linear infinite; /* Slower scrolling effect */
+  }
 
+  .scrolling-images a {
+    margin: 0 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+  }
+
+  .scrolling-images img {
+    height: 80px;
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+    max-width: 150px; /* Limit maximum width */
+    border-radius: 8px; /* Slightly rounded corners for a modern look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+
+  /* Hover effect: Pop up and add shadow */
+  .scrolling-images a:hover img {
+    transform: scale(1.1); /* Pop up effect */
+    box-shadow: 0 8px 16px rgba(255, 165, 0, 0.5); /* Orange shadow */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 </style>
-<script>
-  // Variable to track the scrolling state (whether it's currently being dragged or not)
-let isMouseDown = false;
-let startX;
-let scrollLeft;
+    <!-- Google Translate -->
+  <div id="google_translate_element"></div>
 
-const scrollingImages = document.getElementById('scrollingImages');
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    /* Ensure Google Translate container is visible but smaller */
+    #google_translate_element {
+      position: fixed;
+      bottom: 10px;  /* Move it closer to the bottom */
+      right: 10px;   /* Move it closer to the right */
+      background-color: #fff;  /* White background */
+      border-radius: 8px;  /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      padding: 5px 10px; /* Smaller padding */
+      z-index: 10000; /* Ensure it stays on top of other content */
+      display: block; /* Ensure the container is visible */
+    }
 
-// Mouse Down event to start dragging
-scrollingImages.addEventListener('mousedown', (e) => {
-  isMouseDown = true;
-  startX = e.pageX - scrollingImages.offsetLeft;
-  scrollLeft = scrollingImages.scrollLeft;
-  scrollingImages.style.cursor = 'grabbing'; // Change cursor to indicate grabbing
-});
+    /* Style the dropdown select box */
+    .goog-te-menu-frame {
+      border-radius: 5px;  /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 120px;  /* Set a smaller width */
+      font-size: 12px; /* Smaller text */
+    }
 
-// Mouse Leave event to stop dragging
-scrollingImages.addEventListener('mouseleave', () => {
-  isMouseDown = false;
-  scrollingImages.style.cursor = 'grab';
-});
+    /* Style the button itself */
+    .goog-te-menu2 {
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: #18ca27; /* Green color */
+      color: white; /* White text */
+      font-size: 12px; /* Smaller font size */
+      padding: 6px 10px; /* Smaller padding inside the button */
+      cursor: pointer; /* Cursor pointer on hover */
+    }
 
-// Mouse Up event to stop dragging
-scrollingImages.addEventListener('mouseup', () => {
-  isMouseDown = false;
-  scrollingImages.style.cursor = 'grab';
-});
+    /* Change the icon and text color on hover */
+    #google_translate_element:hover {
+      background-color: #17a246; /* Darker green on hover */
+    }
 
-// Mouse Move event to scroll manually
-scrollingImages.addEventListener('mousemove', (e) => {
-  if (!isMouseDown) return;
-  e.preventDefault();
-  const x = e.pageX - scrollingImages.offsetLeft;
-  const scroll = x - startX;
-  scrollingImages.scrollLeft = scrollLeft - scroll;
-});
+    /* Optional: Adjust size for mobile screens */
+    @media (max-width: 768px) {
+      #google_translate_element {
+        bottom: 5px;  /* Slightly adjust position on small screens */
+        right: 5px;
+        padding: 5px 8px;
+      }
 
-</script>
+      /* Ensure the translate widget is still visible */
+      .goog-te-menu-frame {
+        width: 100px !important; /* Smaller width on mobile */
+        font-size: 10px !important; /* Even smaller font size on mobile */
+      }
+
+      .goog-te-menu2 {
+        font-size: 10px; /* Smaller font size for mobile */
+        padding: 5px 8px; /* Smaller padding for mobile */
+      }
+    }
+
+    /* Force the translate button to stay visible */
+    .goog-te-banner-frame {
+      display: none !important; /* Hide the banner */
+    }
+  </style>
 
 
 
