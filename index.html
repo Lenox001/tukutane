@@ -1904,27 +1904,27 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
    <!-- WhatsApp Chat Button -->
   <style>
     /* Basic styling for the WhatsApp chat button */
-    #whatsapp-chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background-color: #25D366; /* WhatsApp green */
-      padding: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      animation: bounce 1.5s infinite ease-in-out; /* Bounce animation */
-    }
-
+   #whatsapp-chat-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Align the button to the left */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #25D366; /* WhatsApp green */
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  animation: bounce 1.5s infinite ease-in-out; /* Bounce animation */
+}
     /* WhatsApp Icon styling */
-    #whatsapp-chat-button i {
-      font-size: 3rem; /* Icon size increased */
-      color: white; /* Icon color */
-    }
+   /* WhatsApp Icon styling */
+#whatsapp-chat-button i {
+  font-size: 3rem; /* Icon size increased */
+  color: white; /* Icon color */
+}
 
     /* Bounce effect for the button */
     @keyframes bounce {
@@ -1943,6 +1943,23 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     #whatsapp-chat-button:hover {
       transform: scale(1.1); /* Grow a little on hover */
     }
+/* Bounce effect for the button */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px); /* Move up */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect to make it slightly larger */
+#whatsapp-chat-button:hover {
+  transform: scale(1.1); /* Grow a little on hover */
+}
   </style>
 </head>
 <body>
