@@ -1404,7 +1404,65 @@ fetchPackages();
     });
 </script>
 
-    </div>
+ <div class="container">
+    <p class="section-subtitle label-2">✨ Gallery ✨</p>
+
+    <h2 class="headline-1 section-title">Our Photo Gallery</h2>
+
+    <ul class="grid-list" id="photo-list">
+        <!-- Data will be inserted here dynamically -->
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch photos from the API endpoint
+            fetch("https://tksafaris.pythonanywhere.com/api/photos/")
+                .then(response => response.json())
+                .then(data => {
+                    const photoList = document.getElementById("photo-list");
+                    photoList.innerHTML = ""; // Clear existing content
+
+                    data.forEach(photo => {
+                        const photoItem = document.createElement("li");
+                        photoItem.className = "feature-item";
+                        photoItem.innerHTML = `
+                            <div class="feature-card">
+                                <div class="card-banner img-holder">
+                                    <img src="${photo.image}" width="100%" height="150"
+                                         alt="${photo.caption}"
+                                         class="gallery-image-cute" 
+                                         style="border-radius: 12px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;" 
+                                         onmouseover="this.style.transform='scale(1.05)'; this.style.opacity='0.9';" 
+                                         onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+                                </div>
+                                <p class="label-1 card-caption">${photo.caption}</p>
+                            </div>
+                        `;
+                        photoList.appendChild(photoItem);
+                    });
+                })
+                .catch(error => console.error("Error fetching photos:", error));
+        });
+    </script>
+</div>
+
+<style>
+  .gallery-image-cute {
+    width: 100%;
+    height: 150px; /* Set the height to be longer */
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image-cute:hover {
+    transform: scale(1.1) rotate(2deg); /* Slight zoom and tilt on hover */
+    opacity: 0.9; /* Slight fade on hover */
+    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3); /* Pink shadow on hover */
+}
+</style>
+
 </section>
 
 <section id="destinations" class="section destinations bg-black-10" aria-label="destinations">
