@@ -440,71 +440,20 @@
 </style>
 
 <script>
-  // Add functionality to close the widget
+  // Check if the user has already closed the translate widget
+  if (!localStorage.getItem('googleTranslateClosed')) {
+    document.getElementById('google_translate_element').style.display = 'block';
+  } else {
+    document.getElementById('google_translate_element').style.display = 'none';
+  }
+
+  // Add functionality to close the widget and store the preference
   document.getElementById('close_translate_button').addEventListener('click', function () {
     document.getElementById('google_translate_element').style.display = 'none';
+    // Store in localStorage to remember the close action
+    localStorage.setItem('googleTranslateClosed', 'true');
   });
-</script>* Ensure Google Translate container is visible but smaller */
-    #google_translate_element {
-      position: fixed;
-      bottom: 10px;  /* Move it closer to the bottom */
-      right: 10px;   /* Move it closer to the right */
-      background-color: #fff;  /* White background */
-      border-radius: 8px;  /* Rounded corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-      padding: 5px 10px; /* Smaller padding */
-      z-index: 10000; /* Ensure it stays on top of other content */
-      display: block; /* Ensure the container is visible */
-    }
+</script>
 
-    /* Style the dropdown select box */
-    .goog-te-menu-frame {
-      border-radius: 5px;  /* Rounded corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 120px;  /* Set a smaller width */
-      font-size: 12px; /* Smaller text */
-    }
-
-    /* Style the button itself */
-    .goog-te-menu2 {
-      border-radius: 5px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: #18ca27; /* Green color */
-      color: white; /* White text */
-      font-size: 12px; /* Smaller font size */
-      padding: 6px 10px; /* Smaller padding inside the button */
-      cursor: pointer; /* Cursor pointer on hover */
-    }
-
-    /* Change the icon and text color on hover */
-    #google_translate_element:hover {
-      background-color: #17a246; /* Darker green on hover */
-    }
-
-    /* Optional: Adjust size for mobile screens */
-    @media (max-width: 768px) {
-      #google_translate_element {
-        bottom: 5px;  /* Slightly adjust position on small screens */
-        right: 5px;
-        padding: 5px 8px;
-      }
-
-      /* Ensure the translate widget is still visible */
-      .goog-te-menu-frame {
-        width: 100px !important; /* Smaller width on mobile */
-        font-size: 10px !important; /* Even smaller font size on mobile */
-      }
-
-      .goog-te-menu2 {
-        font-size: 10px; /* Smaller font size for mobile */
-        padding: 5px 8px; /* Smaller padding for mobile */
-      }
-    }
-
-    /* Force the translate button to stay visible */
-    .goog-te-banner-frame {
-      display: none !important; /* Hide the banner */
-    }
-  </style>
 </body>
 </html>

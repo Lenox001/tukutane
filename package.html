@@ -459,11 +459,21 @@
 </style>
 
 <script>
-  // Add functionality to close the widget
+  // Check if the user has already closed the translate widget
+  if (!localStorage.getItem('googleTranslateClosed')) {
+    document.getElementById('google_translate_element').style.display = 'block';
+  } else {
+    document.getElementById('google_translate_element').style.display = 'none';
+  }
+
+  // Add functionality to close the widget and store the preference
   document.getElementById('close_translate_button').addEventListener('click', function () {
     document.getElementById('google_translate_element').style.display = 'none';
+    // Store in localStorage to remember the close action
+    localStorage.setItem('googleTranslateClosed', 'true');
   });
 </script>
+
 
 </body>
 </html>
