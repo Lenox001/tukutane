@@ -1545,17 +1545,17 @@ fetchPackages();
             >
               
   <!-- WhatsApp Icon -->
-<a href="https://wa.me/254703363843" style="color: #18ca27; font-size: 3rem; margin-right: 15px;">
+<a href="https://wa.me/254703363843" style="color: #18ca27; font-size: 5rem; margin-right: 15px;">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <!-- Instagram Icon -->
-<a href="https://www.instagram.com/tukutanekenyasafaris" style="color: #C13584; font-size: 3rem; margin-right: 15px;">
+<a href="https://www.instagram.com/tukutanekenyasafaris" style="color: #C13584; font-size: 5rem; margin-right: 15px;">
   <i class="fab fa-instagram"></i>
 </a>
 
 <!-- TikTok Icon -->
-<a href="https://www.tiktok.com/@tukutanekenyasafa" class="social-icon" style="color: #18ca27; font-size: 3rem; margin-right: 15px;">
+<a href="https://www.tiktok.com/@tukutanekenyasafa" class="social-icon" style="color: #18ca27; font-size: 5rem; margin-right: 15px;">
   <i class="fab fa-tiktok"></i>
 </a>
 
@@ -1662,75 +1662,112 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     <!-- Google Translate -->
   <div id="google_translate_element"></div>
 
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <style>
-    /* Ensure Google Translate container is visible but smaller */
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  /* Base styles for the Google Translate container */
+  #google_translate_element {
+    position: fixed;
+    bottom: 20px; /* Slightly higher for better visibility */
+    right: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for a modern look */
+    padding: 8px 12px; /* Slightly larger padding */
+    z-index: 10000; /* Ensure it stays on top */
+    display: block;
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  }
+
+  /* Hover effect for the container */
+  #google_translate_element:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+  }
+
+  /* Style the dropdown select box */
+  .goog-te-menu-frame {
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Consistent shadow */
+    width: 140px; /* Slightly wider for better readability */
+    font-size: 14px; /* Larger font size */
+    border: none; /* Remove default border */
+  }
+
+  /* Style the button itself */
+  .goog-te-menu2 {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #18ca27; /* Green color */
+    color: white; /* White text */
+    font-size: 14px; /* Larger font size */
+    padding: 8px 12px; /* Slightly larger padding */
+    cursor: pointer; /* Cursor pointer on hover */
+    border: none; /* Remove default border */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+
+  /* Hover effect for the button */
+  .goog-te-menu2:hover {
+    background-color: #17a246; /* Darker green on hover */
+  }
+
+  /* Optional: Adjust size for mobile screens */
+  @media (max-width: 768px) {
     #google_translate_element {
-      position: fixed;
-      bottom: 10px;  /* Move it closer to the bottom */
-      right: 10px;   /* Move it closer to the right */
-      background-color: #fff;  /* White background */
-      border-radius: 8px;  /* Rounded corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-      padding: 5px 10px; /* Smaller padding */
-      z-index: 10000; /* Ensure it stays on top of other content */
-      display: block; /* Ensure the container is visible */
+      bottom: 10px; /* Adjust position for mobile */
+      right: 10px;
+      padding: 6px 10px; /* Slightly smaller padding */
     }
 
-    /* Style the dropdown select box */
+    /* Ensure the translate widget is still visible */
     .goog-te-menu-frame {
-      border-radius: 5px;  /* Rounded corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 120px;  /* Set a smaller width */
-      font-size: 12px; /* Smaller text */
+      width: 120px !important; /* Smaller width on mobile */
+      font-size: 12px !important; /* Smaller font size on mobile */
     }
 
-    /* Style the button itself */
     .goog-te-menu2 {
-      border-radius: 5px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: #18ca27; /* Green color */
-      color: white; /* White text */
-      font-size: 12px; /* Smaller font size */
-      padding: 6px 10px; /* Smaller padding inside the button */
-      cursor: pointer; /* Cursor pointer on hover */
+      font-size: 12px; /* Smaller font size for mobile */
+      padding: 6px 10px; /* Smaller padding for mobile */
     }
+  }
 
-    /* Change the icon and text color on hover */
-    #google_translate_element:hover {
-      background-color: #17a246; /* Darker green on hover */
+  /* Hide the Google Translate banner */
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+
+  /* Improve the dropdown arrow */
+  .goog-te-gadget-icon {
+    filter: brightness(0) invert(1); /* Make the icon white */
+  }
+
+  /* Ensure the dropdown text is readable */
+  .goog-te-menu-value span {
+    color: #333; /* Dark text for better readability */
+  }
+
+  /* Add a smooth fade-in animation for the dropdown */
+  .goog-te-menu-frame {
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
     }
-
-    /* Optional: Adjust size for mobile screens */
-    @media (max-width: 768px) {
-      #google_translate_element {
-        bottom: 5px;  /* Slightly adjust position on small screens */
-        right: 5px;
-        padding: 5px 8px;
-      }
-
-      /* Ensure the translate widget is still visible */
-      .goog-te-menu-frame {
-        width: 100px !important; /* Smaller width on mobile */
-        font-size: 10px !important; /* Even smaller font size on mobile */
-      }
-
-      .goog-te-menu2 {
-        font-size: 10px; /* Smaller font size for mobile */
-        padding: 5px 8px; /* Smaller padding for mobile */
-      }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    /* Force the translate button to stay visible */
-    .goog-te-banner-frame {
-      display: none !important; /* Hide the banner */
-    }
-  </style>
+  }
+</style>
 
 
 
