@@ -1842,5 +1842,60 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+   <!-- WhatsApp Chat Button -->
+   <!-- WhatsApp Chat Button -->
+  <style>
+    /* Basic styling for the WhatsApp chat button */
+    #whatsapp-chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #25D366; /* WhatsApp green */
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      animation: bounce 1.5s infinite ease-in-out; /* Bounce animation */
+    }
+
+    /* WhatsApp Icon styling */
+    #whatsapp-chat-button i {
+      font-size: 3rem; /* Icon size increased */
+      color: white; /* Icon color */
+    }
+
+    /* Bounce effect for the button */
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px); /* Move up */
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effect to make it slightly larger */
+    #whatsapp-chat-button:hover {
+      transform: scale(1.1); /* Grow a little on hover */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/254703363843" target="_blank" id="whatsapp-chat-button">
+    <!-- WhatsApp Icon from FontAwesome -->
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+
+</script>
   </body>
 </html>
