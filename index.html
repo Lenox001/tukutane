@@ -1659,8 +1659,9 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     }
   }
 </style>
-    <!-- Google Translate -->
-  <div id="google_translate_element"></div>
+    <div id="google_translate_element">
+  <span id="close_translate_button" title="Close">×</span>
+</div>
 
 <script type="text/javascript">
   function googleTranslateElementInit() {
@@ -1682,6 +1683,30 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     z-index: 10000; /* Ensure it stays on top */
     display: block;
     transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  }
+
+  /* Close button styles */
+  #close_translate_button {
+    position: absolute;
+    top: -10px; /* Position it above the container */
+    right: -10px;
+    background-color: #ff4d4d; /* Red background for the close button */
+    color: white; /* White text */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer; /* Cursor pointer on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+
+  /* Hover effect for the close button */
+  #close_translate_button:hover {
+    background-color: #e60000; /* Darker red on hover */
   }
 
   /* Hover effect for the container */
@@ -1769,6 +1794,12 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
   }
 </style>
 
+<script>
+  // Add functionality to close the widget
+  document.getElementById('close_translate_button').addEventListener('click', function () {
+    document.getElementById('google_translate_element').style.display = 'none';
+  });
+</script>
 
 
    
