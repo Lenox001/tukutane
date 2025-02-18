@@ -147,7 +147,7 @@
             <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
           </div>
 
-          <span class="span">Give Us A Call</span>
+          <span class="span" style="color: yellow;"><strong>+254722601453</strong></span>
         </a>
 
         <div class="separator"></div>
@@ -375,10 +375,10 @@
             <div class="separator"></div>
 
             <a
-              href="tel:+2540703363753"
+              href="tel:+254703363753"
               class="body-1 contact-number hover-underline"
             >
-              Call
+             +254703363753
             </a>
           </div>
         </nav>
@@ -982,75 +982,7 @@ Embark on a journey with us and explore Kenya’s breathtaking landscapes, diver
         - #SPECIAL DISH
       -->
 
-        <section class="special-dish text-center" aria-labelledby="dish-label">
-          <div class="special-dish-banner">
-   <a href="#safaris" class="scroll-link">
-  <img 
-    src="./assets/images/special offer.png"
-    width="240px"
-    height="320px"
-    loading="lazy"
-    alt="special dish"
-    class="img-cover"
-    style="margin-left: 20px; margin-right: 10px;"
-  />
-</a>
-
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  @media (max-width: 600px) {
-    .img-cover {
-      margin-left: 10px; /* Maintain left margin */
-      margin-right: 20px; /* Add more right margin for small screens */
-    }
-  }
-</style>
-
-
-
-          </div>
-
-          <div class="special-dish-content bg-black-10">
-            <div class="container">
-              <img
-                src="./assets/images/badge-1.png"
-                width="28"
-                height="41"
-                loading="lazy"
-                alt="badge"
-                class="abs-img"
-              />
-
-              <p class="section-subtitle label-2">Special Offer</p>
-
-              <h2 class="headline-1 section-title">Beach Visits!!</h2>
-
-              <p class="section-text" style="font-size: 1.5rem; font-weight: bold; color: #ff5733; text-transform: uppercase; text-align: center;">
-  🌴 Beach Visits 50% Off – Experience Paradise at Half the Price! 🌊
-</p>
-
-              <div class="wrapper">
-                <del class="del body-3">$</del>
-
-                <span class="span body-1">$</span>
-              </div>
-
-<a href="javascript:void(0);" onclick="scrollToSection('safaris');" class="btn btn-primary">
-  <span class="text text-1">View All</span>
-  <span class="text text-2" aria-hidden="true">View All</span>
-</a>
-
-<script>
-  function scrollToSection(id) {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-</script>
+        
 
           </div>
 
@@ -1581,7 +1513,7 @@ fetchPackages();
               <button
                 type="button"
                 class="btn btn-secondary"
-                onclick="window.location.href='mailto:safaristukutanekenya@gmail.com?subject=I%20would%20like%20to%20subscribe'"
+                onclick="window.location.href='mailto:info@tukutanekenyasafaris.com?subject=I%20would%20like%20to%20subscribe'"
               >
                 <span class="text text-1">Subscribe</span>
                 <span class="text text-2" aria-hidden="true">Subscribe</span>
@@ -1882,6 +1814,41 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 </script>
+<a href="tel:+254722601453" class="floating-phone">
+    <i class="fas fa-phone"></i>
+</a>
+<style>
+  @keyframes floatAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.floating-phone {
+    position: fixed;
+    bottom: 120px; /* Moves it higher */
+    left: 20px;
+    background-color: rgb(6, 124, 37));
+    color: black;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    animation: floatAnimation 2s infinite ease-in-out;
+}
+
+.floating-phone:hover {
+    transform: scale(1.1);
+}
+
+</style>
 
 
     <!-- 
