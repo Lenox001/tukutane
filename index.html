@@ -1498,27 +1498,77 @@ fetchPackages();
               Subscribe & Get Offers <span class="span">25% Off.</span>
             </p>
 
-            <form action="" class="input-wrapper">
-              <div class="icon-wrapper">
-                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-                <input
-                  type="email"
-                  name="email_address"
-                  placeholder="Your email"
-                  autocomplete="off"
-                  class="input-field"
-                />
-              </div>
+          <form action="#" class="input-wrapper" onsubmit="subscribeUser(event)">
+  <div class="icon-wrapper">
+    <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+    <input
+      type="email"
+      id="email"
+      name="email_address"
+      placeholder="Your email"
+      autocomplete="off"
+      class="input-field"
+      required
+    />
+  </div>
 
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onclick="window.location.href='mailto:info@tukutanekenyasafaris.com?subject=I%20would%20like%20to%20subscribe'"
-              >
-                <span class="text text-1">Subscribe</span>
-                <span class="text text-2" aria-hidden="true">Subscribe</span>
-              </button>
-            </form>
+  <button type="submit" class="btn btn-secondary">
+    <span class="text text-1">Subscribe</span>
+    <span class="text text-2" aria-hidden="true">Subscribe</span>
+  </button>
+</form>
+
+<!-- Notification message will appear here -->
+<div id="notification" style="display: none; margin-top: 10px; color: green;"></div>
+
+<script>
+async function subscribeUser(event) {
+  event.preventDefault();  // Prevent form submission
+
+  const email = document.getElementById("email").value;
+  if (!email) {
+    return showNotification("Please enter a valid email address.", "red");  // Error message in red
+  }
+
+  const API_URL = "https://tksafaris.pythonanywhere.com/api/subscribe/";  // Correct endpoint
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",  // Ensure correct content type
+      },
+      body: JSON.stringify({ email }),  // Send the email as JSON
+    });
+
+    if (!response.ok) {
+      throw new Error(`Subscription failed with status code: ${response.status}`);
+    }
+
+    const result = await response.json();  // Parse the JSON response
+    showNotification(result.message || "You've successfully subscribed! Thank you.", "green");  // Success message in green
+  } catch (error) {
+    // More user-friendly error message
+    const errorMessage = error.message.includes("failed") ? 
+      "Oops! Something went wrong with your subscription. Please try again." : 
+      "There was an error connecting to the server. Please try again later.";
+
+    showNotification(errorMessage, "red");  // Display error message in red
+  }
+}
+
+// Function to display the notification message below the form
+function showNotification(message, color) {
+  const notification = document.getElementById("notification");
+  notification.style.display = "block";  // Make the notification visible
+  notification.style.color = color;  // Set the text color (green for success, red for error)
+  notification.textContent = message;  // Set the notification message
+}
+</script>
+
+
+    
+
           </div>
 
           <!-- Social Media Links with improved design -->
