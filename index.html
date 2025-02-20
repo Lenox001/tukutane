@@ -52,6 +52,23 @@
     <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg" />
     <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg" />
   </head>
+  <script>let lastScroll = window.scrollY;
+const floatingCall = document.querySelector(".floating-call");
+
+window.addEventListener("scroll", () => {
+  let currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll) {
+    // Scrolling down → Hide button
+    floatingCall.classList.add("hidden");
+  } else {
+    // Scrolling up → Show button
+    floatingCall.classList.remove("hidden");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
 
   <body id="top">
     <!-- 

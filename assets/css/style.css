@@ -767,8 +767,8 @@ body.nav-active { overflow: hidden; }
 }
 
 .floating-call {
-  position: fixed;
-  top: 20px; /* Default position for large screens */
+  position: absolute; /* Change from fixed to absolute */
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: #ff4500;
@@ -780,20 +780,19 @@ body.nav-active { overflow: hidden; }
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 9999;
-  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Show on all screens */
-@media (min-width: 375px) {
-  .floating-call {
-    visibility: visible;
-  }
+/* Hide initially */
+.floating-call.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Move lower on small screens */
 @media (max-width: 768px) {
   .floating-call {
-    top: 15rem; /* Moves it lower to avoid logo overlap */
+    top: 15rem;
   }
 }
 
@@ -812,6 +811,7 @@ body.nav-active { overflow: hidden; }
   75% { transform: rotate(-5deg); }
   100% { transform: rotate(0); }
 }
+
 
 
 
