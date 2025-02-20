@@ -55,19 +55,25 @@
   <script>let lastScroll = window.scrollY;
 const floatingCall = document.querySelector(".floating-call");
 
+// Show it once the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  floatingCall.style.display = "flex";
+});
+
 window.addEventListener("scroll", () => {
   let currentScroll = window.scrollY;
 
   if (currentScroll > lastScroll) {
     // Scrolling down → Hide button
-    floatingCall.classList.add("hidden");
+    floatingCall.style.display = "none";
   } else {
     // Scrolling up → Show button
-    floatingCall.classList.remove("hidden");
+    floatingCall.style.display = "flex";
   }
 
   lastScroll = currentScroll;
 });
+
 </script>
 
   <body id="top">
@@ -701,9 +707,15 @@ window.addEventListener("scroll", () => {
   }
 </script>
 <div class="floating-call">
-  <i class="fas fa-phone-alt ringing"></i>
-  <span>Manager</span>
+  <i class="fas fa-phone"></i>
+  <a href="tel:+254722601453" style="color:white; text-decoration: none; font-weight: bold;">
+    Manager
+  </a>
+ 
+
 </div>
+
+
 
 
 

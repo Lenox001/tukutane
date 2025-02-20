@@ -767,11 +767,11 @@ body.nav-active { overflow: hidden; }
 }
 
 .floating-call {
-  position: absolute; /* Change from fixed to absolute */
-  top: 20px;
+  position: fixed !important;
+  top: 55px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ff4500;
+  background: green;
   color: white;
   padding: 10px 15px;
   border-radius: 30px;
@@ -779,14 +779,26 @@ body.nav-active { overflow: hidden; }
   align-items: center;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999999 !important; /* Ensure it's always on top */
+  pointer-events: auto !important; /* Make it clickable */
+  opacity: 1 !important; /* Force visibility */
+  visibility: visible !important;
+}
+/* Ensure the call button is always interactive */
+.floating-call a {
+  z-index: 999999 !important;
+  pointer-events: auto !important;
 }
 
-/* Hide initially */
-.floating-call.hidden {
-  opacity: 0;
-  visibility: hidden;
+/* Disable possible blocking elements */
+.hero .slider-item {
+  z-index: 0 !important; /* Lower the hero section */
+}
+
+/* Hide when scrolling */
+.hidden {
+  opacity: 0; /* Fade out instead of visibility: hidden */
+  pointer-events: none; /* Prevent clicks when hidden */
 }
 
 /* Move lower on small screens */
@@ -796,11 +808,22 @@ body.nav-active { overflow: hidden; }
   }
 }
 
+.floating-call a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  pointer-events: auto !important; /* Ensure link is clickable */
+  z-index: 999999 !important; /* Ensure it's not behind anything */
+}
+
 .floating-call i {
   font-size: 1.5rem;
   margin-right: 8px;
   animation: ring 1.5s infinite ease-in-out;
 }
+
+
+
 
 @keyframes ring {
   0% { transform: rotate(0); }
@@ -811,6 +834,7 @@ body.nav-active { overflow: hidden; }
   75% { transform: rotate(-5deg); }
   100% { transform: rotate(0); }
 }
+
 
 
 
