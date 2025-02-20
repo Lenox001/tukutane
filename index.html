@@ -58,10 +58,15 @@
 
     if (floatingCall) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > lastScrollY) {
-                floatingCall.classList.add("hidden");
+            let isScrollingDown = window.scrollY > lastScrollY;
+            let isSmallScreen = window.innerWidth <= 768;
+
+            if (isScrollingDown) {
+                floatingCall.classList.add("hidden"); // Hide when scrolling down
             } else {
-                floatingCall.classList.remove("hidden");
+                if (!isSmallScreen || window.scrollY <= 100) {
+                    floatingCall.classList.remove("hidden"); // Show when scrolling up or at top on small screens
+                }
             }
             lastScrollY = window.scrollY;
         });
