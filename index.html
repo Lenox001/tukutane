@@ -52,27 +52,25 @@
     <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg" />
     <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg" />
   </head>
-  <script>let lastScroll = window.scrollY;
-const floatingCall = document.querySelector(".floating-call");
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollY = window.scrollY;
+    const floatingCall = document.querySelector(".floating-call");
 
-// Show it once the page loads
-window.addEventListener("DOMContentLoaded", () => {
-  floatingCall.style.display = "flex";
+    if (floatingCall) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > lastScrollY) {
+                floatingCall.classList.add("hidden");
+            } else {
+                floatingCall.classList.remove("hidden");
+            }
+            lastScrollY = window.scrollY;
+        });
+    } else {
+        console.error("Element .floating-call not found");
+    }
 });
 
-window.addEventListener("scroll", () => {
-  let currentScroll = window.scrollY;
 
-  if (currentScroll > lastScroll) {
-    // Scrolling down → Hide button
-    floatingCall.style.display = "none";
-  } else {
-    // Scrolling up → Show button
-    floatingCall.style.display = "flex";
-  }
-
-  lastScroll = currentScroll;
-});
 
 </script>
 

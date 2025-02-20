@@ -765,9 +765,8 @@ body.nav-active { overflow: hidden; }
   opacity: 1;
   pointer-events: all;
 }
-
 .floating-call {
-  position: fixed !important;
+  position: fixed;
   top: 55px;
   left: 50%;
   transform: translateX(-50%);
@@ -779,16 +778,25 @@ body.nav-active { overflow: hidden; }
   align-items: center;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 999999 !important; /* Ensure it's always on top */
-  pointer-events: auto !important; /* Make it clickable */
-  opacity: 1 !important; /* Force visibility */
-  visibility: visible !important;
+  z-index: 99999;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
+
+.floating-call.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* Ensure the call button is always interactive */
 .floating-call a {
   z-index: 999999 !important;
   pointer-events: auto !important;
 }
+.floating-call {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 
 /* Disable possible blocking elements */
 .hero .slider-item {
@@ -833,6 +841,9 @@ body.nav-active { overflow: hidden; }
   60% { transform: rotate(10deg); }
   75% { transform: rotate(-5deg); }
   100% { transform: rotate(0); }
+}
+.floating-call {
+  transition: opacity 0.3s ease-in-out;
 }
 
 
