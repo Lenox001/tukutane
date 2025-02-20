@@ -766,6 +766,52 @@ body.nav-active { overflow: hidden; }
   pointer-events: all;
 }
 
+.floating-call {
+  position: fixed;
+  top: 20px; /* Default position for large screens */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4500;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Show on all screens */
+@media (min-width: 375px) {
+  .floating-call {
+    visibility: visible;
+  }
+}
+
+/* Move lower on small screens */
+@media (max-width: 768px) {
+  .floating-call {
+    top: 15rem; /* Moves it lower to avoid logo overlap */
+  }
+}
+
+.floating-call i {
+  font-size: 1.5rem;
+  margin-right: 8px;
+  animation: ring 1.5s infinite ease-in-out;
+}
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  15% { transform: rotate(-15deg); }
+  30% { transform: rotate(15deg); }
+  45% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0); }
+}
 
 
 

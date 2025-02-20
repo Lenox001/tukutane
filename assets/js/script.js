@@ -104,10 +104,12 @@ let currentSlidePos = 0;
 let lastActiveSliderItem = heroSliderItems[0];
 
 const updateSliderPos = function () {
+  if (!heroSliderItems.length) return; // Prevents errors if API fails
   lastActiveSliderItem.classList.remove("active");
   heroSliderItems[currentSlidePos].classList.add("active");
   lastActiveSliderItem = heroSliderItems[currentSlidePos];
-}
+};
+
 
 const slideNext = function () {
   if (currentSlidePos >= heroSliderItems.length - 1) {
