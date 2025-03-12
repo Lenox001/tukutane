@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     
    <style>
 @import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -1967,71 +1969,55 @@ color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-sh
    <!-- WhatsApp Chat Button -->
    <!-- WhatsApp Chat Button -->
   <style>
-    /* Basic styling for the WhatsApp chat button */
-   #whatsapp-chat-button {
+/* WhatsApp Chat Button */
+#whatsapp-chat-button {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* Align the button to the left */
+  left: 20px;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: #25D366; /* WhatsApp green */
-  padding: 15px;
+  background-color: #25D366;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  animation: bounce 1.5s infinite ease-in-out; /* Bounce animation */
+  animation: bounce 1.5s infinite ease-in-out;
+  text-decoration: none; /* Prevents unwanted underline */
+  padding: 0; /* Ensures no extra padding */
+  overflow: hidden; /* Prevents anything from being cut off */
 }
-    /* WhatsApp Icon styling */
-   /* WhatsApp Icon styling */
+
+/* WhatsApp Icon */
 #whatsapp-chat-button i {
-  font-size: 3rem; /* Icon size increased */
-  color: white; /* Icon color */
+  font-size: 32px; /* Set an appropriate size */
+  color: white; /* Ensure the icon is visible */
+  line-height: 1; /* Prevents extra spacing */
 }
 
-    /* Bounce effect for the button */
-    @keyframes bounce {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px); /* Move up */
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    /* Hover effect to make it slightly larger */
-    #whatsapp-chat-button:hover {
-      transform: scale(1.1); /* Grow a little on hover */
-    }
-/* Bounce effect for the button */
+/* Bounce effect */
 @keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px); /* Move up */
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
-/* Hover effect to make it slightly larger */
+/* Hover effect */
 #whatsapp-chat-button:hover {
-  transform: scale(1.1); /* Grow a little on hover */
+  transform: scale(1.1);
 }
+
+
   </style>
 </head>
 <body>
 
   <!-- WhatsApp Chat Button -->
-  <a href="https://wa.me/254703363843" target="_blank" id="whatsapp-chat-button">
-    <!-- WhatsApp Icon from FontAwesome -->
+ <a href="https://wa.me/254703363843" target="_blank" id="whatsapp-chat-button">
     <i class="fab fa-whatsapp"></i>
+</a>
  <div style="text-align: center; margin-bottom: 3rem;">
   <a href="https://sites.google.com/view/tukutanekenyasafaris/home" class="terms-button" target="_blank">
     View Terms & Conditions
