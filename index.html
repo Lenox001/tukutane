@@ -1,31 +1,2066 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Available</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="google-site-verification" content="ReY2W91Sd67o1rZtvV1WjqMQPABFEzbEii9HhZ_7Zzg" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EY6BB6MMZ8"></script>
+
+
+    
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+    <!-- 
+    - primary meta tags
+  -->
+    <title>TukutaneKenyaSafaris</title>
+    <meta name="title" content="Best Safaris Kenya" />
+    <meta
+      name="description"
+      content="This is a  html template made by Lenox"
+    />
+    <link rel="icon" href="assets/images/gold_logo_page-0001-removebg-preview.png" type="image/x-icon" />
+
+    <!-- 
+    - favicon
+    
+  -->
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+    - preload images
+  -->
+    <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg" />
+    <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg" />
+    <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg" />
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EY6BB6MMZ8');
+</script>
+  </head>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollY = window.scrollY;
+    const floatingCall = document.querySelector(".floating-call");
+
+    if (floatingCall) {
+        window.addEventListener("scroll", () => {
+            let isScrollingDown = window.scrollY > lastScrollY;
+            let isSmallScreen = window.innerWidth <= 768;
+
+            if (isScrollingDown) {
+                floatingCall.classList.add("hidden"); // Hide when scrolling down
+            } else {
+                if (!isSmallScreen || window.scrollY <= 100) {
+                    floatingCall.classList.remove("hidden"); // Show when scrolling up or at top on small screens
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+    } else {
+        console.error("Element .floating-call not found");
+    }
+});
+
+
+
+</script>
+
+  <body id="top">
+    <!-- 
+    - #PRELOADER
+  -->
+
+    <div
+      class="preload"
+      data-preaload
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #2c3e50;
+      "
+    >
+      <div
+        class="circle"
+        style="
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #e74c3c;
+          animation: bounce 1.5s infinite;
+        "
+      ></div>
+      <p
+        class="text"
+        style="
+          font-family: 'Arial', sans-serif;
+          font-size: 24px;
+          font-weight: bold;
+          color: #b34a12;
+          margin-top: 20px;
+          animation: fadeIn 2s ease-in-out;
+        "
+      >
+        Home ofSafaris
+      </p>
+    </div>
+
+    <!-- Add this style block to the same HTML file -->
+    <style>
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- 
+    - #TOP BAR
+  -->
+
+    <div class="topbar">
+      <div class="container">
+        <address class="topbar-item">
+          <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Nairobi City,KE </span>
+        </address>
+
+        <div class="separator"></div>
+
+        <div class="topbar-item item-2">
+          <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Daily : 6.00 am to 11.00 pm</span>
+        </div>
+
+        <a href="tel:+254722601453" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span" style="color: yellow;"><strong>+254703363843</strong></span>
+        </a>
+
+        <div class="separator"></div>
+
+        <a href="mailto:safaristukutanekenya@gmail.com" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <span class="span">Email Us</span>
+           <div class="separator"></div>
+       
+      
+
+<span id="current-time" style="font-weight: bold; color: #ffeb3b; margin-left: 10px;"></span>
+ 
+<script>
+  function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString(); // Format: HH:MM:SS AM/PM
+    document.getElementById("current-time").textContent = timeString;
+  }
+
+  setInterval(updateTime, 1000); // Update every second
+  updateTime(); // Initialize on load
+</script>
+
+
+        </a>
+      </div>
+    </div>
+
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+      <div class="container">
+        
+     <a href="javascript:void(0);" 
+   onclick="scrollToTop()" 
+   style="text-decoration: none; display: flex; align-items: center; flex-wrap: wrap;">
+ <img 
+  src="assets/images/gold_logo_page-0001-removebg-preview.png" 
+  alt="logo" 
+  style="width: 80px; height: auto; vertical-align: middle; margin-right: 10px;"
+>
+</a>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, null, " "); // Removes # from the URL
+  }
+</script>
+
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#f97316;color-scheme:dark}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#071129 0%,#071b2a 100%);font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:36px 28px;border-radius:12px;max-width:720px;width:92%;text-align:center;color:#e6eef8;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    h1{font-size:72px;margin:0 0 8px;letter-spacing:-2px}
-    p{margin:0 0 18px;color:rgba(230,238,248,0.85);font-size:18px}
-    .muted{color:rgba(230,238,248,0.6);font-size:14px}
-    .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));backdrop-filter:blur(6px)}
-    .emoji{font-size:28px;margin-right:8px}
-    @media (max-width:420px){h1{font-size:48px}}
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #f5deb3, 0 0 10px #ffebcd;
+    }
+    50% {
+      text-shadow: 0 0 15px #f5deb3, 0 0 30px #ffebcd;
+    }
+    100% {
+      text-shadow: 0 0 5px #f5deb3, 0 0 10px #ffebcd;
+    }
+  }
+
+  .animated-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    display: inline-block;
+    animation: fadeIn 1.5s ease-in-out, glow 2s infinite alternate;
+  }
+
+  .animated-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .animated-title {
+      font-size: 1.5rem;
+      white-space: normal;
+      text-align: left;
+    }
+  }
+
+  .animated-letter:nth-child(n) { color: #ffeb3b; }
+
+</style>
+
+<span class="animated-title">
+  <span>
+    <span class="animated-letter">T</span>
+    <span class="animated-letter">u</span>
+    <span class="animated-letter">k</span>
+    <span class="animated-letter">u</span>
+    <span class="animated-letter">t</span>
+    <span class="animated-letter">a</span>
+    <span class="animated-letter">n</span>
+    <span class="animated-letter">e</span>
+  </span>
+  <span>
+    <span class="animated-letter">K</span>
+    <span class="animated-letter">e</span>
+    <span class="animated-letter">n</span>
+    <span class="animated-letter">y</span>
+    <span class="animated-letter">a</span>
+  </span>
+  <span>
+    <span class="animated-letter">S</span>
+    <span class="animated-letter">a</span>
+    <span class="animated-letter">f</span>
+    <span class="animated-letter">a</span>
+    <span class="animated-letter">r</span>
+    <span class="animated-letter">i</span>
+    <span class="animated-letter">s</span>
+  </span>
+</span>
+
+
+
+<style>
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .card-title {
+  display: block;
+  font-size: 1rem; /* Adjust font size for small screens */
+  word-wrap: break-word; /* Ensures long words wrap */
+  overflow-wrap: break-word;
+  white-space: normal; /* Allows text wrapping */
+}
+
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 0.9rem; /* Reduce font size for extra small screens */
+  }
+}
+
+</style>
+
+
+        <nav class="navbar" data-navbar>
+          <button class="close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+          <ul class="navbar-list">
+            <li class="navbar-item">
+  <a href="javascript:void(0);" class="navbar-link hover-underline active" onclick="scrollToSection('home')">
+    <div class="separator"></div>
+    <span class="span">Home</span>
+  </a>
+</li>
+            <li class="navbar-item">
+  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('destinations')">
+    <div class="separator"></div>
+    <span class="span">Destinations</span>
+  </a>
+</li>
+
+
+
+
+
+<li class="navbar-item">
+  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('about')">
+    <div class="separator"></div>
+    <span class="span">About Us</span>
+  </a>
+</li>
+
+<li class="navbar-item">
+  <a href="javascript:void(0);" class="navbar-link hover-underline" onclick="scrollToSection('safaris')">
+    <div class="separator"></div>
+    <span class="span">Safaris & Packages</span>
+  </a>
+</li>
+
+<script>
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+
+          </ul>
+
+          <div class="text-center">
+            <p class="headline-1 navbar-title">Visit Us</p>
+
+            <address class="body-4">Nairobi</address>
+
+            <p class="body-4 navbar-text">Open: 6.00 to 11pm</p>
+
+            <a href="mailto:safaristukutanekenya@gmail.com" class="body-4 sidebar-link"
+              >info@tukutanekenyasafaris.com</a
+            >
+
+            <div class="separator"></div>
+
+            <a
+              href="tel:+254703363753"
+              class="body-1 contact-number hover-underline"
+            >
+             +254722601453
+            </a>
+          </div>
+        </nav>
+
+       <a href="javascript:void(0);" class="btn btn-secondary" onclick="scrollToSection('contact')">
+  <span class="text text-1">Make A Booking!?</span>
+  <span class="text text-2" aria-hidden="true">Bookings?</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+      -->
+
+        <section class="hero text-center" aria-label="home" id="home">
+          
+          <ul class="hero-slider" data-hero-slider>
+            <li class="slider-item active" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-3.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Discover the World
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Explore the Beauty of <br />
+  Unforgettable Adventures
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Embark on breathtaking journeys and create lasting memories with Us!.
+</p>
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Explore Destinations</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+
+                
+                
+              </a>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-2.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+             <p class="label-2 section-subtitle slider-reveal">
+  Unforgettable Journeys
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Unique & Personalized Adventures
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Experience tailor-made tours that showcase breathtaking destinations and rich cultures.
+</p>
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Explore Tours</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+               
+              </a>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-1.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Curated Travel Experiences
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Where Every Journey <br />
+  Tells a Story
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Indulge in the beauty of handpicked destinations and unforgettable adventures tailored just for you.
+</p>
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Start Your Journey</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+
+               
+              </a>
+            </li>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/hero-slider-4.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Exclusive Travel Getaways
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Travel Beyond Destinations, Live the Story
+</h1>
+
+<p class="body-2 hero-text slider-reveal" style="color: black;">
+  Immerse yourself in handpicked destinations and unique adventures curated to your desires.
+</p>
+
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Start Your Journey</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+
+               
+              </a>
+            </li>
+            </li>
+
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg">
+                <img
+                  src="./assets/images/simba.jpg"
+                  width="1880"
+                  height="950"
+                  alt=""
+                  class="img-cover"
+                />
+              </div>
+
+              <p class="label-2 section-subtitle slider-reveal">
+  Breathtaking Landscapes
+</p>
+
+<h1 class="display-1 hero-title slider-reveal">
+  Witness the Majesty of Animals,Exclusive
+</h1>
+
+<p class="body-2 hero-text slider-reveal">
+  Journey into the heart of the wild, where majestic lions and untamed landscapes create unforgettable adventures.
+</p>
+
+
+<a href="javascript:void(0);" 
+   class="btn btn-primary slider-reveal" 
+   onclick="scrollToSection('destinations')">
+  <span class="text text-1">Get Experience</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #destinations from the URL
+    }
+  }
+</script>
+
+
+
+               
+              </a>
+            </li>
+           
+          </ul>
+
+          <button
+            class="slider-btn prev"
+            aria-label="slide to previous"
+            data-prev-btn
+          >
+            <ion-icon name="chevron-back"></ion-icon>
+          </button>
+
+          <button
+            class="slider-btn next"
+            aria-label="slide to next"
+            data-next-btn
+          >
+            <ion-icon name="chevron-forward"></ion-icon>
+          </button>
+
+         <a href="javascript:void(0);" 
+   class="hero-btn has-after" 
+   style="display: flex; align-items: center" 
+   onclick="scrollToSection('contact')">
+  <i class="fas fa-paw" style="font-size: 2rem; margin-right: 8px"></i>
+  <span class="label-2 text-center span">Book Trips</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, " "); // Removes #contact from the URL
+    }
+  }
+</script>
+<div class="floating-call">
+  <i class="fas fa-phone"></i>
+  <a href="tel:+254722601453" style="color:white; text-decoration: none; font-weight: bold;">
+    Manager
+  </a>
+ 
+
+</div>
+
+
+
+
+
+
+        </section>
+        
+
+        <!-- 
+        - #SERVICE
+      -->
+
+        <section
+          class="section service bg-black-10 text-center"
+          aria-label="service"
+        >
+          <div class="container">
+  <p class="section-subtitle label-2">Unforgettable Adventures</p>
+
+  <h2 class="headline-1 section-title">
+    Explore Breathtaking Destinations with Tukutane Kenya Safaris
+  </h2>
+
+  <p class="section-text">
+    Tukutane Kenya Safaris offers expertly curated travel experiences that 
+    immerse you in the beauty of nature, wildlife, and culture. Embark on 
+    unforgettable journeys that leave lasting memories.
+  </p>
+            <ul class="grid-list">
+              <li>
+                <div class="service-card">
+                 <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/service-1.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+
+                  <div class="card-content">
+  <h3 class="title-4 card-title">
+    <a href="index.html" onclick="event.preventDefault(); window.location='index.html';">Amboseli</a>
+  </h3>
+
+  <a href="javascript:void(0);" onclick="scrollToSection('destinations');" class="btn-text hover-underline label-2">
+    Safari Packages
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/service-2.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+
+                 <div class="card-content">
+  <h3 class="title-4 card-title">
+    <a href="javascript:void(0);">The Great Mara</a>
+  </h3>
+
+  <a href="javascript:void(0);" onclick="scrollToSection('contact');" class="btn-text hover-underline label-2">
+    Book A Visit
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="javascript:void(0);" onclick="smoothScroll('destinations');" class="has-before hover:shine">
+  <figure class="card-banner img-holder" style="--width: 285; --height: 336">
+    <img
+      src="./assets/images/lake-nakuru.jpg"
+      width="285"
+      height="336"
+      loading="lazy"
+      alt="Drinks"
+      class="img-cover"
+    />
+  </figure>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+
+                  <div class="card-content">
+  <h3 class="title-4 card-title">
+    <a href="javascript:void(0);">Lake Nakuru</a>
+  </h3>
+
+  <a href="javascript:void(0);" onclick="scrollToSection('safaris');" class="btn-text hover-underline label-2">
+    And So Much More
+  </a>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+                </div>
+              </li>
+            </ul>
+
+            <img
+              src="./assets/images/shape-1.png"
+              width="246"
+              height="412"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-1 move-anim"
+            />
+            <img
+              src="./assets/images/shape-2.png"
+              width="343"
+              height="345"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-2 move-anim"
+            />
+          </div>
+        </section>
+
+        <!-- 
+        - #ABOUT
+      -->
+
+        <section
+          class="section about text-center"
+          aria-labelledby="about-label"
+          id="about"
+        >
+          <div class="container">
+            <div class="about-content">
+              <p class="label-2 section-subtitle" id="about-label">Our Story</p>
+
+              <h2 class="headline-1 section-title">
+                Every Safari Tells a Story
+              </h2>
+
+             <p class="section-text">
+    Tukutane Kenya Safaris offers incredible safari packages tailored to fit client preferences. Our experiences include bush safaris, beach adventures, birding excursions, hiking, bike trekking, and more. We also provide reliable transfer services for our clients. Whether you're looking for a short one-day tour or an extended adventure, we customize every journey to match your desires.
+    <br><br>
+    We are proud to be partnered with 
+    <a href="https://www.safaribookings.com/p7043" target="_blank" class="safari-link">
+        SafariBookings.com
+    </a> ensuring top-quality safari experiences.
+    <br><br>
+    Let us take you on an unforgettable journey through Kenya’s breathtaking landscapes!
+</p>
+<style>
+  .section-text {
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    background: #191817;
+    color: #fff; /* Ensuring text is visible on dark background */
+    padding: 20px;
+    border-left: 4px solid blue; /* Blue left border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(230, 81, 0, 0.4);
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.safari-link {
+    color: #e65100;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.safari-link:hover {
+    color: #ff9800;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+              <div class="contact-label">Book Through Call</div>
+
+              <a
+                href="tel:+254703363843"
+                class="body-1 contact-number hover-underline"
+                >+254703363843</a
+              >
+
+             <a href="javascript:void(0);" onclick="smoothScroll('safaris');" class="btn btn-primary">
+  <span class="text text-1">Read More</span>
+  <span class="text text-2" aria-hidden="true">Read More</span>
+</a>
+
+<script>
+  function smoothScroll(targetId) {
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+</div>
+
+<figure class="about-banner">
+  <video
+    src="./assets/videos/tkvideo.mp4"
+    width="570"
+    height="570"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-100"
+    data-parallax-item
+    data-parallax-speed="1"
+  ></video>
+
+  <div
+    class="abs-img abs-img-1 has-before"
+    data-parallax-item
+    data-parallax-speed="1.75"
+  >
+    <img
+      src="./assets/images/about-abs-image.jpg"
+      width="285"
+      height="285"
+      loading="lazy"
+      alt=""
+      class="w-100"
+    />
+  </div>
+</figure>
+
+        </section>
+
+        <!-- 
+        - #SPECIAL DISH
+      -->
+
+        
+
+          </div>
+
+          <img
+            src="./assets/images/shape-4.png"
+            width="179"
+            height="359"
+            loading="lazy"
+            alt=""
+            class="shape shape-1"
+          />
+
+         
+        </section>
+
+        <!-- 
+        - #MENU
+      -->
+
+        <section class="section menu" aria-label="menu-label" id="safaris">
+
+          <div class="container">
+            <p class="section-subtitle text-center label-2">
+              Packages
+            </p>
+
+            <h2 class="headline-1 section-title text-center">Our Collection</h2>
+
+          <ul class="grid-list" id="packages-list"></ul>
+
+<script>
+  async function fetchPackages() {
+    try {
+        const response = await fetch("https://tksafaris.pythonanywhere.com//api/safari-packages/");
+        const data = await response.json();
+
+        let list = document.getElementById("packages-list");
+        list.innerHTML = ""; // Clear previous content
+
+        data.forEach((pkg) => {
+            // Check if the package has images and get the first one
+            let imageUrl = pkg.images.length > 0 ? pkg.images[0].image_url : "default-image.jpg"; // Replace with a fallback image
+
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <div class="menu-card hover:card">
+                    <figure class="card-banner img-holder" style="width: 120px; height: 120px">
+                        <img src="${imageUrl}" width="120" height="120" loading="lazy" alt="${pkg.title}" class="img-cover"/>
+                    </figure>
+                    <div>
+                        <h3 class="title-3">
+                            <a href="package.html?slug=${pkg.slug}" class="card-title"
+                                style="display: inline-block; background-color: #d4af37; color: white; padding: 5px 15px; font-size: 14px; text-decoration: none; border-radius: 3px; font-weight: bold; transition: background 0.3s ease-in-out; animation: blink 1s infinite alternate;">
+                                ${pkg.title}
+                            </a>
+                        </h3>
+                        <p class="card-text label-1">${pkg.overview}</p>
+                       <p class="card-price" style="color: green; font-weight: bold;">Price: $${!isNaN(pkg.price) ? Number(pkg.price).toFixed(2) : "N/A"}</p>
+
+                    </div>
+                </div>
+            `;
+            list.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+
+fetchPackages();
+
+</script>
+
+<style>
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+</style>
+
+
+
+            <p class="menu-text text-center">
+              Available daily from <span class="span">6:00 am</span> to
+              <span class="span">11:00 pm</span>
+            </p>
+
+           <a href="javascript:void(0);" class="btn btn-primary" onclick="scrollToSection('destinations')">
+  <span class="text text-1">View Destinations</span>
+  <span class="text text-2" aria-hidden="true">View All Destinations</span>
+</a>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+
+            <img
+              src="./assets/images/shape-5.png"
+              width="921"
+              height="1036"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-2 move-anim"
+            />
+            <img
+              src="./assets/images/shape-6.png"
+              width="343"
+              height="345"
+              loading="lazy"
+              alt="shape"
+              class="shape shape-3 move-anim"
+            />
+          </div>
+        </section>
+
+        <!-- 
+        - #TESTIMONIALS
+      -->
+
+        <section
+          class="section testi text-center has-bg-image"
+          style="background-color: rgb(8, 8, 9)"
+          aria-label="testimonials"
+        >
+          <div class="container">
+            <div class="quote">”</div>
+
+           <p class="headline-2 testi-text">
+  My trip with Tukutane Kenya Safaris was unforgettable! The breathtaking views, expert guides, and seamless experience made it a journey of a lifetime.
+</p>
+
+
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+
+            <div class="profile">
+              <img
+                src="./assets/images/testi-avatar.jpg"
+                width="100"
+                height="100"
+                loading="lazy"
+                alt="Alex Johnson"
+                class="img"
+              />
+
+              <p class="label-2 profile-name">Maria Duplantis</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- 
+        - #FEATURES
+      -->
+<section class="reservation" id="contact">
+          <div class="container">
+            <div class="form reservation-form bg-black-10">
+           <form id="safari-form" class="form-left">
+  <h2 class="headline-1 text-center">Book Your Safari Adventure</h2>
+
+  <p class="form-text text-center">
+    Need assistance? Call us at
+    <a href="tel:+254703363843" class="link">+254703363843</a>
+    or fill out the form below to book your trip.
+  </p>
+
+  <div class="input-wrapper">
+    <input type="text" id="name" placeholder="Your Name" required class="input-field">
+    <input type="tel" id="phone" placeholder="Phone Number" required class="input-field">
+  </div>
+
+  <div class="input-wrapper">
+    <select id="destination" class="input-field">
+      <option value="Maasai Mara">Maasai Mara</option>
+      <option value="Amboseli National Park">Amboseli National Park</option>
+      <option value="Tsavo National Park">Tsavo National Park</option>
+      <option value="Lake Nakuru National Park">Lake Nakuru National Park</option>
+      <option value="Samburu National Reserve">Samburu National Reserve</option>
+      <option value="Other Locations">Other Locations</option>
+    </select>
+
+    <select id="tour-package" class="input-field">
+      <option value="budget">Budget Safari</option>
+      <option value="midrange">Mid-range Safari</option>
+      <option value="luxury">Luxury Safari</option>
+    </select>
+
+    <input type="datetime-local" id="trip-date" class="input-field">
+  </div>
+
+  <textarea id="message" placeholder="Custom Tours" class="input-field"></textarea>
+
+  <button type="submit" class="btn btn-secondary">
+    <span class="text text-1">Book Safari</span>
+    <span class="text text-2" aria-hidden="true">Book Safari</span>
+  </button>
+
+  <p id="form-response" class="form-response"></p> <!-- Response message container -->
+</form>
+
+<script>
+  document.getElementById("safari-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const responseElement = document.getElementById("form-response");
+    responseElement.innerText = "Submitting...";
+    responseElement.style.color = "blue";
+
+    const formData = {
+      name: document.getElementById("name").value.trim(),
+      phone_number: document.getElementById("phone").value.trim(),
+      destination: document.getElementById("destination").value,
+      safari_type: document.getElementById("tour-package").value,
+      time: document.getElementById("trip-date").value,
+      message: document.getElementById("message").value.trim() || null
+    };
+
+    try {
+      const response = await fetch("https://tksafaris.pythonanywhere.com//api/bookings/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        responseElement.innerText = "Booking successful! We will contact you soon.";
+        responseElement.style.color = "green";
+        document.getElementById("safari-form").reset();
+      } else {
+        const errorData = await response.json();
+        responseElement.innerText = "Booking failed: " + (errorData.detail || "Please try again.");
+        responseElement.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      responseElement.innerText = "Something went wrong. Please try again later.";
+      responseElement.style.color = "red";
+    }
+  });
+</script>
+
+<style>
+  .form-response {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
+
+
+
+
+             <div
+  class="form-right text-center"
+  style="background-image: url('./assets/images/form-pattern.png');"
+>
+  <h2 class="headline-1 text-center">Contact Us</h2>
+
+  <p class="contact-label">Order Inquiry</p>
+  <a id="contact-number" href="#" class="body-1 contact-number hover-underline"></a>
+
+  <a id="tiktok-link" href="#" class="social-icon" style="color: #9dae9ed5; font-size: 2rem; text-decoration: none;">
+    <i class="fab fa-tiktok"></i> <span id="tiktok-username"></span>
+  </a>
+
+  <div class="separator"></div>
+
+  <p class="contact-label">Location</p>
+  <address id="location" class="body-4"></address>
+
+  <p class="contact-label">Working Hours</p>
+  <p id="working-hours" class="body-4"></p>
+
+  <p class="contact-label">Sundays</p>
+  <p id="sunday-hours" class="body-4"></p>
+</div>
+
+<script>
+  async function fetchContactInfo() {
+    try {
+      const response = await fetch("https://tksafaris.pythonanywhere.com/api/contact/");
+      if (!response.ok) throw new Error("Failed to fetch contact info");
+
+      const data = await response.json();
+
+      document.getElementById("contact-number").textContent = data.phone;
+      document.getElementById("contact-number").href = `tel:${data.phone}`;
+      document.getElementById("tiktok-link").href = data.tiktok_url;
+      document.getElementById("tiktok-username").textContent = data.tiktok_name;
+      document.getElementById("location").textContent = data.location;
+      document.getElementById("working-hours").textContent = data.working_hours;
+      document.getElementById("sunday-hours").textContent = data.sunday_hours;
+    } catch (error) {
+      console.error("Error fetching contact info:", error);
+    }
+  }
+
+  fetchContactInfo();
+</script>
+
+          </div>
+        </section>
+
+        <!-- 
+        - #FEATURES
+      -->
+
+       <section class="section features text-center" aria-label="features">
+    <div class="container">
+        <p class="section-subtitle label-2">Why Choose Us</p>
+
+        <h2 class="headline-1 section-title">Experience the Best Safari Adventures</h2>
+
+       <ul class="grid-list" id="safari-list">
+    <!-- Data will be inserted here dynamically -->
+</ul>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("https://tksafaris.pythonanywhere.com//api/safari-adventures/")
+            .then(response => response.json())
+            .then(data => {
+                const safariList = document.getElementById("safari-list");
+                safariList.innerHTML = ""; // Clear existing content
+
+                data.forEach(safari => {
+                    const safariItem = document.createElement("li");
+                    safariItem.className = "feature-item";
+                    safariItem.innerHTML = `
+                        <div class="feature-card">
+                            <div class="card-banner img-holder">
+                                <img src="${safari.image}" width="100%" height="80" 
+                                    alt="${safari.title}"
+                                    style="border-radius: 12px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;" 
+                                    onmouseover="this.style.transform='scale(1.05)'; this.style.opacity='0.9';" 
+                                    onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+                            </div>
+                            <h3 class="title-2 card-title">${safari.title}</h3>
+                            <p class="label-1 card-text">${safari.description}</p>
+                        </div>
+                    `;
+                    safariList.appendChild(safariItem);
+                });
+            })
+            .catch(error => console.error("Error fetching safari adventures:", error));
+    });
+</script>
+
+ <div class="container">
+    <p class="section-subtitle label-2">✨ Gallery ✨</p>
+
+    <h2 class="headline-1 section-title">Our Photo Gallery</h2>
+
+    <ul class="grid-list" id="photo-list">
+        <!-- Data will be inserted here dynamically -->
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch photos from the API endpoint
+            fetch("https://tksafaris.pythonanywhere.com/api/photos/")
+                .then(response => response.json())
+                .then(data => {
+                    const photoList = document.getElementById("photo-list");
+                    photoList.innerHTML = ""; // Clear existing content
+
+                    data.forEach(photo => {
+                        const photoItem = document.createElement("li");
+                        photoItem.className = "feature-item";
+                        photoItem.innerHTML = `
+                            <div class="feature-card">
+                                <div class="card-banner img-holder">
+                                    <img src="${photo.image}" width="100%" height="150"
+                                         alt="${photo.caption}"
+                                         class="gallery-image-cute" 
+                                         style="border-radius: 12px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;" 
+                                         onmouseover="this.style.transform='scale(1.05)'; this.style.opacity='0.9';" 
+                                         onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+                                </div>
+                                <p class="label-1 card-caption">${photo.caption}</p>
+                            </div>
+                        `;
+                        photoList.appendChild(photoItem);
+                    });
+                })
+                .catch(error => console.error("Error fetching photos:", error));
+        });
+    </script>
+</div>
+
+<style>
+  .gallery-image-cute {
+    width: 100%;
+    height: 150px; /* Set the height to be longer */
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image-cute:hover {
+    transform: scale(1.1) rotate(2deg); /* Slight zoom and tilt on hover */
+    opacity: 0.9; /* Slight fade on hover */
+    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3); /* Pink shadow on hover */
+}
+</style>
+
+</section>
+
+<section id="destinations" class="section destinations bg-black-10" aria-label="destinations">
+    <div class="container">
+        <p class="section-subtitle label-2 text-center">Explore East Africa</p>
+
+        <h2 class="section-title headline-1 text-center">
+            Top Safari Destinations
+        </h2>
+
+        <ul class="grid-list" id="destination-list"></ul>
+
+<script>
+    async function loadDestinations() {
+        try {
+            const response = await fetch("https://tksafaris.pythonanywhere.com//api/destinations/");
+            const destinations = await response.json();
+            const destinationList = document.getElementById("destination-list");
+
+            destinationList.innerHTML = destinations.map(destination => `
+                <li>
+                    <div class="event-card has-before hover:shine">
+                        <div class="card-banner" style="--width: 350; --height: 450">
+                            <img src="${destination.image}" width="350" height="450" loading="lazy"
+                                alt="${destination.title}" class="img-cover" />
+                        </div>
+
+                        <div class="card-content">
+                            <h3 class="card-title title-2 text-center">${destination.title}</h3>
+                            <div class="text-center" style="margin-top: 15px;">
+                                <a href="more-details.html?slug=${destination.slug}" class="btn btn-primary">
+                                    <i class="fas fa-info-circle"></i> More Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            `).join("");
+        } catch (error) {
+            console.error("Error loading destinations:", error);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadDestinations);
+</script>
+
+    </div>
+</section>
+
+
+        
+
+        <!-- 
+        - #EVENT
+      -->
+        
+      </article>
+      
+    </main>
+    
+   
+    <footer
+      class="footer section has-bg-image text-center"
+      style="background-image: url('./assets/images/footer-bg.jpg')"
+    >
+      <div class="container">
+        <div class="footer-top grid-list">
+          <div class="footer-brand has-before has-after">
+        <a href="javascript:void(0);" onclick="scrollToTop();" class="logo" 
+   style="text-decoration: none; display: flex; align-items: center">
+  <img src="./assets/images/gold_logo_page-0001-removebg-preview.png" alt="Logo" 
+       style="width: 40px; height: 40px; margin-right: 10px;">
+  <span style="font-size: 2rem; color: #f5deb3">TukutaneKenyaSafaris</span>
+</a>
+
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
+
+            <address class="body-4">Nairobi</address>
+            <a href="mailto:safaristukutanekenya@gmail.com" class="body-4 contact-link"
+              >safaristukutanekenya@gmail.com</a
+            >
+            <a href="tel:+254703363843" class="body-4 contact-link"
+              >Booking Request: +254703363843</a
+            >
+            <p class="body-4">Open: 6:00 am - 11:00 pm</p>
+
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+
+            <p class="title-1">Get News & Offers</p>
+            <p class="label-1">
+              Subscribe & Get Offers <span class="span">25% Off.</span>
+            </p>
+
+          <form action="#" class="input-wrapper" onsubmit="subscribeUser(event)">
+  <div class="icon-wrapper">
+    <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+    <input
+      type="email"
+      id="email"
+      name="email_address"
+      placeholder="Your email"
+      autocomplete="off"
+      class="input-field"
+      required
+    />
+  </div>
+
+  <button type="submit" class="btn btn-secondary">
+    <span class="text text-1">Subscribe</span>
+    <span class="text text-2" aria-hidden="true">Subscribe</span>
+  </button>
+</form>
+
+<!-- Notification message will appear here -->
+<div id="notification" style="display: none; margin-top: 10px; color: green;"></div>
+
+<script>
+async function subscribeUser(event) {
+  event.preventDefault();  // Prevent form submission
+
+  const email = document.getElementById("email").value;
+  if (!email) {
+    return showNotification("Please enter a valid email address.", "red");  // Error message in red
+  }
+
+  const API_URL = "https://tksafaris.pythonanywhere.com/api/subscribe/";  // Correct endpoint
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",  // Ensure correct content type
+      },
+      body: JSON.stringify({ email }),  // Send the email as JSON
+    });
+
+    if (!response.ok) {
+      throw new Error(`Subscription failed with status code: ${response.status}`);
+    }
+
+    const result = await response.json();  // Parse the JSON response
+    showNotification(result.message || "You've successfully subscribed! Thank you.", "green");  // Success message in green
+  } catch (error) {
+    // More user-friendly error message
+    const errorMessage = error.message.includes("failed") ? 
+      "Oops! Something went wrong with your subscription. Please try again." : 
+      "There was an error connecting to the server. Please try again later.";
+
+    showNotification(errorMessage, "red");  // Display error message in red
+  }
+}
+
+// Function to display the notification message below the form
+function showNotification(message, color) {
+  const notification = document.getElementById("notification");
+  notification.style.display = "block";  // Make the notification visible
+  notification.style.color = color;  // Set the text color (green for success, red for error)
+  notification.textContent = message;  // Set the notification message
+}
+</script>
+
+
+    
+
+          </div>
+
+          <!-- Social Media Links with improved design -->
+          <div class="footer-social-media">
+            <p
+              class="title-2"
+              style="color: #161512; font-size: 1.5rem; margin-bottom: 20px"
+            >
+              Follow Us
+            </p>
+            <div
+              class="social-icons"
+              style="display: flex; justify-content: center; gap: 20px"
+            >
+              
+  <!-- WhatsApp Icon -->
+<a href="https://wa.me/254703363843" style="color: #18ca27; font-size: 5rem; margin-right: 15px;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Instagram Icon -->
+<a href="https://www.instagram.com/tukutanekenyasafaris" style="color: #C13584; font-size: 5rem; margin-right: 15px;">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<!-- TikTok Icon -->
+<a href="https://www.tiktok.com/@tukutanekenyasafa" class="social-icon" style="color: #18ca27; font-size: 5rem; margin-right: 15px;">
+  <i class="fab fa-tiktok"></i>
+</a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+       <p class="copyright" style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-top: 15px;
+color: #ffffff; background-color:none; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(243, 156, 18, 0.8);">
+  &copy; <span id="year"></span> <span style="color: #ffffff;">TukutaneKenyaSafaris</span> All Rights Reserved | Crafted by  
+  <span style="color: #ffffff; font-weight: bold;">Lenox001</span>  
+  <span style="color: #ffffff;">Elitech Solutions</span>
+</p>
+
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+        </div>
+      </div>
+    </footer>
+    <div class="partnerships-section">
+  <div class="scrolling-images">
+    <a href="https://www.kws.go.ke/" target="_blank">
+      <img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service">
+    </a>
+    <a href="https://www.safaribookings.com/p7043/" target="_blank">
+      <img src="./assets//images/safaribookings.png" alt="Safari Bookings">
+    </a>
+    <a href="https://magicalkenya.com/" target="_blank">
+      <img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya">
+    </a>
+    <a href="https://www.tripadvisor.com/" target="_blank">
+      <img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor">
+    </a>
+    <a href="https://tra.go.ke/" target="_blank">
+      <img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority">
+    </a>
+    
+    <!-- Add more images as needed -->
+  </div>
+</div>
+
+<style>
+  .partnerships-section {
+    background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
+    padding: 40px 0; /* Increased padding for better spacing */
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Subtle pattern overlay */
+  .partnerships-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none; /* Ensure it doesn't interfere with clicks */
+  }
+
+  .scrolling-images {
+    display: flex;
+    animation: scroll 40s linear infinite; /* Slower scrolling effect */
+  }
+
+  .scrolling-images a {
+    margin: 0 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+  }
+
+  .scrolling-images img {
+    height: 80px;
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+    max-width: 150px; /* Limit maximum width */
+    border-radius: 8px; /* Slightly rounded corners for a modern look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+
+  /* Hover effect: Pop up and add shadow */
+  .scrolling-images a:hover img {
+    transform: scale(1.1); /* Pop up effect */
+    box-shadow: 0 8px 16px rgba(255, 165, 0, 0.5); /* Orange shadow */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+    <div id="google_translate_element">
+  <span id="close_translate_button" title="Close">×</span>
+</div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  /* Base styles for the Google Translate container */
+  #google_translate_element {
+    position: fixed;
+    bottom: 20px; /* Slightly higher for better visibility */
+    right: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for a modern look */
+    padding: 8px 12px; /* Slightly larger padding */
+    z-index: 10000; /* Ensure it stays on top */
+    display: block;
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  }
+
+  /* Close button styles */
+  #close_translate_button {
+    position: absolute;
+    top: -10px; /* Position it above the container */
+    right: -10px;
+    background-color: #ff4d4d; /* Red background for the close button */
+    color: white; /* White text */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer; /* Cursor pointer on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+
+  /* Hover effect for the close button */
+  #close_translate_button:hover {
+    background-color: #e60000; /* Darker red on hover */
+  }
+
+  /* Hover effect for the container */
+  #google_translate_element:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+  }
+
+  /* Style the dropdown select box */
+  .goog-te-menu-frame {
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Consistent shadow */
+    width: 140px; /* Slightly wider for better readability */
+    font-size: 14px; /* Larger font size */
+    border: none; /* Remove default border */
+  }
+
+  /* Style the button itself */
+  .goog-te-menu2 {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #18ca27; /* Green color */
+    color: white; /* White text */
+    font-size: 14px; /* Larger font size */
+    padding: 8px 12px; /* Slightly larger padding */
+    cursor: pointer; /* Cursor pointer on hover */
+    border: none; /* Remove default border */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+
+  /* Hover effect for the button */
+  .goog-te-menu2:hover {
+    background-color: #17a246; /* Darker green on hover */
+  }
+
+  /* Optional: Adjust size for mobile screens */
+  @media (max-width: 768px) {
+    #google_translate_element {
+      bottom: 10px; /* Adjust position for mobile */
+      right: 10px;
+      padding: 6px 10px; /* Slightly smaller padding */
+    }
+
+    /* Ensure the translate widget is still visible */
+    .goog-te-menu-frame {
+      width: 120px !important; /* Smaller width on mobile */
+      font-size: 12px !important; /* Smaller font size on mobile */
+    }
+
+    .goog-te-menu2 {
+      font-size: 12px; /* Smaller font size for mobile */
+      padding: 6px 10px; /* Smaller padding for mobile */
+    }
+  }
+
+  /* Hide the Google Translate banner */
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+
+  /* Improve the dropdown arrow */
+  .goog-te-gadget-icon {
+    filter: brightness(0) invert(1); /* Make the icon white */
+  }
+
+  /* Ensure the dropdown text is readable */
+  .goog-te-menu-value span {
+    color: #333; /* Dark text for better readability */
+  }
+
+  /* Add a smooth fade-in animation for the dropdown */
+  .goog-te-menu-frame {
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Check if the user has already closed the translate widget
+  if (!localStorage.getItem('googleTranslateClosed')) {
+    document.getElementById('google_translate_element').style.display = 'block';
+  } else {
+    document.getElementById('google_translate_element').style.display = 'none';
+  }
+
+  // Add functionality to close the widget and store the preference
+  document.getElementById('close_translate_button').addEventListener('click', function () {
+    document.getElementById('google_translate_element').style.display = 'none';
+    // Store in localStorage to remember the close action
+    localStorage.setItem('googleTranslateClosed', 'true');
+  });
+</script>
+
+
+   
+    <!-- 
+    - custom js link
+  -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <a href="javascript:void(0);" class="back-top-btn active" aria-label="Back to Top" data-back-top-btn onclick="scrollToTop()">
+  <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+</a>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+<a href="tel:+254703363753" class="floating-phone">
+    <i class="fas fa-phone"></i>
+</a>
+<style>
+  @keyframes floatAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.floating-phone {
+    position: fixed;
+    bottom: 120px; /* Moves it higher */
+    left: 20px;
+    background-color: rgb(9, 201, 60);
+    color: black;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    animation: floatAnimation 2s infinite ease-in-out;
+}
+
+.floating-phone:hover {
+    transform: scale(1.1);
+}
+
+</style>
+
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+   <!-- WhatsApp Chat Button -->
+   <!-- WhatsApp Chat Button -->
+  <style>
+/* WhatsApp Chat Button */
+#whatsapp-chat-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  animation: bounce 1.5s infinite ease-in-out;
+  text-decoration: none; /* Prevents unwanted underline */
+  padding: 0; /* Ensures no extra padding */
+  overflow: hidden; /* Prevents anything from being cut off */
+}
+
+/* WhatsApp Icon */
+#whatsapp-chat-button i {
+  font-size: 32px; /* Set an appropriate size */
+  color: white; /* Ensure the icon is visible */
+  line-height: 1; /* Prevents extra spacing */
+}
+
+/* Bounce effect */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Hover effect */
+#whatsapp-chat-button:hover {
+  transform: scale(1.1);
+}
+
+
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>404</h1>
-    <p><span class="emoji">🚫</span><strong>This page is not available</strong><br />or it may be missing.</p>
-    <p class="muted">If you reached this page by following a link, the link may be broken or the resource has been removed.</p>
-    <div style="margin-top:18px">
-      <a class="btn" href="/">Go to homepage</a>
-      <a class="btn" style="margin-left:10px;opacity:0.9" href="javascript:location.reload()">Reload</a>
-    </div>
-  </main>
-</body>
+
+  <!-- WhatsApp Chat Button -->
+ <a href="https://wa.me/254703363843" target="_blank" id="whatsapp-chat-button">
+    <i class="fab fa-whatsapp"></i>
+</a>
+ <div style="text-align: center; margin-bottom: 3rem;">
+  <a href="https://sites.google.com/view/tukutanekenyasafaris/home" class="terms-button" target="_blank">
+    View Terms & Conditions
+  </a>
+</div>
+
+<style>
+  .terms-button {
+    display: inline-block;
+    background: #f4a261; /* Light Orange */
+    color: white;
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.terms-button:hover {
+    background: #e76f51; /* Darker Orange */
+}
+</style>
+
+
+
+</script>
+
+  </body>
 </html>
