@@ -1240,12 +1240,20 @@ fetchPackages();
 
   <textarea id="message" placeholder="Custom Tours" class="input-field"></textarea>
 
+ <!-- Email inside form -->
+<p class="form-email text-center">
+  Prefer email? Contact us at 
+  <a href="mailto:tukutanekenyasafris@gmail.com" class="link glow-email">
+    safaristukutanekenya@gmail.com
+  </a>
+</p>
+
   <button type="submit" class="btn btn-secondary">
     <span class="text text-1">Book Safari</span>
     <span class="text text-2" aria-hidden="true">Book Safari</span>
   </button>
 
-  <p id="form-response" class="form-response"></p> <!-- Response message container -->
+  <p id="form-response" class="form-response"></p>
 </form>
 
 <script>
@@ -1297,6 +1305,30 @@ fetchPackages();
     font-size: 16px;
     margin-top: 10px;
   }
+  .form-email {
+  margin: 20px 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.glow-email {
+  color: #ffcc00; /* Safari gold */
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  text-shadow: 
+    0 0 5px rgba(255, 204, 0, 0.6),
+    0 0 10px rgba(255, 204, 0, 0.5),
+    0 0 20px rgba(255, 204, 0, 0.4);
+}
+
+.glow-email:hover {
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 204, 0, 0.9),
+    0 0 30px rgba(255, 204, 0, 0.8);
+}
 </style>
 
 
