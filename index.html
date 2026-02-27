@@ -13,8 +13,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - Adding artistic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Montserrat+Alternates:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -60,6 +60,10 @@
             --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
             --transition: all 0.3s ease;
             --border-radius: 12px;
+            
+            /* Artistic font for gallery captions */
+            --gallery-font: 'Cormorant Garamond', serif;
+            --gallery-font-alt: 'Marcellus', serif;
         }
 
         html {
@@ -741,6 +745,18 @@
             width: 120px;
             height: 120px;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .menu-card .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .menu-card:hover .card-banner img {
+            transform: scale(1.1);
         }
 
         .menu-card .card-content {
@@ -1156,6 +1172,18 @@
 
         .feature-card .card-banner {
             aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .feature-card .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover .card-banner img {
+            transform: scale(1.1);
         }
 
         .feature-card .card-title {
@@ -1169,27 +1197,112 @@
             font-size: 0.95rem;
         }
 
+        /* ===== GALLERY WITH ARTISTIC CAPTIONS ===== */
+        .gallery-section {
+            background: linear-gradient(135deg, var(--light), var(--light-gray));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--primary-light), var(--primary), transparent);
+        }
+        
+        .gallery-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--primary-light), var(--primary), transparent);
+        }
+
         /* Gallery Images */
         .gallery-image-cute {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.6s ease, filter 0.6s ease;
+            filter: brightness(0.95);
         }
 
         .gallery-image-cute:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 10px 30px rgba(196, 160, 43, 0.3);
+            transform: scale(1.05) rotate(1deg);
+            filter: brightness(1.1);
+            box-shadow: 0 15px 40px rgba(196, 160, 43, 0.4);
         }
 
+        /* Artistic caption styling - ALL CAPS with unique font */
         .card-caption {
             text-align: center;
-            padding: 15px;
+            padding: 20px 15px;
             font-weight: 500;
             color: var(--secondary);
+            position: relative;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, rgba(196, 160, 43, 0.05), transparent);
+            border-top: 1px solid rgba(196, 160, 43, 0.2);
+            margin-top: 5px;
+            
+            /* Artistic font stack */
+            font-family: 'Cormorant Garamond', 'Marcellus', 'Montserrat Alternates', serif;
+            font-weight: 600;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .card-caption::before {
+            content: '✦';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+            background: var(--light);
+            padding: 0 10px;
+        }
+        
+        .card-caption::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 25%;
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+        
+        .feature-card:hover .card-caption {
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(196, 160, 43, 0.2);
+        }
+        
+        /* Alternate caption style for variety */
+        .feature-card:nth-child(even) .card-caption {
+            font-family: 'Marcellus', 'Cormorant Garamond', serif;
+            font-style: normal;
+            font-weight: 500;
+        }
+        
+        .feature-card:nth-child(3n) .card-caption {
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-weight: 600;
+            letter-spacing: 3px;
         }
 
-        /* ===== DESTINATIONS - FIXED FOR MOBILE ===== */
+        /* ===== DESTINATIONS ===== */
         .destinations {
             background: var(--light-gray);
         }
@@ -1226,7 +1339,7 @@
             transform: scale(1.1);
         }
 
-        /* Always visible card content - NO HOVER NEEDED */
+        /* Always visible card content */
         .event-card .card-content {
             background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7));
             color: var(--light);
@@ -1632,7 +1745,7 @@
             border-color: var(--light);
         }
 
-        /* ===== RESPONSIVE DESIGN - FIXED ===== */
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1024px) {
             .container {
                 padding: 0 30px;
@@ -1664,6 +1777,10 @@
 
             .separator {
                 margin: 20px auto;
+            }
+            
+            .gallery-image-cute {
+                height: 220px;
             }
         }
 
@@ -1721,7 +1838,7 @@
                 font-size: 0.9rem;
             }
 
-            /* Mobile Menu - FIXED */
+            /* Mobile Menu */
             .nav-open-btn {
                 display: flex !important;
             }
@@ -1827,6 +1944,16 @@
             .menu-card .card-banner {
                 width: 100%;
                 height: 200px;
+            }
+
+            /* Gallery */
+            .gallery-image-cute {
+                height: 200px;
+            }
+            
+            .card-caption {
+                font-size: 1rem;
+                padding: 15px 10px;
             }
 
             /* Footer */
@@ -2004,6 +2131,17 @@
                 font-size: 1.2rem;
             }
             
+            /* Gallery */
+            .gallery-image-cute {
+                height: 180px;
+            }
+            
+            .card-caption {
+                font-size: 0.95rem;
+                padding: 12px 8px;
+                letter-spacing: 1.5px;
+            }
+            
             .event-card .card-content {
                 padding: 15px 12px;
             }
@@ -2043,6 +2181,15 @@
             
             .navbar {
                 width: 250px;
+            }
+            
+            .gallery-image-cute {
+                height: 160px;
+            }
+            
+            .card-caption {
+                font-size: 0.85rem;
+                padding: 10px 5px;
             }
         }
 
@@ -2119,7 +2266,7 @@
         </div>
     </div>
 
-    <!-- Header - FIXED MENU -->
+    <!-- Header -->
     <header class="header" data-header>
         <div class="container">
             <div class="logo-wrapper" onclick="scrollToTop()">
@@ -2397,15 +2544,15 @@
                 </div>
             </section>
 
-            <!-- Gallery with Load More -->
-            <section class="section">
+            <!-- Gallery with Artistic Uppercase Captions -->
+            <section class="section gallery-section">
                 <div class="container">
-                    <p class="section-subtitle">✨ Moments Captured ✨</p>
-                    <h2 class="section-title">Our Photo Gallery</h2>
+                    <p class="section-subtitle">✨ MOMENTS CAPTURED ✨</p>
+                    <h2 class="section-title">OUR PHOTO GALLERY</h2>
                     <ul class="grid-list" id="photo-list"></ul>
                     <div class="load-more-container" id="photo-load-more-container">
                         <button id="load-more-photos-btn" class="load-more-btn" onclick="loadMorePhotos()">
-                            <i class="fas fa-images"></i> Load More Photos
+                            <i class="fas fa-images"></i> LOAD MORE PHOTOS
                         </button>
                     </div>
                 </div>
@@ -2414,12 +2561,12 @@
             <!-- Destinations with Load More -->
             <section class="section destinations" id="destinations">
                 <div class="container">
-                    <p class="section-subtitle">Explore</p>
-                    <h2 class="section-title">Top Safari Destinations</h2>
+                    <p class="section-subtitle">EXPLORE</p>
+                    <h2 class="section-title">TOP SAFARI DESTINATIONS</h2>
                     <ul class="grid-list" id="destination-list"></ul>
                     <div class="load-more-container" id="destination-load-more-container">
                         <button id="load-more-destinations-btn" class="load-more-btn" onclick="loadMoreDestinations()">
-                            <i class="fas fa-map-marked-alt"></i> Load More Destinations
+                            <i class="fas fa-map-marked-alt"></i> LOAD MORE DESTINATIONS
                         </button>
                     </div>
                 </div>
@@ -2455,7 +2602,7 @@
                 </div>
 
                 <div class="footer-social-media">
-                    <p class="title-2">Follow Our Journey</p>
+                    <p class="title-2">FOLLOW OUR JOURNEY</p>
                     <div class="social-icons">
                         <a href="https://wa.me/254703363843" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.instagram.com/tukutanekenyasafaris" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -2468,8 +2615,8 @@
 
             <div class="footer-bottom">
                 <p class="copyright">
-                    &copy; <span id="year"></span> TukutaneKenyaSafaris. All rights reserved. 
-                    <br>Crafted with <i class="fas fa-heart" style="color: var(--primary);"></i> by Lenox001 | Elitech Solutions
+                    &copy; <span id="year"></span> TUKUTANE KENYA SAFARIS. ALL RIGHTS RESERVED. 
+                    <br>CRAFTED WITH <i class="fas fa-heart" style="color: var(--primary);"></i> BY LENOX001 | ELITECH SOLUTIONS
                 </p>
             </div>
         </div>
@@ -2478,7 +2625,7 @@
     <!-- Partnerships Section -->
     <div class="partnerships-section">
         <div class="container">
-            <h3 class="partnerships-title">Our <span>Trusted Partners</span></h3>
+            <h3 class="partnerships-title">OUR <span>TRUSTED PARTNERS</span></h3>
             <div class="scrolling-images-wrapper">
                 <div class="scrolling-images">
                     <a href="https://www.kws.go.ke/" target="_blank"><img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service"></a>
@@ -2512,7 +2659,7 @@
 
     <div style="text-align: center; padding: 20px;">
         <a href="https://sites.google.com/view/tukutanekenyasafaris/home" class="terms-button" target="_blank">
-            <i class="fas fa-file-contract"></i> Terms & Conditions
+            <i class="fas fa-file-contract"></i> TERMS & CONDITIONS
         </a>
     </div>
 
@@ -2535,13 +2682,13 @@
             document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); 
         }
 
-        // ===== MOBILE MENU FUNCTIONS - FIXED =====
+        // ===== MOBILE MENU FUNCTIONS =====
         function closeMenu() {
             const navbar = document.querySelector("[data-navbar]");
             const overlay = document.querySelector("[data-overlay]");
             if (navbar) navbar.classList.remove("active");
             if (overlay) overlay.classList.remove("active");
-            document.body.style.overflow = ''; // Re-enable scrolling
+            document.body.style.overflow = '';
         }
 
         function openMenu() {
@@ -2549,7 +2696,7 @@
             const overlay = document.querySelector("[data-overlay]");
             if (navbar) navbar.classList.add("active");
             if (overlay) overlay.classList.add("active");
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            document.body.style.overflow = 'hidden';
         }
 
         function closeMenuAndScroll(id) {
@@ -2634,16 +2781,6 @@
             });
         });
 
-        // Prevent body scroll when menu is open
-        const menuOpenButtons = document.querySelectorAll("[data-nav-toggler]");
-        menuOpenButtons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                if (!navbar.classList.contains("active")) {
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
         // ===== BACK TO TOP BUTTON =====
         window.addEventListener("scroll", () => {
             const backTopBtn = document.querySelector(".back-top-btn");
@@ -2662,7 +2799,9 @@
         async function fetchPackages() {
             try {
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/safari-packages/");
+                if (!response.ok) throw new Error('Network response was not ok');
                 allPackages = await response.json();
+                console.log('Packages loaded:', allPackages);
                 displayedPackages = 0;
                 document.getElementById("packages-list").innerHTML = "";
                 loadMorePackages();
@@ -2671,7 +2810,7 @@
                 document.getElementById("packages-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
-                        <p style="margin-top: 20px;">Unable to load packages. Please try again later.</p>
+                        <p style="margin-top: 20px;">UNABLE TO LOAD PACKAGES. PLEASE TRY AGAIN LATER.</p>
                     </li>
                 `;
             }
@@ -2687,15 +2826,15 @@
                 listItem.innerHTML = `
                     <div class="menu-card">
                         <figure class="card-banner">
-                            <img src="${imageUrl}" alt="${pkg.title}" loading="lazy">
+                            <img src="${imageUrl}" alt="${pkg.title}" loading="lazy" onerror="this.src='assets/images/default-package.jpg'">
                         </figure>
                         <div class="card-content">
                             <h3 class="card-title">
-                                <a href="package.html?slug=${pkg.slug}">${pkg.title}</a>
+                                <a href="package.html?slug=${pkg.slug}">${pkg.title ? pkg.title.toUpperCase() : 'SAFARI PACKAGE'}</a>
                             </h3>
-                            <p class="card-text">${pkg.overview || 'Experience the magic of Kenya'}</p>
-                            <p class="card-price">$${pkg.price ? Number(pkg.price).toLocaleString() : 'Contact us'}</p>
-                            <a href="package.html?slug=${pkg.slug}" class="btn-text">View Details</a>
+                            <p class="card-text">${pkg.overview ? pkg.overview.toUpperCase() : 'EXPERIENCE THE MAGIC OF KENYA'}</p>
+                            <p class="card-price">${pkg.price ? '$' + Number(pkg.price).toLocaleString() : 'CONTACT US'}</p>
+                            <a href="package.html?slug=${pkg.slug}" class="btn-text">VIEW DETAILS</a>
                         </div>
                     </div>
                 `;
@@ -2710,7 +2849,7 @@
             }
         }
 
-        // ===== GALLERY WITH LOAD MORE =====
+        // ===== GALLERY WITH LOAD MORE - CAPTIONS IN UPPERCASE =====
         let allPhotos = [];
         let displayedPhotos = 0;
         const photosPerLoad = 6;
@@ -2718,7 +2857,9 @@
         async function fetchPhotos() {
             try {
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/photos/");
+                if (!response.ok) throw new Error('Network response was not ok');
                 allPhotos = await response.json();
+                console.log('Photos loaded:', allPhotos);
                 displayedPhotos = 0;
                 document.getElementById("photo-list").innerHTML = "";
                 loadMorePhotos();
@@ -2727,7 +2868,7 @@
                 document.getElementById("photo-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
-                        <p style="margin-top: 20px;">Unable to load photos. Please try again later.</p>
+                        <p style="margin-top: 20px;">UNABLE TO LOAD PHOTOS. PLEASE TRY AGAIN LATER.</p>
                     </li>
                 `;
             }
@@ -2737,14 +2878,17 @@
             const list = document.getElementById("photo-list");
             const nextPhotos = allPhotos.slice(displayedPhotos, displayedPhotos + photosPerLoad);
             
-            nextPhotos.forEach(photo => {
+            nextPhotos.forEach((photo, index) => {
+                let imageUrl = photo.image || photo.image_url || photo.url;
+                // Convert caption to uppercase
+                const caption = photo.caption ? photo.caption.toUpperCase() : 'SAFARI MOMENT';
                 let listItem = document.createElement("li");
                 listItem.innerHTML = `
                     <div class="feature-card">
                         <figure class="card-banner">
-                            <img src="${photo.image}" alt="${photo.caption}" class="gallery-image-cute" loading="lazy">
+                            <img src="${imageUrl}" alt="${caption}" class="gallery-image-cute" loading="lazy" onerror="this.src='assets/images/default-gallery.jpg'">
                         </figure>
-                        <p class="card-caption">${photo.caption}</p>
+                        <p class="card-caption">${caption}</p>
                     </div>
                 `;
                 list.appendChild(listItem);
@@ -2766,7 +2910,9 @@
         async function fetchDestinations() {
             try {
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/destinations/");
+                if (!response.ok) throw new Error('Network response was not ok');
                 allDestinations = await response.json();
+                console.log('Destinations loaded:', allDestinations);
                 displayedDestinations = 0;
                 document.getElementById("destination-list").innerHTML = "";
                 loadMoreDestinations();
@@ -2775,7 +2921,7 @@
                 document.getElementById("destination-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
-                        <p style="margin-top: 20px;">Unable to load destinations. Please try again later.</p>
+                        <p style="margin-top: 20px;">UNABLE TO LOAD DESTINATIONS. PLEASE TRY AGAIN LATER.</p>
                     </li>
                 `;
             }
@@ -2786,16 +2932,17 @@
             const nextDestinations = allDestinations.slice(displayedDestinations, displayedDestinations + destinationsPerLoad);
             
             nextDestinations.forEach(dest => {
+                let imageUrl = dest.image || dest.image_url || dest.url;
                 let listItem = document.createElement("li");
                 listItem.innerHTML = `
                     <div class="event-card">
                         <figure class="card-banner">
-                            <img src="${dest.image}" alt="${dest.title}" loading="lazy">
+                            <img src="${imageUrl}" alt="${dest.title}" loading="lazy" onerror="this.src='assets/images/default-destination.jpg'">
                         </figure>
                         <div class="card-content">
-                            <h3 class="card-title">${dest.title}</h3>
+                            <h3 class="card-title">${dest.title ? dest.title.toUpperCase() : 'DESTINATION'}</h3>
                             <a href="more-details.html?slug=${dest.slug}" class="btn btn-primary">
-                                <i class="fas fa-info-circle"></i> Explore Destination
+                                <i class="fas fa-info-circle"></i> EXPLORE
                             </a>
                         </div>
                     </div>
@@ -2815,7 +2962,7 @@
         document.getElementById("safari-form")?.addEventListener("submit", async function (event) {
             event.preventDefault();
             const responseElement = document.getElementById("form-response");
-            responseElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            responseElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SUBMITTING...';
             responseElement.style.color = "var(--primary)";
 
             const formData = {
@@ -2835,15 +2982,15 @@
                 });
 
                 if (response.ok) {
-                    responseElement.innerHTML = '<i class="fas fa-check-circle"></i> Booking successful! We\'ll contact you soon.';
+                    responseElement.innerHTML = '<i class="fas fa-check-circle"></i> BOOKING SUCCESSFUL! WE\'LL CONTACT YOU SOON.';
                     responseElement.style.color = "green";
                     this.reset();
                 } else {
-                    responseElement.innerHTML = '<i class="fas fa-times-circle"></i> Booking failed. Please try again.';
+                    responseElement.innerHTML = '<i class="fas fa-times-circle"></i> BOOKING FAILED. PLEASE TRY AGAIN.';
                     responseElement.style.color = "red";
                 }
             } catch (error) {
-                responseElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Connection error. Please try again.';
+                responseElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> CONNECTION ERROR. PLEASE TRY AGAIN.';
                 responseElement.style.color = "red";
             }
         });
@@ -2854,7 +3001,7 @@
             const email = document.getElementById("email").value;
             const notification = document.getElementById("notification");
             
-            notification.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            notification.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SUBSCRIBING...';
             notification.style.display = "block";
             
             try {
@@ -2865,11 +3012,11 @@
                 });
                 
                 const result = await response.json();
-                notification.innerHTML = '<i class="fas fa-check-circle"></i> ' + (result.message || "Subscribed successfully!");
+                notification.innerHTML = '<i class="fas fa-check-circle"></i> ' + (result.message || "SUBSCRIBED SUCCESSFULLY!");
                 notification.style.color = "green";
                 document.getElementById("email").value = "";
             } catch (error) {
-                notification.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Subscription failed. Try again.';
+                notification.innerHTML = '<i class="fas fa-exclamation-triangle"></i> SUBSCRIPTION FAILED. TRY AGAIN.';
                 notification.style.color = "red";
             }
         }
@@ -2883,8 +3030,8 @@
                 document.getElementById("contact-number").href = `tel:${data.phone}`;
                 document.getElementById("tiktok-link").href = data.tiktok_url || "#";
                 document.getElementById("tiktok-username").textContent = data.tiktok_name || "@tukutanekenyasafaris";
-                document.getElementById("location").textContent = data.location || "Nairobi, Kenya";
-                document.getElementById("working-hours").textContent = data.working_hours || "Mon-Sat: 6am-11pm, Sun: 9am-6pm";
+                document.getElementById("location").textContent = data.location || "NAIROBI, KENYA";
+                document.getElementById("working-hours").textContent = data.working_hours || "MON-SAT: 6AM-11PM, SUN: 9AM-6PM";
             } catch (error) {
                 console.error("Error fetching contact info:", error);
             }
@@ -2896,17 +3043,19 @@
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/safari-adventures/");
                 const data = await response.json();
                 const safariList = document.getElementById("safari-list");
-                safariList.innerHTML = data.map(safari => `
+                safariList.innerHTML = data.map(safari => {
+                    let imageUrl = safari.image || safari.image_url || safari.url;
+                    return `
                     <li>
                         <div class="feature-card">
                             <figure class="card-banner">
-                                <img src="${safari.image}" alt="${safari.title}" loading="lazy">
+                                <img src="${imageUrl}" alt="${safari.title}" loading="lazy" onerror="this.src='assets/images/default-feature.jpg'">
                             </figure>
-                            <h3 class="card-title">${safari.title}</h3>
-                            <p class="card-text">${safari.description}</p>
+                            <h3 class="card-title">${safari.title ? safari.title.toUpperCase() : 'SAFARI EXPERIENCE'}</h3>
+                            <p class="card-text">${safari.description ? safari.description.toUpperCase() : 'EXPERIENCE THE MAGIC OF KENYA'}</p>
                         </div>
                     </li>
-                `).join("");
+                `}).join("");
             } catch (error) {
                 console.error("Error fetching adventures:", error);
             }
@@ -2955,6 +3104,14 @@
             }
         });
 
+        // ===== RESIZE HANDLER =====
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+                document.body.style.overflow = '';
+            }
+        });
+
         // ===== INITIALIZE ALL =====
         document.addEventListener("DOMContentLoaded", function() {
             fetchPackages();
@@ -2962,14 +3119,6 @@
             fetchSafariAdventures();
             fetchPhotos();
             fetchDestinations();
-        });
-
-        // ===== RESIZE HANDLER =====
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMenu();
-                document.body.style.overflow = '';
-            }
         });
     </script>
 
