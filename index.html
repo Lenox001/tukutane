@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,51 +391,32 @@
             opacity: 1;
         }
 
-        /* ===== HERO SECTION ===== */
+        /* ===== UPDATED HERO SECTION - SINGLE BACKGROUND IMAGE ===== */
         .hero {
             position: relative;
             min-height: 90vh;
             overflow: hidden;
             width: 100%;
+            display: flex;
+            align-items: center;
         }
 
-        .hero-slider {
-            position: relative;
-            height: 90vh;
-            list-style: none;
-        }
-
-        .slider-item {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease;
+            z-index: 1;
         }
 
-        .slider-item.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .slider-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slider-bg img {
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .slider-bg::after {
+        .hero-bg::after {
             content: '';
             position: absolute;
             top: 0;
@@ -444,11 +424,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 2;
         }
 
-        .slider-reveal {
+        .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             color: var(--light);
             text-align: center;
             max-width: 800px;
@@ -470,6 +451,7 @@
             font-size: 1.2rem;
             letter-spacing: 3px;
             margin-bottom: 20px;
+            color: var(--primary);
         }
 
         .hero-title {
@@ -482,38 +464,6 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border: none;
-            color: var(--light);
-            font-size: 24px;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider-btn:hover {
-            background: var(--primary);
-        }
-
-        .slider-btn.prev {
-            left: 20px;
-        }
-
-        .slider-btn.next {
-            right: 20px;
         }
 
         .hero-btn {
@@ -536,6 +486,11 @@
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(196, 160, 43, 0.5);
+        }
+
+        /* Hide slider buttons since they're not needed */
+        .slider-btn {
+            display: none;
         }
 
         /* ===== SECTION STYLES ===== */
@@ -1906,14 +1861,8 @@
             }
 
             /* Hero section */
-            .hero, .hero-slider {
-                height: 70vh;
-            }
-
-            .slider-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
+            .hero {
+                min-height: 70vh;
             }
 
             .hero-btn {
@@ -2056,20 +2005,6 @@
 
             .hero-text {
                 font-size: 1rem;
-            }
-
-            .slider-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
-            }
-
-            .slider-btn.prev {
-                left: 10px;
-            }
-
-            .slider-btn.next {
-                right: 10px;
             }
 
             .contact-info-email {
@@ -2309,29 +2244,25 @@
 
     <main>
         <article>
-            <!-- Hero Section -->
+            <!-- Hero Section - UPDATED with single background image -->
             <section class="hero" id="home">
-                <ul class="hero-slider" data-hero-slider>
-                    <li class="slider-item active" data-hero-slider-item>
-                        <div class="slider-bg">
-                            <img src="./assets/images/hero-slider-3.jpg" alt="Safari Adventure" class="img-cover" loading="eager">
-                        </div>
-                        <div class="slider-reveal container">
-                            <p class="section-subtitle">Discover the Wild</p>
-                            <h1 class="hero-title">Unforgettable Safari Adventures</h1>
-                            <p class="hero-text">Experience the magic of Kenya's wildlife with expert guides and luxury comfort</p>
-                            <a href="javascript:void(0);" class="btn btn-primary" onclick="closeMenuAndScroll('safaris')">Explore Packages</a>
-                        </div>
-                    </li>
-                </ul>
-
-                <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
-                    <ion-icon name="chevron-back"></ion-icon>
-                </button>
-                <button class="slider-btn next" aria-label="slide to next" data-next-btn>
-                    <ion-icon name="chevron-forward"></ion-icon>
-                </button>
-
+                <div class="hero-bg">
+                    <img 
+                        src="./assets/images/hero-slider-3.jpg" 
+                        alt="Safari Adventure" 
+                        class="img-cover" 
+                        loading="eager"
+                        fetchpriority="high"
+                    >
+                </div>
+                
+                <div class="hero-content container">
+                    <p class="section-subtitle">Discover the Wild</p>
+                    <h1 class="hero-title">Unforgettable Safari Adventures</h1>
+                    <p class="hero-text">Experience the magic of Kenya's wildlife with expert guides and luxury comfort</p>
+                    <a href="javascript:void(0);" class="btn btn-primary" onclick="closeMenuAndScroll('safaris')">Explore Packages</a>
+                </div>
+                
                 <a href="javascript:void(0);" class="hero-btn" onclick="closeMenuAndScroll('contact')">
                     <i class="fas fa-paw"></i>
                     <span>Book Your Safari</span>
@@ -3054,33 +2985,8 @@
             }
         }
 
-        // ===== HERO SLIDER =====
-        const sliderItems = document.querySelectorAll("[data-hero-slider-item]");
-        const prevBtn = document.querySelector("[data-prev-btn]");
-        const nextBtn = document.querySelector("[data-next-btn]");
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            sliderItems.forEach((item, i) => {
-                item.classList.toggle("active", i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % sliderItems.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + sliderItems.length) % sliderItems.length;
-            showSlide(currentSlide);
-        }
-
-        if (sliderItems.length > 0) {
-            nextBtn?.addEventListener("click", nextSlide);
-            prevBtn?.addEventListener("click", prevSlide);
-            setInterval(nextSlide, 5000);
-        }
+        // ===== HERO SLIDER (REMOVED) - No longer needed =====
+        // Slider functionality removed - using single static image instead
 
         // ===== FLOATING CALL HIDE ON SCROLL =====
         let lastScrollY = window.scrollY;
