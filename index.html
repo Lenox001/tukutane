@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2801,12 +2802,10 @@
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/safari-packages/");
                 if (!response.ok) throw new Error('Network response was not ok');
                 allPackages = await response.json();
-                console.log('Packages loaded:', allPackages);
                 displayedPackages = 0;
                 document.getElementById("packages-list").innerHTML = "";
                 loadMorePackages();
             } catch (error) {
-                console.error("Error fetching packages:", error);
                 document.getElementById("packages-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
@@ -2859,12 +2858,10 @@
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/photos/");
                 if (!response.ok) throw new Error('Network response was not ok');
                 allPhotos = await response.json();
-                console.log('Photos loaded:', allPhotos);
                 displayedPhotos = 0;
                 document.getElementById("photo-list").innerHTML = "";
                 loadMorePhotos();
             } catch (error) {
-                console.error("Error fetching photos:", error);
                 document.getElementById("photo-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
@@ -2878,7 +2875,7 @@
             const list = document.getElementById("photo-list");
             const nextPhotos = allPhotos.slice(displayedPhotos, displayedPhotos + photosPerLoad);
             
-            nextPhotos.forEach((photo, index) => {
+            nextPhotos.forEach((photo) => {
                 let imageUrl = photo.image || photo.image_url || photo.url;
                 // Convert caption to uppercase
                 const caption = photo.caption ? photo.caption.toUpperCase() : 'SAFARI MOMENT';
@@ -2912,12 +2909,10 @@
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/destinations/");
                 if (!response.ok) throw new Error('Network response was not ok');
                 allDestinations = await response.json();
-                console.log('Destinations loaded:', allDestinations);
                 displayedDestinations = 0;
                 document.getElementById("destination-list").innerHTML = "";
                 loadMoreDestinations();
             } catch (error) {
-                console.error("Error fetching destinations:", error);
                 document.getElementById("destination-list").innerHTML = `
                     <li style="grid-column: 1/-1; text-align: center; padding: 50px;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary);"></i>
@@ -3033,7 +3028,6 @@
                 document.getElementById("location").textContent = data.location || "NAIROBI, KENYA";
                 document.getElementById("working-hours").textContent = data.working_hours || "MON-SAT: 6AM-11PM, SUN: 9AM-6PM";
             } catch (error) {
-                console.error("Error fetching contact info:", error);
             }
         }
 
@@ -3057,7 +3051,6 @@
                     </li>
                 `}).join("");
             } catch (error) {
-                console.error("Error fetching adventures:", error);
             }
         }
 
