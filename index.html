@@ -10,24 +10,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <!-- Font Awesome - Load async -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
     
-    <!-- Google Fonts - Adding artistic fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Montserrat+Alternates:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - Load async -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Montserrat+Alternates:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Montserrat+Alternates:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"></noscript>
     
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS Animation Library - Load async -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
     
     <meta name="google-site-verification" content="ReY2W91Sd67o1rZtvV1WjqMQPABFEzbEii9HhZ_7Zzg" />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY6BB6MMZ8"></script>
+    <!-- Google Analytics - Load after page load -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-EY6BB6MMZ8');
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var gaScript = document.createElement('script');
+                gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EY6BB6MMZ8';
+                gaScript.async = true;
+                document.head.appendChild(gaScript);
+                
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-EY6BB6MMZ8');
+            }, 2000);
+        });
     </script>
 
     <title>TukutaneKenyaSafaris - Premium Safari Experiences in Kenya</title>
@@ -2206,7 +2217,7 @@
     <header class="header" data-header>
         <div class="container">
             <div class="logo-wrapper" onclick="scrollToTop()">
-                <img src="assets/images/gold_logo_page-0001-removebg-preview.png" alt="TukutaneKenyaSafaris" class="logo-img">
+                <img src="assets/images/gold_logo_page-0001-removebg-preview.png" alt="TukutaneKenyaSafaris" class="logo-img" width="60" height="60" loading="eager">
                 <div class="brand-text">
                     <div class="brand-name">TUKUTANE<span>KENYA</span></div>
                     <div class="brand-tagline">SAFARIS</div>
@@ -2244,7 +2255,7 @@
 
     <main>
         <article>
-            <!-- Hero Section - UPDATED with single background image -->
+            <!-- Hero Section -->
             <section class="hero" id="home">
                 <div class="hero-bg">
                     <img 
@@ -2253,6 +2264,8 @@
                         class="img-cover" 
                         loading="eager"
                         fetchpriority="high"
+                        width="1920"
+                        height="1080"
                     >
                 </div>
                 
@@ -2279,7 +2292,7 @@
                         <li>
                             <div class="service-card">
                                 <figure class="card-banner">
-                                    <img src="./assets/images/service-1.jpg" alt="Amboseli" loading="lazy">
+                                    <img src="./assets/images/service-1.jpg" alt="Amboseli" loading="lazy" width="285" height="336">
                                 </figure>
                                 <div class="card-content">
                                     <h3 class="card-title">Amboseli National Park</h3>
@@ -2292,7 +2305,7 @@
                         <li>
                             <div class="service-card">
                                 <figure class="card-banner">
-                                    <img src="./assets/images/service-2.jpg" alt="Maasai Mara" loading="lazy">
+                                    <img src="./assets/images/service-2.jpg" alt="Maasai Mara" loading="lazy" width="285" height="336">
                                 </figure>
                                 <div class="card-content">
                                     <h3 class="card-title">Maasai Mara</h3>
@@ -2305,7 +2318,7 @@
                         <li>
                             <div class="service-card">
                                 <figure class="card-banner">
-                                    <img src="./assets/images/lake-nakuru.jpg" alt="Lake Nakuru" loading="lazy">
+                                    <img src="./assets/images/lake-nakuru.jpg" alt="Lake Nakuru" loading="lazy" width="285" height="336">
                                 </figure>
                                 <div class="card-content">
                                     <h3 class="card-title">Lake Nakuru</h3>
@@ -2337,7 +2350,7 @@
                     </div>
 
                     <figure class="about-banner">
-                        <video src="./assets/videos/tkvideo.mp4" autoplay muted loop playsinline></video>
+                        <video src="./assets/videos/tkvideo.mp4" autoplay muted loop playsinline width="100%" height="auto"></video>
                     </figure>
                 </div>
             </section>
@@ -2376,7 +2389,7 @@
                         "The most incredible experience of my life! From the moment we landed to the final goodbye, everything was perfect. The guides were knowledgeable, the accommodations luxurious, and the wildlife breathtaking. Can't wait to return!"
                     </p>
                     <div class="profile">
-                        <img src="./assets/images/testi-avatar.jpg" alt="Maria Duplantis" loading="lazy">
+                        <img src="./assets/images/testi-avatar.jpg" alt="Maria Duplantis" loading="lazy" width="80" height="80">
                         <p class="profile-name">Maria Duplantis</p>
                     </div>
                 </div>
@@ -2512,7 +2525,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="javascript:void(0);" onclick="scrollToTop();" class="logo">
-                        <img src="./assets/images/gold_logo_page-0001-removebg-preview.png" alt="Logo" style="width: 50px;">
+                        <img src="./assets/images/gold_logo_page-0001-removebg-preview.png" alt="Logo" style="width: 50px;" width="50" height="50" loading="lazy">
                         <span>TukutaneKenya</span>
                     </a>
 
@@ -2560,17 +2573,18 @@
             <h3 class="partnerships-title">OUR <span>TRUSTED PARTNERS</span></h3>
             <div class="scrolling-images-wrapper">
                 <div class="scrolling-images">
-                    <a href="https://www.kws.go.ke/" target="_blank"><img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service"></a>
-                    <a href="https://www.safaribookings.com/p7043/" target="_blank"><img src="./assets/images/safaribookings.png" alt="Safari Bookings"></a>
-                    <a href="https://magicalkenya.com/" target="_blank"><img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya"></a>
-                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor"></a>
-                    <a href="https://tra.go.ke/" target="_blank"><img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority"></a>
+                    <a href="https://www.kws.go.ke/" target="_blank"><img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service" loading="lazy" width="120" height="50"></a>
+                    <a href="https://www.safaribookings.com/p7043/" target="_blank"><img src="./assets/images/safaribookings.png" alt="Safari Bookings" loading="lazy" width="120" height="50"></a>
+                    <a href="https://magicalkenya.com/" target="_blank"><img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya" loading="lazy" width="120" height="50"></a>
+                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor" loading="lazy" width="120" height="50"></a>
+                    <a href="https://tra.go.ke/" target="_blank"><img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority" loading="lazy" width="120" height="50"></a>
                     
-                    <a href="https://www.kws.go.ke/" target="_blank"><img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service"></a>
-                    <a href="https://www.safaribookings.com/p7043/" target="_blank"><img src="./assets/images/safaribookings.png" alt="Safari Bookings"></a>
-                    <a href="https://magicalkenya.com/" target="_blank"><img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya"></a>
-                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor"></a>
-                    <a href="https://tra.go.ke/" target="_blank"><img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority"></a>
+                    <!-- Duplicate for infinite scroll -->
+                    <a href="https://www.kws.go.ke/" target="_blank"><img src="./assets/images/Kenya-Wildlife-Service-KWS-Logo01.png" alt="Kenya Wildlife Service" loading="lazy" width="120" height="50"></a>
+                    <a href="https://www.safaribookings.com/p7043/" target="_blank"><img src="./assets/images/safaribookings.png" alt="Safari Bookings" loading="lazy" width="120" height="50"></a>
+                    <a href="https://magicalkenya.com/" target="_blank"><img src="./assets/images/Magical-Kenya-Logo01.png" alt="Magical Kenya" loading="lazy" width="120" height="50"></a>
+                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="./assets/images/Tripadvisor-Logo01.png" alt="TripAdvisor" loading="lazy" width="120" height="50"></a>
+                    <a href="https://tra.go.ke/" target="_blank"><img src="./assets/images/Tourism-Regulatory-Authority-TRA-Logo01.png" alt="Tourism Regulatory Authority" loading="lazy" width="120" height="50"></a>
                 </div>
             </div>
         </div>
@@ -2596,13 +2610,18 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
+        // Defer non-critical initialization
+        window.addEventListener('load', function() {
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                });
+            }
         });
 
         // ===== UTILITY FUNCTIONS =====
@@ -2642,22 +2661,29 @@
         function copyEmailToClipboard() {
             const email = "safaristukutanekenya@gmail.com";
             
-            const tempInput = document.createElement("input");
-            tempInput.value = email;
-            document.body.appendChild(tempInput);
-            
-            tempInput.select();
-            tempInput.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            
-            document.body.removeChild(tempInput);
-            
-            const copyBtn = document.querySelector(".copy-email-btn");
-            copyBtn.classList.add("show-tooltip");
-            
-            setTimeout(() => {
-                copyBtn.classList.remove("show-tooltip");
-            }, 2000);
+            navigator.clipboard.writeText(email).then(() => {
+                const copyBtn = document.querySelector(".copy-email-btn");
+                copyBtn.classList.add("show-tooltip");
+                
+                setTimeout(() => {
+                    copyBtn.classList.remove("show-tooltip");
+                }, 2000);
+            }).catch(() => {
+                // Fallback
+                const tempInput = document.createElement("input");
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                
+                const copyBtn = document.querySelector(".copy-email-btn");
+                copyBtn.classList.add("show-tooltip");
+                
+                setTimeout(() => {
+                    copyBtn.classList.remove("show-tooltip");
+                }, 2000);
+            });
         }
 
         // ===== TIME UPDATE =====
@@ -2676,51 +2702,61 @@
         // ===== YEAR UPDATE =====
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // ===== MOBILE MENU TOGGLERS - FIXED =====
-        const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-        const navbar = document.querySelector("[data-navbar]");
-        const overlay = document.querySelector("[data-overlay]");
+        // ===== MOBILE MENU TOGGLERS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+            const navbar = document.querySelector("[data-navbar]");
+            const overlay = document.querySelector("[data-overlay]");
 
-        if (navTogglers.length > 0) {
-            navTogglers.forEach(element => {
-                element.addEventListener("click", (e) => {
+            if (navTogglers.length > 0) {
+                navTogglers.forEach(element => {
+                    element.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isActive = navbar.classList.contains("active");
+                        if (isActive) {
+                            closeMenu();
+                        } else {
+                            openMenu();
+                        }
+                    });
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener("click", closeMenu);
+            }
+
+            // Close menu when clicking on any nav link
+            document.querySelectorAll(".navbar-link").forEach(link => {
+                link.addEventListener("click", (e) => {
                     e.preventDefault();
-                    e.stopPropagation();
-                    const isActive = navbar.classList.contains("active");
-                    if (isActive) {
-                        closeMenu();
+                    const sectionId = link.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                    if (sectionId) {
+                        closeMenuAndScroll(sectionId);
                     } else {
-                        openMenu();
+                        closeMenu();
                     }
                 });
             });
-        }
 
-        if (overlay) {
-            overlay.addEventListener("click", closeMenu);
-        }
-
-        // Close menu when clicking on any nav link
-        document.querySelectorAll(".navbar-link").forEach(link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-                const sectionId = link.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
-                if (sectionId) {
-                    closeMenuAndScroll(sectionId);
+            // ===== BACK TO TOP BUTTON =====
+            window.addEventListener("scroll", () => {
+                const backTopBtn = document.querySelector(".back-top-btn");
+                if (window.scrollY > 300) {
+                    backTopBtn.classList.add("active");
                 } else {
-                    closeMenu();
+                    backTopBtn.classList.remove("active");
                 }
             });
-        });
 
-        // ===== BACK TO TOP BUTTON =====
-        window.addEventListener("scroll", () => {
-            const backTopBtn = document.querySelector(".back-top-btn");
-            if (window.scrollY > 300) {
-                backTopBtn.classList.add("active");
-            } else {
-                backTopBtn.classList.remove("active");
-            }
+            // ===== RESIZE HANDLER =====
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMenu();
+                    document.body.style.overflow = '';
+                }
+            });
         });
 
         // ===== PACKAGES WITH LOAD MORE =====
@@ -2756,7 +2792,7 @@
                 listItem.innerHTML = `
                     <div class="menu-card">
                         <figure class="card-banner">
-                            <img src="${imageUrl}" alt="${pkg.title}" loading="lazy" onerror="this.src='assets/images/default-package.jpg'">
+                            <img src="${imageUrl}" alt="${pkg.title}" loading="lazy" onerror="this.src='assets/images/default-package.jpg'" width="120" height="120">
                         </figure>
                         <div class="card-content">
                             <h3 class="card-title">
@@ -2779,7 +2815,7 @@
             }
         }
 
-        // ===== GALLERY WITH LOAD MORE - CAPTIONS IN UPPERCASE =====
+        // ===== GALLERY WITH LOAD MORE =====
         let allPhotos = [];
         let displayedPhotos = 0;
         const photosPerLoad = 6;
@@ -2808,13 +2844,12 @@
             
             nextPhotos.forEach((photo) => {
                 let imageUrl = photo.image || photo.image_url || photo.url;
-                // Convert caption to uppercase
                 const caption = photo.caption ? photo.caption.toUpperCase() : 'SAFARI MOMENT';
                 let listItem = document.createElement("li");
                 listItem.innerHTML = `
                     <div class="feature-card">
                         <figure class="card-banner">
-                            <img src="${imageUrl}" alt="${caption}" class="gallery-image-cute" loading="lazy" onerror="this.src='assets/images/default-gallery.jpg'">
+                            <img src="${imageUrl}" alt="${caption}" class="gallery-image-cute" loading="lazy" onerror="this.src='assets/images/default-gallery.jpg'" width="300" height="250">
                         </figure>
                         <p class="card-caption">${caption}</p>
                     </div>
@@ -2863,7 +2898,7 @@
                 listItem.innerHTML = `
                     <div class="event-card">
                         <figure class="card-banner">
-                            <img src="${imageUrl}" alt="${dest.title}" loading="lazy" onerror="this.src='assets/images/default-destination.jpg'">
+                            <img src="${imageUrl}" alt="${dest.title}" loading="lazy" onerror="this.src='assets/images/default-destination.jpg'" width="350" height="450">
                         </figure>
                         <div class="card-content">
                             <h3 class="card-title">${dest.title ? dest.title.toUpperCase() : 'DESTINATION'}</h3>
@@ -2959,6 +2994,7 @@
                 document.getElementById("location").textContent = data.location || "NAIROBI, KENYA";
                 document.getElementById("working-hours").textContent = data.working_hours || "MON-SAT: 6AM-11PM, SUN: 9AM-6PM";
             } catch (error) {
+                // Silent fail
             }
         }
 
@@ -2974,7 +3010,7 @@
                     <li>
                         <div class="feature-card">
                             <figure class="card-banner">
-                                <img src="${imageUrl}" alt="${safari.title}" loading="lazy" onerror="this.src='assets/images/default-feature.jpg'">
+                                <img src="${imageUrl}" alt="${safari.title}" loading="lazy" onerror="this.src='assets/images/default-feature.jpg'" width="300" height="200">
                             </figure>
                             <h3 class="card-title">${safari.title ? safari.title.toUpperCase() : 'SAFARI EXPERIENCE'}</h3>
                             <p class="card-text">${safari.description ? safari.description.toUpperCase() : 'EXPERIENCE THE MAGIC OF KENYA'}</p>
@@ -2982,11 +3018,9 @@
                     </li>
                 `}).join("");
             } catch (error) {
+                // Silent fail
             }
         }
-
-        // ===== HERO SLIDER (REMOVED) - No longer needed =====
-        // Slider functionality removed - using single static image instead
 
         // ===== FLOATING CALL HIDE ON SCROLL =====
         let lastScrollY = window.scrollY;
@@ -3003,14 +3037,6 @@
             }
         });
 
-        // ===== RESIZE HANDLER =====
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMenu();
-                document.body.style.overflow = '';
-            }
-        });
-
         // ===== INITIALIZE ALL =====
         document.addEventListener("DOMContentLoaded", function() {
             fetchPackages();
@@ -3021,8 +3047,8 @@
         });
     </script>
 
-    <!-- External Scripts -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- External Scripts - Deferred -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
 </body>
 </html>
