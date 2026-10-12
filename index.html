@@ -581,7 +581,10 @@
         .input-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
         .input-field { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 8px; font-family: inherit; transition: var(--transition); background: var(--light); }
         .input-field:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(196, 160, 43, 0.1); }
+        .input-field.phone-error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1); }
+        .input-hint { font-size: 0.78rem; color: var(--gray); margin-top: -10px; margin-bottom: 15px; padding-left: 4px; display: block; }
         textarea.input-field { min-height: 120px; resize: vertical; margin-bottom: 20px; }
+        input[type="date"].input-field { color: var(--text); cursor: pointer; }
 
         .form-right { background: var(--secondary); color: var(--light); padding: 40px; display: flex; flex-direction: column; justify-content: center; }
         .form-right .headline-1 { font-size: 2rem; margin-bottom: 30px; color: var(--light); }
@@ -995,7 +998,6 @@
                         </article>
 
                         <div class="spotlight-stack" id="spotlight-stack">
-                            <!-- Glowing tap hint -->
                             <div class="tap-hint" id="tap-hint" aria-hidden="true">
                                 <span class="tap-hint-text">Tap a review</span>
                                 <span class="tap-hint-hand">👆</span>
@@ -1099,21 +1101,45 @@
 
                             <div class="input-wrapper">
                                 <input type="text" id="name" placeholder="Your Name" required class="input-field">
-                                <input type="tel" id="phone" placeholder="Phone Number" required class="input-field">
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    placeholder="+254 700 000 000" 
+                                    required 
+                                    class="input-field"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                >
                             </div>
+                            <span class="input-hint">Include country code, e.g. +254 700 000 000 (Kenya), +1 555 123 4567 (US)</span>
 
                             <div class="input-wrapper">
-                                <input type="email" id="email" placeholder="Email Address" required class="input-field" style="grid-column: 1 / -1;">
+                                <input type="email" id="email" placeholder="Email Address" required class="input-field">
+                                <input type="text" id="country" placeholder="Country" required class="input-field">
                             </div>
 
                             <div class="input-wrapper">
                                 <select id="destination" class="input-field">
                                     <option value="">Select Destination</option>
-                                    <option value="Maasai Mara">Maasai Mara</option>
-                                    <option value="Amboseli">Amboseli</option>
-                                    <option value="Tsavo">Tsavo</option>
-                                    <option value="Lake Nakuru">Lake Nakuru</option>
-                                    <option value="Samburu">Samburu</option>
+                                    <optgroup label="Kenya">
+                                        <option value="Maasai Mara">Maasai Mara</option>
+                                        <option value="Amboseli">Amboseli</option>
+                                        <option value="Tsavo">Tsavo</option>
+                                        <option value="Lake Nakuru">Lake Nakuru</option>
+                                        <option value="Samburu">Samburu</option>
+                                        <option value="Diani Beach">Diani Beach</option>
+                                    </optgroup>
+                                    <optgroup label="Tanzania">
+                                        <option value="Serengeti">Serengeti</option>
+                                        <option value="Ngorongoro Crater">Ngorongoro Crater</option>
+                                        <option value="Mount Kilimanjaro">Mount Kilimanjaro</option>
+                                        <option value="Zanzibar">Zanzibar</option>
+                                    </optgroup>
+                                    <optgroup label="Rwanda">
+                                        <option value="Volcanoes National Park">Volcanoes National Park</option>
+                                        <option value="Nyungwe Forest">Nyungwe Forest</option>
+                                        <option value="Akagera National Park">Akagera National Park</option>
+                                    </optgroup>
                                 </select>
                                 <select id="tour-package" class="input-field">
                                     <option value="">Select Package</option>
@@ -1123,7 +1149,7 @@
                                 </select>
                             </div>
 
-                            <input type="date" id="trip-date" class="input-field" min="2024-01-01">
+                            <input type="date" id="trip-date" class="input-field" required>
                             <textarea id="message" placeholder="Special Requests" class="input-field"></textarea>
 
                             <button type="submit" class="btn btn-primary">
@@ -1142,8 +1168,8 @@
                             <a id="contact-number" href="#" class="contact-number"></a>
                             <div class="separator"></div>
                             <p class="contact-label">Follow us on TikTok</p>
-                            <a id="tiktok-link" href="#" class="social-icon">
-                                <i class="fab fa-tiktok"></i> <span id="tiktok-username"></span>
+                            <a id="tiktok-link" href="https://www.tiktok.com/@tukutanekenyasafaris" target="_blank" class="social-icon">
+                                <i class="fab fa-tiktok"></i> <span id="tiktok-username">@tukutanekenyasafaris</span>
                             </a>
                             <div class="separator"></div>
                             <p class="contact-label">Location</p>
@@ -1225,8 +1251,8 @@
                     <div class="social-icons">
                         <a href="https://wa.me/254703363843" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.instagram.com/tukutanekenyasafaris" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@tukutanekenyasafa" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@tukutanekenyasafaris" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://web.facebook.com/profile.php?id=61572983878471" target="_blank"><i class="fab fa-facebook"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -1334,7 +1360,67 @@
 
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        /* ===== DATE FIELD — prevent past dates ===== */
+        function setupDateField() {
+            const dateInput = document.getElementById("trip-date");
+            if (!dateInput) return;
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const minDate = `${yyyy}-${mm}-${dd}`;
+            dateInput.setAttribute("min", minDate);
+
+            dateInput.addEventListener("change", function() {
+                if (this.value && this.value < minDate) {
+                    this.value = minDate;
+                }
+            });
+        }
+
+        /* ===== PHONE VALIDATION HELPERS ===== */
+        function normalizePhone(raw) {
+            let cleaned = (raw || "").replace(/[\s\-\(\)\.]/g, "");
+            if (!cleaned.startsWith("+")) {
+                if (cleaned.startsWith("0")) {
+                    cleaned = "+254" + cleaned.slice(1);
+                } else if (cleaned.length > 0) {
+                    cleaned = "+" + cleaned;
+                }
+            }
+            return cleaned;
+        }
+
+        function isValidPhone(cleaned) {
+            return /^\+[1-9]\d{6,14}$/.test(cleaned);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            setupDateField();
+
+            /* ===== LIVE PHONE FORMATTING ===== */
+            const phoneInput = document.getElementById("phone");
+            if (phoneInput) {
+                phoneInput.addEventListener("focus", function() {
+                    if (!this.value) this.value = "+";
+                });
+
+                phoneInput.addEventListener("blur", function() {
+                    if (this.value === "+") this.value = "";
+                });
+
+                phoneInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^\d+\s\-\(\)]/g, "");
+                    const plusMatches = this.value.match(/\+/g);
+                    if (plusMatches && plusMatches.length > 1) {
+                        this.value = "+" + this.value.replace(/\+/g, "");
+                    }
+                    if (this.value.includes("+") && this.value.indexOf("+") !== 0) {
+                        this.value = "+" + this.value.replace(/\+/g, "");
+                    }
+                });
+            }
+
             const navTogglers = document.querySelectorAll("[data-nav-toggler]");
             const navbar = document.querySelector("[data-navbar]");
             const overlay = document.querySelector("[data-overlay]");
@@ -1404,7 +1490,7 @@
                 });
             });
 
-            /* ===== TAP HINT — auto-hide on first interaction or after 6s ===== */
+            /* ===== TAP HINT ===== */
             const tapHint = document.getElementById("tap-hint");
             if (tapHint) {
                 spotlightItems.forEach(item => {
@@ -1555,22 +1641,45 @@
             if (loadMoreBtn && displayedDestinations >= allDestinations.length) loadMoreBtn.style.display = "none";
         }
 
-        /* ===== BOOKING FORM ===== */
+        /* ===== BOOKING FORM — SAFE SUBMIT + PHONE VALIDATION ===== */
         document.getElementById("safari-form")?.addEventListener("submit", async function (event) {
             event.preventDefault();
             const responseElement = document.getElementById("form-response");
+            const phoneInput = document.getElementById("phone");
+
             responseElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SUBMITTING...';
             responseElement.style.color = "var(--primary)";
+            if (phoneInput) phoneInput.classList.remove("phone-error");
+
+            const get = (id, fallback = "") => {
+                const el = document.getElementById(id);
+                return el && el.value ? el.value.trim() : fallback;
+            };
+
+            // Validate + normalize phone
+            const cleanPhone = normalizePhone(get("phone"));
+            if (!isValidPhone(cleanPhone)) {
+                responseElement.innerHTML = '<i class="fas fa-times-circle"></i> PLEASE ENTER A VALID INTERNATIONAL PHONE NUMBER (e.g. +254700000000)';
+                responseElement.style.color = "red";
+                if (phoneInput) {
+                    phoneInput.classList.add("phone-error");
+                    phoneInput.focus();
+                }
+                return;
+            }
 
             const formData = {
-                name: document.getElementById("name").value.trim(),
-                phone_number: document.getElementById("phone").value.trim(),
-                email: document.getElementById("email").value.trim(),
-                destination: document.getElementById("destination").value,
-                safari_type: document.getElementById("tour-package").value,
-                time: document.getElementById("trip-date").value,
-                message: document.getElementById("message").value.trim() || null
+                name: get("name"),
+                phone_number: cleanPhone,
+                email: get("email"),
+                country: get("country") || "None",
+                destination: get("destination"),
+                safari_type: get("tour-package"),
+                time: get("trip-date"),
+                message: get("message") || null
             };
+
+            console.log("Submitting booking:", formData);
 
             try {
                 const response = await fetch("https://tksafaris.pythonanywhere.com/api/bookings/", {
@@ -1583,6 +1692,7 @@
                     responseElement.innerHTML = '<i class="fas fa-check-circle"></i> BOOKING SUCCESSFUL! WE\'LL CONTACT YOU SOON.';
                     responseElement.style.color = "green";
                     this.reset();
+                    setupDateField();
                 } else {
                     const errData = await response.json().catch(() => ({}));
                     responseElement.innerHTML = '<i class="fas fa-times-circle"></i> BOOKING FAILED. PLEASE CHECK YOUR DETAILS AND TRY AGAIN.';
@@ -1592,6 +1702,7 @@
             } catch (error) {
                 responseElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> CONNECTION ERROR. PLEASE TRY AGAIN.';
                 responseElement.style.color = "red";
+                console.error("Submit error:", error);
             }
         });
 
@@ -1625,8 +1736,7 @@
                 const data = await response.json();
                 document.getElementById("contact-number").textContent = data.phone;
                 document.getElementById("contact-number").href = `tel:${data.phone}`;
-                document.getElementById("tiktok-link").href = data.tiktok_url || "#";
-                document.getElementById("tiktok-username").textContent = data.tiktok_name || "@tukutanekenyasafaris";
+                document.getElementById("tiktok-link").href = "https://www.tiktok.com/@tukutanekenyasafaris";
                 document.getElementById("location").textContent = data.location || "NAIROBI, KENYA";
                 document.getElementById("working-hours").textContent = data.working_hours || "MON-SAT: 6AM-11PM, SUN: 9AM-6PM";
             } catch (error) { /* silent */ }
